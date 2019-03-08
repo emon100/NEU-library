@@ -3,17 +3,24 @@
  *主要内容:
  *包含需要的头文件
  *定义数据类型
- *定义宏
+ *要用的函数的原型
  */
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
 
+
+#ifndef LIB_H_
+#define LIB_H_
+
 enum PROPERTY{
-   administrator,readerlv1,readerlv2,readerlv3
+   administrator=2,readerlv1,readerlv2,readerlv3
 };
 
+enum LOGIN_STATUS{
+    no_user=-1,password_err=0,reader=1,admin=2
+};
 /*人员数据类型*/
 typedef struct PERSON {
     int             id_number;//图书卡号码
@@ -34,3 +41,6 @@ typedef struct PERSON_LIST {
     person          *tail;//人员链表最后一个成员的地址
 }p_list;
 
+person *admin_init(void);
+int login(int);
+#endif
