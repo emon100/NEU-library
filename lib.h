@@ -9,17 +9,19 @@
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
+#include <conio.h>
+#include <time.h>//时间头文件
 
 
 #ifndef LIB_H_
 #define LIB_H_
 
 enum PROPERTY{
-   administrator=2,readerlv1,readerlv2,readerlv3
+   prop_reader,prop_administrator
 };
 
 enum LOGIN_STATUS{
-    no_user=-1,password_err=0,reader=1,admin=2
+    no_user=-1,password_err=0,as_reader=1,as_admin=2
 };
 /*人员数据类型*/
 typedef struct PERSON {
@@ -28,7 +30,7 @@ typedef struct PERSON {
     char            password[13];//密码12位
     enum PROPERTY   prop;//人员属性
     int             burrow_quantity;//已借书籍数量
-    int             book_id[50];//书籍条码，这个地方到时候改成书籍类型的指针以方便查找书籍
+    int             book_id[10];//书籍条码，这个地方到时候改成书籍类型的指针以方便查找书籍
     float           penalty;//罚款
     struct PERSON   *next;//下一位人员地址
 }person;//类型为person

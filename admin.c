@@ -9,12 +9,12 @@ person *admin_init(void){
     admin->id_number=1;
     strcpy(admin->name,"admin");
     strcpy(admin->password,"pass");
-    admin->prop=administrator;
+    admin->prop=prop_administrator;
     person *reader=admin->next=(person*)malloc(sizeof(person));
     reader->id_number=100;
     strcpy(reader->name,"emon");
     strcpy(reader->password,"123");
-    reader->prop=readerlv1;
+    reader->prop=prop_reader;
     reader->next=NULL;
     return admin;
 }
