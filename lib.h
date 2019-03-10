@@ -25,11 +25,6 @@ enum FIELD{
    science=0,literature,education,art,life
 };
 
-/*枚举变量，书本状态*/
-enum BOOK_STATUS{
-    on_stock,borrowed
-};
-
 /*枚举变量，人物性别*/
 enum SEX{
     male,female
@@ -46,8 +41,10 @@ typedef struct BOOK {
     char            author_name[200];
     char            press[50];
     enum FIELD      field;
+    float           price;
     int             id_number;//借书者号码,-1代表没被借走
     int             date;//算一下这是一年中第几天吧
+    struct BOOK     *next;
 }book;
 
 typedef struct BOOK_LIST {

@@ -4,7 +4,12 @@
 int main(void) {
     int                 user_id;//当前用户id
     enum LOGIN_STATUS   validity=no_user;//有效性-1为找不到人，0为密码错误，1为任何读者，2为管理员
-    printf("欢迎使用图书管理系统，请先输入自己的读者号登录!\n");
+
+    /*人和书本数据类型指针初始化*/
+    person_list         *person_data  = (person_list *)malloc(sizeof(person_list));
+    book_list           *book_data    = (book_list *)malloc(sizeof(book_list));
+
+    printf("Thank you for using Library system, enter your id number to continue:\n");
     scanf("%d", &user_id);//考虑一下吃回车的问题
     validity=login(user_id);
     switch(validity){
@@ -14,14 +19,14 @@ int main(void) {
             printf("Please login again:password error\n");break;
         case as_reader      :
             system("cls");
-            printf("\t\t\t*欢迎使用图书管理系统,请输入数字选择你需要的功能*\n"
-                   "\t\t\t*[1]查询统计----------------------[2]读者系统*\n"
-                   "\t\t\t*[3]退出系统--------------------------------*\n");break;
+            printf("\t\t\t*Thank you for using Library system, enter number to choose functions*\n"
+                   "\t\t\t*[1]Statistic----------------------------------------[2]Reader center*\n"
+                   "\t\t\t*[3]Quit-------------------------------------------------------------*\n");break;
         case as_admin     :
             system("cls");
-            printf("\t\t\t*欢迎使用图书管理系统,请输入数字选择你需要的功能*\n"
-                   "\t\t\t*[1]查询统计----------------------[2]读者系统*\n"
-                   "\t\t\t*[3]管理员系统--------------------[4]退出系统*\n");break;
+            printf("\t\t\t*Thank you for using Library system, enter number to choose functions*\n"
+                   "\t\t\t*[1]Statistic----------------------------------------[2]Reader center*\n"
+                   "\t\t\t*[3]Manage system---------------------------------------------[4]Quit*\n");break;
     }
     getchar();
     getchar();
