@@ -17,14 +17,14 @@ int login(int user_id){
                 case prop_administrator:     validity=as_admin;break;
                 case prop_reader       :     validity=as_reader;break;
             }
-            printf("%s,请输入密码:\n",p1->name);//到时候肯定不应该出名字
+            printf("%s,Enter your password:\n",p1->name);//到时候肯定不应该出名字
             scanf("%s",password_tmp);
             if(strcmp(p1->password,password_tmp)==0){
                 free(password_tmp);
                 return validity;
             }
             else {
-                printf("密码错误请重新输入:");
+                printf("Password error,try again:\n");
                 scanf("%s",password_tmp);
                 if(strcmp(p1->password,password_tmp)==0){
                     free(password_tmp);
@@ -49,10 +49,3 @@ int login(int user_id){
     }
     return             no_user;
 }
-/*
-while((ch=getch())!='\n'&&characters<=12) {
-printf("*");
-*(password_tmp+characters)=ch;
-characters++;
-}
- */

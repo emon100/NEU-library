@@ -15,21 +15,52 @@
 
 #ifndef LIB_H_
 #define LIB_H_
-
+/*枚举变量，人员属性*/
 enum PROPERTY{
    prop_reader,prop_administrator
 };
 
+/*枚举变量，书本领域*/
+enum FIELD{
+   science=0,literature,education,art,life
+};
+
+/*枚举变量，书本状态*/
+enum BOOK_STATUS{
+    on_stock,borrowed
+};
+
+/*枚举变量，人物性别*/
 enum SEX{
     male,female
 };
 
+/*枚举变量，登录状态*/
 enum LOGIN_STATUS{
     no_user=-1,password_err=0,as_reader=1,as_admin=2
 };
+
+typedef struct BOOK {
+    int             code;//条码
+    char            book_name[100];
+    char            author_name[200];
+    char            press[50];
+    enum FIELD      field;
+    int             id_number;//借书者号码,-1代表没被借走
+    int             date;//算一下这是一年中第几天吧
+}book;
+
+typedef struct BOOK_LIST {
+    book            *head;
+    book            *tail;
+    int             size;//书本总量,可以用这个来记条码
+    int             book_size_field[life+1];//各领域书籍数量
+    int             book_borrowed;//借出书本总量
+}book_list;
+
 /*人员数据类型*/
 typedef struct PERSON {
-    int             id_number;//图书卡号码
+    int             id_number;//图书卡号码,请务必从1开始
     char            name[31];//姓名30位
     enum SEX        sex;
     char            password[13];//密码12位
@@ -44,9 +75,10 @@ typedef struct PERSON {
 typedef struct PERSON_LIST {
     int             size;//总人员个数
     int             admin_size;//管理员个数，读者个数就直接相减就好了
+    int             male_reader_size;
     person          *head;//人员链表第一个成员的地址
     person          *tail;//人员链表最后一个成员的地址
-}p_list;
+}person_list;
 
 person *admin_init(void);
 int login(int);
