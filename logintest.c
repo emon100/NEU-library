@@ -15,7 +15,7 @@ int login(int user_id){
         if(user_id==p1->id_number){
             switch(p1->prop){
                 case prop_administrator:     validity=as_admin;break;
-                case prop_reader    :        validity=as_reader;break;
+                case prop_reader       :     validity=as_reader;break;
             }
             printf("%s,请输入密码:\n",p1->name);//到时候肯定不应该出名字
             scanf("%s",password_tmp);

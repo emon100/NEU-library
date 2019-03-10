@@ -7,6 +7,7 @@
 person *admin_init(void){
     person *admin=(person *)malloc(sizeof(person));
     admin->id_number=1;
+    admin->sex=male;
     strcpy(admin->name,"admin");
     strcpy(admin->password,"pass");
     admin->prop=prop_administrator;
