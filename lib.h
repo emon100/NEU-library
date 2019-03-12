@@ -7,7 +7,7 @@
  */
 #include <stdlib.h>
 #include <stdio.h>
-#include <strings>
+#include <strings.h>
 #include <string.h>
 #include <math.h>
 #include <conio.h>
