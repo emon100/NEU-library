@@ -6,8 +6,8 @@
 
 int login(int user_id,person_list *persondata){
     //²âÊÔµÇÂ¼
-    admin_init();
-    person              p1=persondata->head
+    admin_init(persondata);
+    person              *p1=persondata->head;
     int                 validity    =password_err;
     int                 characters  =0;
     char                ch;

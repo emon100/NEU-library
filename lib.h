@@ -80,7 +80,7 @@ typedef struct PERSON_LIST {
     person          *tail;//人员链表最后一个成员的地址
 }person_list;
 
-person          *admin_init(person_list *);
+void            admin_init(person_list *);
 int             login(int,person_list *);
 void            information(book_list *,person_list *);
 void            readercenter(book_list *,person_list *);

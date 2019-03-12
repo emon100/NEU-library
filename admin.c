@@ -16,5 +16,5 @@ void admin_init(person_list *admin){
     strcpy(admin->head->next->name,"emon");
     strcpy(admin->head->next->password,"123");
     admin->head->next->prop=prop_reader;
-    admin->head-next->next=NULL;
+    admin->head->next->next=NULL;
 }

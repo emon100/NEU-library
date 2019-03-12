@@ -11,6 +11,7 @@ int main(void) {
 
     printf("Thank you for using Library system, enter your id number to continue:\n");
     scanf("%d", &user_id);//考虑一下吃回车的问题
+    getchar();
     validity = login(user_id,person_data);
     switch (validity) {
         case no_user        :
@@ -27,14 +28,15 @@ int main(void) {
             while ((choice = getchar()) != '3') {
                 switch (choice) {
                     case '1'    :
-                        information();
+                        information(book_data,person_data);
                         break;
                     case '2'    :
-                        readercenter();
+                        readercenter(book_data,person_data);
                         break;
                     case '3'    :
                         printf("Thank you for using, goodbye!");
                         break;
+                    default     :printf("error");
                 }
             }
             break;
@@ -46,17 +48,18 @@ int main(void) {
             while ((choice = getchar()) != '4') {
                 switch (choice) {
                     case '1'    :
-                        information();
+                        information(book_data,person_data);
                         break;
                     case '2'    :
-                        readercenter();
+                        readercenter(book_data,person_data);
                         break;
                     case '3'    :
-                        setting();
+                        setting(book_data,person_data);
                         break;
                     case '4'    :
                         printf("Thank you for using, goodbye!");
                         break;
+                    default     :printf("error");
                 }
                 break;
             }
