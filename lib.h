@@ -51,6 +51,7 @@ typedef struct BOOK {
 typedef struct BOOK_LIST {
     book            *head;
     book            *tail;
+    int             code;//书籍条码
     int             size;//书本总量,可以用这个来记条码
     int             book_size_field[life+1];//各领域书籍数量
     int             book_borrowed;//借出书本总量
@@ -72,6 +73,7 @@ typedef struct PERSON {
 /*人员链表的属性*/
 typedef struct PERSON_LIST {
     int             size;//总人员个数
+    int             id_number;//逐渐递增的图书卡号码，考虑到删除某个人之后size会变小有可能有重复的图书号码加上这项
     int             admin_size;//管理员个数，读者个数就直接相减就好了
     int             male_reader_size;
     person          *head;//人员链表第一个成员的地址
