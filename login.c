@@ -4,9 +4,10 @@
 #include "lib.h"
 
 
-int login(int user_id){
+int login(int user_id,person_list *persondata){
     //²âÊÔµÇÂ¼
-    person              *p1         =admin_init();
+    admin_init();
+    person              p1=persondata->head
     int                 validity    =password_err;
     int                 characters  =0;
     char                ch;

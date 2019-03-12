@@ -4,18 +4,17 @@
 #include "lib.h"
 
 
-person *admin_init(void){
-    person *admin=(person *)malloc(sizeof(person));
-    admin->id_number=1;
-    admin->sex=male;
-    strcpy(admin->name,"admin");
-    strcpy(admin->password,"pass");
-    admin->prop=prop_administrator;
-    person *reader=admin->next=(person*)malloc(sizeof(person));
-    reader->id_number=100;
-    strcpy(reader->name,"emon");
-    strcpy(reader->password,"123");
-    reader->prop=prop_reader;
-    reader->next=NULL;
-    return admin;
+void admin_init(person_list *admin){
+    admin->head=(person *)malloc(sizeof(person));
+    admin->head->id_number=1;
+    admin->head->sex=male;
+    strcpy(admin->head->name,"admin");
+    strcpy(admin->head->password,"pass");
+    admin->head->prop=prop_administrator;
+    admin->head->next=(person*)malloc(sizeof(person));
+    admin->head->next->id_number=100;
+    strcpy(admin->head->next->name,"emon");
+    strcpy(admin->head->next->password,"123");
+    admin->head->next->prop=prop_reader;
+    admin->head-next->next=NULL;
 }

@@ -80,9 +80,11 @@ typedef struct PERSON_LIST {
     person          *tail;//人员链表最后一个成员的地址
 }person_list;
 
-person *admin_init(void);
-int login(int);
-void information();
-void readercenter();
-void setting();
+person          *admin_init(person_list *);
+int             login(int,person_list *);
+void            information(book_list *,person_list *);
+void            readercenter(book_list *,person_list *);
+void            setting(book_list *,person_list *);
+book            *search_book_pointer(int,book_list *);//搜索获得书节点地址，修改和搜索时可以使用,至于删除的话就还是遍历多情况讨论吧
+person          *search_person_pointer(int,person_list *);//搜索获得借书者节点地址，同上
 #endif
