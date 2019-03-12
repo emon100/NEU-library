@@ -7,6 +7,7 @@
  */
 #include <stdlib.h>
 #include <stdio.h>
+#include <strings>
 #include <string.h>
 #include <math.h>
 #include <conio.h>
@@ -79,4 +80,7 @@ typedef struct PERSON_LIST {
 
 person *admin_init(void);
 int login(int);
+void information();
+void readercenter();
+void setting();
 #endif
