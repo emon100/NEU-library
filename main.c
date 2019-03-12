@@ -1,6 +1,8 @@
 #include "lib.h"
 //测试用链表函数，真正使用的时候第一步是读取人员文件登录
-
+/*
+ * author:emon100
+ */
 int main(void) {
     int user_id;//当前用户id
     enum LOGIN_STATUS validity = no_user;//有效性-1为找不到人，0为密码错误，1为任何读者，2为管理员
@@ -25,6 +27,7 @@ int main(void) {
             printf("\t\t\t*Thank you for using Library system, enter number to choose functions*\n"
                    "\t*[1]Statistic----------------------------------------[2]Reader center*\n"
                    "\t\t\t*[3]Quit-------------------------------------------------------------*\n");
+            getchar();
             while ((choice = getchar()) != '3') {
                 switch (choice) {
                     case '1'    :
@@ -43,8 +46,9 @@ int main(void) {
         case as_admin     :
             system("cls");
             printf("\t\t\t*Thank you for using Library system, enter number to choose functions*\n"
-                   "\t\t\t*[1]Statistic----------------------------------------[2]Reader center*\n"
+                   "\t\t\t*[1]library's info-----------------------------------[2]Reader center*\n"
                    "\t\t\t*[3]Manage system---------------------------------------------[4]Quit*\n");
+            getchar();
             while ((choice = getchar()) != '4') {
                 switch (choice) {
                     case '1'    :
