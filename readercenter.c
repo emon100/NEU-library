@@ -5,5 +5,5 @@
 
 
 void            readercenter(book_list *book_data,person_list *book_list){
-    printf("readercenter");
+    printf("readercenter\n");
 }
