@@ -81,8 +81,9 @@ typedef struct PERSON_LIST {
     person          *tail;//人员链表最后一个成员的地址
 }person_list;
 void            fsh(void);
-void            admin_init(person_list *);
-int             login(int,person_list *);
+void            admin_init(person_list *);//测试函数
+void            book_test(book_list *book_data);//测试函数
+int             login(int,person_list *);//与正式版本不同的函数
 void            information_reader(book_list *,person_list *);//只能搜索书籍和查看普通图书馆数据
 void            information_admin(book_list *,person_list *);//可以看所有图书馆数据，搜索图书和人员
 void            readercenter(book_list *,person_list *);
