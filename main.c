@@ -17,6 +17,7 @@ int main(void) {
     printf("Thank you for using Library system, enter your id number to continue:\n");
     scanf("%d", &user_id);//考虑一下吃回车的问题
     fsh();
+    book_test(book_data);
     validity = login(user_id,person_data);
     switch (validity) {
         case no_user        :

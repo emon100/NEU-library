@@ -3,7 +3,7 @@
 //
 #include "lib.h"
 
-void information_reader(book_list *book_data,person_list *book_list){
+void information_reader(book_list *book_data,person_list *person_data){
     char        choice;
     system("cls");
     printf("information_reader\n");
@@ -14,9 +14,10 @@ void information_reader(book_list *book_data,person_list *book_list){
     while(choice=getchar()){
         switch(choice){
             case  '1':
-                printf("Total book---science---literature------education----art------life\n");
+                printf("Total book--science--literature--education--art--life\n");
                 printf("%5d",book_data->size);
-                for(int i=science;i<=life;i++)printf("%7d",book_data->book_size_field[i]);
+                for(int i=science;i<=life;i++)printf("%12d",book_data->book_size_field[i]);
+                printf("\n");
                 break;
             case  '2':
                 printf("search book\n");break;
@@ -33,6 +34,10 @@ void information_reader(book_list *book_data,person_list *book_list){
     }
 }
 
-void information_admin(book_list *book_data,person_list *book_list) {
+void information_admin(book_list *book_data,person_list *person_data) {
     printf("information_admin\n");
+    printf("Total book--science--literature--education--art--life\n");
+    printf("%5d",book_data->size);
+    for(int i=science;i<=life;i++)printf("%12d",book_data->book_size_field[i]);
+    printf("\n");
 }
