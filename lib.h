@@ -39,13 +39,13 @@ enum LOGIN_STATUS{
 
 typedef struct BOOK {
     int             code;//条码
+    int             id_number;//借书者号码,-1代表没被借走
     char            book_name[100];
     char            author_name[200];
     char            press[50];
     enum FIELD      field;
     float           price;
-    int             id_number;//借书者号码,-1代表没被借走
-    int             date;//算一下这是一年中第几天吧
+    int             date;//借书日期,算一下这是一年中第几天吧
     struct BOOK     *next;
 }book;
 
