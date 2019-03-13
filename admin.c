@@ -22,7 +22,7 @@ void admin_init(person_list *admin){
     p1=admin->head->next->next=(person *)malloc(sizeof(person));
     p1->next=NULL;
     p1->id_number=101;
-    strcpy(p1->name,"Eliz");
+    strcpy(p1->name,"Eliza");
     strcpy(p1->password,"11");
     p1->prop=prop_reader;
     p1->borrow_quantity=1;

@@ -14,7 +14,7 @@ void information_reader(book_list *book_data,person_list *person_data){
     while(choice=getchar()){
         switch(choice){
             case  '1':
-                printf("Total book--science--literature--education--art--life\n");
+                printf("Total book--science--literature--education--------art----------life\n");
                 printf("%5d",book_data->size);
                 for(int i=science;i<=life;i++)printf("%12d",book_data->book_size_field[i]);
                 printf("\n");
@@ -36,7 +36,7 @@ void information_reader(book_list *book_data,person_list *person_data){
 
 void information_admin(book_list *book_data,person_list *person_data) {
     printf("information_admin\n");
-    printf("Total book--science--literature--education--art--life\n");
+    printf("Total book---science-----literature---education----art----------life\n");
     printf("%5d",book_data->size);
     for(int i=science;i<=life;i++)printf("%12d",book_data->book_size_field[i]);
     printf("\n");
