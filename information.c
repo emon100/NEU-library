@@ -14,7 +14,7 @@ void information_reader(book_list *book_data,person_list *book_list){
     while(choice=getchar()){
         switch(choice){
             case  '1':
-                printf("check statistics\n");break;
+                printf("Total book:%d\n",book_data->size);break;
             case  '2':
                 printf("search book\n");break;
             case  '3':

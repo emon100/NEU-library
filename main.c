@@ -67,7 +67,7 @@ int main(void) {
                         readercenter(book_data,person_data);
                         break;
                     case '3'    :
-                        setting(book_data,person_data);
+                        manage(book_data,person_data);
                         break;
                     case '4'    :
                         printf("Thank you for using, goodbye!\n");
