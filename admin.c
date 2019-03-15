@@ -6,6 +6,8 @@
 
 void admin_init(person_list *admin){
     person          *p1;
+    admin->size=3;
+    admin->male_reader_size=2;
     admin->head=(person *)malloc(sizeof(person));
     admin->head->id_number=1;
     admin->head->sex=male;
@@ -19,7 +21,7 @@ void admin_init(person_list *admin){
     admin->head->next->prop=prop_reader;
     admin->head->next->borrow_quantity=1;
     admin->head->next->book_id[0]=2;
-    p1=admin->head->next->next=(person *)malloc(sizeof(person));
+    p1=admin->tail=admin->head->next->next=(person *)malloc(sizeof(person));
     p1->next=NULL;
     p1->id_number=101;
     strcpy(p1->name,"Eliza");

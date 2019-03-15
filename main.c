@@ -71,6 +71,7 @@ int main(void) {
                         manage(book_data,person_data);
                         break;
                     case '4'    :
+                        system("cls");
                         printf("Thank you for using, goodbye!\n");
                         return 0;
                     default     :
