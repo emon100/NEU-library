@@ -61,7 +61,8 @@ person * add(person_list *status) {
             scanf("%f", &p_start->penalty);
             fsh();
             status->size++;
-        } else {
+        }
+        else {
             printf("请重新输入指令\n");
             continue;
         }

@@ -3,7 +3,8 @@
  * author:emon100
  */
 void            fsh(void){
-    while('\n'!=getchar());
+    //while('\n'!=getchar());
+    fflush(stdin);
 }
 int main(void) {
     int                 exit_flag=0;
@@ -16,7 +17,7 @@ int main(void) {
     admin_init(person_data);
     system("cls");
     printf("Thank you for using Library system, enter your id number to continue:\n");
-    scanf("%d", &user_id);//考虑一下吃回车的问题
+    scanf("%d", &user_id);
     fsh();
     book_test(book_data);
     validity = login(user_id,person_data);
@@ -29,10 +30,10 @@ int main(void) {
             break;
         case as_reader      :
             system("cls");
+            fsh();//吃回车
             printf("\t\t\t*Thank you for using Library system, enter number to choose functions*\n"
                    "\t\t\t*[1]Statistic----------------------------------------[2]Reader center*\n"
                    "\t\t\t*[3]Quit-------------------------------------------------------------*\n");
-            getchar();
             while (choice = getchar()) {
                 switch (choice) {
                     case '1'    :
@@ -60,6 +61,7 @@ int main(void) {
                    "\t\t\t*[3]Manage system---------------------------------------------[4]Quit*\n");
             fsh();
             while (choice = getchar()) {
+                fsh();//吃回车
                 switch (choice) {
                     case '1'    :
                         information_admin(book_data,person_data);
