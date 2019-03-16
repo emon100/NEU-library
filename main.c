@@ -35,6 +35,7 @@ int main(void) {
                    "\t\t\t*[1]Statistic----------------------------------------[2]Reader center*\n"
                    "\t\t\t*[3]Quit-------------------------------------------------------------*\n");
             while (choice = getchar()) {
+                fsh();//³Ô»Ø³µ
                 switch (choice) {
                     case '1'    :
                         information_reader(book_data,person_data);

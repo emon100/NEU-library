@@ -8,6 +8,6 @@ void            reader_center(book_list *book_data, person_list *person_data){
     printf("reader_center\n");
     printf("Press any key to continue:\n");
     getchar();
-    fflush();
+    fsh();
     system("cls");
 }
