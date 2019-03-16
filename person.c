@@ -1,17 +1,10 @@
 #include "lib.h"
-
-#define LEN sizeof(person)
-
-void            fsh(void) {
-    while ('\n' != getchar());
-}
-
-//借书者信息录入
 person * add(person_list *status) {
     person *p_start, *p_next;
     status->size                =0;
     status->admin_size          =0;
     status->male_reader_size    =0;
+
     char flag;
 
 
@@ -26,7 +19,7 @@ person * add(person_list *status) {
     scanf("%s", p_start->name);
     fsh();
     printf("请输入人员性别：[0]男性 [1]女性\n");
-    scanf("%d", p_start->sex);
+    scanf("%d", &p_start->sex);
     if(p_start->sex ==0) status->male_reader_size ++;
     fsh();
     printf("请输入人员属性:[0]reader [1]admin\n");
@@ -34,7 +27,7 @@ person * add(person_list *status) {
     if(p_start->prop==1) status->admin_size ++;
     fsh();
     printf("请输入罚金金额：\n");
-    scanf("%d", &p_start->penalty);
+    scanf("%f", &p_start->penalty);
     fsh();
     status->size ++;
     printf("whether to continue or not? [0]Yes [1]No\n");
@@ -57,7 +50,7 @@ person * add(person_list *status) {
             scanf("%s", p_start->name);
             fsh();
             printf("请输入人员性别：[0]男性 [1]女性\n");
-            scanf("%d", p_start->sex);
+            scanf("%d", &p_start->sex);
             if (p_start->sex == 0) status->male_reader_size++;
             fsh();
             printf("请输入人员属性:[0]reader [1]admin\n");
@@ -65,7 +58,7 @@ person * add(person_list *status) {
             if (p_start->prop == 1) status->admin_size++;
             fsh();
             printf("请输入罚金金额：\n");
-            scanf("%d", &p_start->penalty);
+            scanf("%f", &p_start->penalty);
             fsh();
             status->size++;
         } else {

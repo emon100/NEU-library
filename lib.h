@@ -62,8 +62,8 @@ typedef struct BOOK_LIST {
 typedef struct PERSON {
     int             id_number;//图书卡号码,请务必从1开始
     char            name[31];//姓名30位
-    enum SEX        sex;
     char            password[13];//密码12位
+    enum SEX        sex;
     enum PROPERTY   prop;//人员属性
     int             borrow_quantity;//已借书籍数量
     int             book_id[10];//书籍条码，这个地方到时候改成书籍类型的指针以方便查找书籍
@@ -86,7 +86,7 @@ void            book_test(book_list *book_data);//测试函数
 int             login(int,person_list *);//与正式版本不同的函数
 void            information_reader(book_list *,person_list *);//只能搜索书籍和查看普通图书馆数据
 void            information_admin(book_list *,person_list *);//可以看所有图书馆数据，搜索图书和人员
-void            readercenter(book_list *,person_list *);
+void            reader_center(book_list *, person_list *);
 void            manage(book_list *,person_list *);
 book            *search_book_pointer(int,book_list *);//搜索获得书节点地址，修改和搜索时可以使用,至于删除的话就还是遍历多情况讨论吧
 person          *search_person_pointer(int,person_list *);//搜索获得借书者节点地址，同上

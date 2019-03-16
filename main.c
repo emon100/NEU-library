@@ -13,6 +13,7 @@ int main(void) {
     /*人和书本数据类型指针初始化*/
     person_list *person_data = (person_list *) malloc(sizeof(person_list));
     book_list *book_data = (book_list *) malloc(sizeof(book_list));
+    admin_init(person_data);
     system("cls");
     printf("Thank you for using Library system, enter your id number to continue:\n");
     scanf("%d", &user_id);//考虑一下吃回车的问题
@@ -38,7 +39,7 @@ int main(void) {
                         information_reader(book_data,person_data);
                         break;
                     case '2'    :
-                        readercenter(book_data,person_data);
+                        reader_center(book_data, person_data);
                         break;
                     case '3'    :
                         printf("Thank you for using, goodbye!\n");
@@ -47,7 +48,6 @@ int main(void) {
                         printf("Please enter again");
                         break;
                 }
-                fsh();
                 printf("\t\t\t*Thank you for using Library system, enter number to choose functions*\n"
                        "\t\t\t*[1]Statistic----------------------------------------[2]Reader center*\n"
                        "\t\t\t*[3]Quit-------------------------------------------------------------*\n");
@@ -65,7 +65,7 @@ int main(void) {
                         information_admin(book_data,person_data);
                         break;
                     case '2'    :
-                        readercenter(book_data,person_data);
+                        reader_center(book_data, person_data);
                         break;
                     case '3'    :
                         manage(book_data,person_data);
@@ -81,7 +81,6 @@ int main(void) {
                 printf("\t\t\t*Thank you for using Library system, enter number to choose functions*\n"
                        "\t\t\t*[1]library's info-----------------------------------[2]Reader center*\n"
                        "\t\t\t*[3]Manage system---------------------------------------------[4]Quit*\n");
-                fsh();
             }
             break;
     }

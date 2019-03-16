@@ -11,6 +11,7 @@ void information_reader(book_list *book_data,person_list *person_data){
            "\t\t\t*[1]Check statistics-------[2]Search Book*\n"
            "\t\t\t*[3]Return-------------------------------*\n");
     fsh();
+    //菜单
     while(choice=getchar()){
         switch(choice){
             case  '1':
@@ -18,19 +19,23 @@ void information_reader(book_list *book_data,person_list *person_data){
                 printf("%5d",book_data->size);
                 for(int i=science;i<=life;i++)printf("%12d",book_data->book_size_field[i]);
                 printf("\n");
+                printf("Press any key to continue:\n");
+                getchar();
+                system("cls");
                 break;
             case  '2':
-                printf("search book\n");break;
+                printf("search book\n");
+                break;
             case  '3':
                 system("cls");
                 return;
             default:
+                printf("Please enter again!:\n");
                 break;
         }
         printf("\t\t\t*Welcome!--------------------------------*\n"
                "\t\t\t*[1]Check statistics-------[2]Search Book*\n"
                "\t\t\t*[3]Return-------------------------------*\n");
-        fsh();
     }
 }
 //管理员查看统计的函数
@@ -42,6 +47,7 @@ void information_admin(book_list *book_data,person_list *person_data) {
            "\t\t\t*[1]Check statistics-------[2]Search Book*\n"
            "\t\t\t*[3]Return-------------------------------*\n");
     fsh();
+    //下面都是菜单
     while (choice = getchar()) {
         switch (choice) {
             case '1':
@@ -49,6 +55,12 @@ void information_admin(book_list *book_data,person_list *person_data) {
                 printf("%5d", book_data->size);
                 for (int i = science; i <= life; i++)printf("%12d", book_data->book_size_field[i]);
                 printf("\n");
+                printf("Total User---Admins---Total readers---male readers---Female readers\n");
+                printf("%5d%11d%13d%10d%10d\n",person_data->size,person_data->admin_size,person_data->size-person_data->admin_size,person_data->male_reader_size,person_data->size-person_data->admin_size-person_data->male_reader_size);
+                fsh();
+                printf("Press any key to continue:\n");
+                getchar();
+                system("cls");
                 break;
             case '2':
                 printf("search book\n");
@@ -57,11 +69,11 @@ void information_admin(book_list *book_data,person_list *person_data) {
                 system("cls");
                 return;
             default:
+                printf("Please enter again!:\n");
                 break;
         }
         printf("\t\t\t*Welcome!--------------------------------*\n"
                "\t\t\t*[1]Check statistics-------[2]Search Book*\n"
-               "\t\t\t*[4]Return-------------------------------*\n");
-        fsh();
+               "\t\t\t*[3]Return-------------------------------*\n");
     }
 }
