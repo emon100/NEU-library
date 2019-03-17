@@ -8,11 +8,10 @@ int login(int user_id,person_list *persondata){
     //²âÊÔµÇÂ¼
     person              *p1=persondata->head;
     int                 validity    =password_err;
-    int                 characters  =0;
-    char                ch;
     char *password_tmp=(char *)malloc(sizeof(char)*13);
     while(1){
         if(user_id==p1->id_number){
+            current_user=p1;
             switch(p1->prop){
                 case prop_administrator:
                     validity=as_admin;break;

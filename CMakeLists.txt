@@ -3,4 +3,4 @@ project(library C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(library main.c login.c admin.c manage.c information.c reader_center.c person.c)
+add_executable(library main.c login.c admin.c manage.c information.c reader_center.c person_old.c person_edit.c person_delete.c person_insert.c)
