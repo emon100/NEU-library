@@ -27,6 +27,7 @@ void  reader_center(book_list *book_data,person *current_user){
                 //·µ»ØÉÏÒ»²ã
                 return;
         }
+        printf("[1]manage [4]Return");
     }
     getchar();
     fflush(stdin);
@@ -40,7 +41,7 @@ void self_manage(person *current_user){
     printf("password:%-12s|",current_user->password);
     if(current_user->sex==male)printf("Sex:Male  |\n");
     else printf("Sex:Female|\n");
-    if(current_user->prop==prop_reader)printf("Property:Reader       |");
+    if(current_user->prop==prop_reader)printf("Property:Reader       |\n");
     else printf("Property:Administrator|");
     printf("Book borrowed:%-3d|\n",current_user->borrow_quantity);
     for (int i = 0; i < borrow_quantity; ++i) {
