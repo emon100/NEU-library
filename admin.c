@@ -31,7 +31,7 @@ void admin_init(person_list *admin){
     p1->id_number=101;
     strcpy(p1->name,"Eliza");
     strcpy(p1->password,"11");
-    admin->head->sex=female;
+    p1->sex=female;
     p1->prop=prop_reader;
     p1->borrow_quantity=1;
     p1->book_id[0]=1;

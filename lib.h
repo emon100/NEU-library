@@ -101,6 +101,8 @@ void            information_admin(book_list *,person_list *);//ø…“‘ø¥À˘”–Õº Èπ› 
 
 void            reader_center(book_list *,person *);//∂¡’ﬂœµÕ≥
 void            self_manage(person *);
+void            display_person(person *);//’π æ∏ˆ»À–≈œ¢
+void            display_book(int book_id);//’π æ ÈºÆ–≈œ¢
 void            borrow_book(book_list *,person *);
 void            return_book(book_list *,person *);
 

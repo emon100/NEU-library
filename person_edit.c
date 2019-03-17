@@ -10,17 +10,9 @@ void person_edit(person_list *person_status,int id_number) {
         p_pointer = p_pointer->next;
     }
     if (p_pointer->id_number == id_number) {
-        fflush(stdin);
         //显示用户信息
-        printf("User's infomation:\n"
-               "ID:%-5d|Name:%-10s|",p_pointer->id_number,p_pointer->name);
-        printf("password:%-12s|",p_pointer->password);
-        if(p_pointer->sex==male)printf("Sex:Male  |\n");
-        else printf("Sex:Female|\n");
-        if(p_pointer->prop==prop_reader)printf("Property:Reader      |\n");
-        else printf("Property:Administrator|");
-        printf("请选择要修改的信息类型：\n[1]图书卡号码\n[2]图书卡密码\n[3]人员姓名\n[4]人员性别\n[5]人员属性\n[6]罚金金额\n[7]返回上一级菜单");
-        scanf("%c", &option);
+        display_person(p_pointer);
+        printf("请选择要修改的信息类型：\n[1]图书卡号码\n[2]图书卡密码\n[3]人员姓名\n[4]人员性别\n[5]人员属性\n[6]罚金金额\n[7]返回上一级菜单\n");
         fflush(stdin);
         while(option=getchar()) {
             fflush(stdin);
@@ -66,13 +58,7 @@ void person_edit(person_list *person_status,int id_number) {
                 }
             }
             //显示用户信息
-            printf("User's infomation:\n"
-                   "ID:%-5d|Name:%-10s|",p_pointer->id_number,p_pointer->name);
-            printf("password:%-12s|",p_pointer->password);
-            if(p_pointer->sex==male)printf("Sex:Male  |\n");
-            else printf("Sex:Female|\n");
-            if(p_pointer->prop==prop_reader)printf("Property:Reader       |\n");
-            else printf("Property:Administrator|");
+            display_person(p_pointer);
             //询问是否继续
             printf("whether to continue or not? [1]Yes [0]No\n");
             if(getchar()=='0'){
@@ -80,7 +66,7 @@ void person_edit(person_list *person_status,int id_number) {
                 return;
             }
             else    {
-                printf("请选择要修改的信息类型：\n[1]图书卡号码\n[2]图书卡密码\n[3]人员姓名\n[4]人员性别\n[5]人员属性\n[6]罚金金额\n[7]返回上一级菜单");
+                printf("请选择要修改的信息类型：\n[1]图书卡号码\n[2]图书卡密码\n[3]人员姓名\n[4]人员性别\n[5]人员属性\n[6]罚金金额\n[7]返回上一级菜单\n");
                 continue;
             }
         }
