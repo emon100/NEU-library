@@ -9,7 +9,7 @@ void  reader_center(book_list *book_data,person *current_user){
     //printf("reader_center\n");
     //printf("Press any key to continue:\n");
     char        choice;
-    printf("[1]manage [4]Return");
+    printf("[1]Manage personal info---[4]Return");
     while(choice=getchar()){
         fflush(stdin);
         switch(choice){
@@ -25,6 +25,7 @@ void  reader_center(book_list *book_data,person *current_user){
                 break;
             case   '4':
                 //·µ»ØÉÏÒ»²ã
+                system("cls");
                 return;
         }
         printf("[1]manage [4]Return");
@@ -36,6 +37,7 @@ void  reader_center(book_list *book_data,person *current_user){
 
 void self_manage(person *current_user){
     int             borrow_quantity=current_user->borrow_quantity;
+    system("cls");
     display_person(current_user);
     for (int i = 0; i < borrow_quantity; ++i) {
         printf("book_id:%d\n",current_user->book_id[i]);
@@ -47,13 +49,13 @@ void self_manage(person *current_user){
 }
 
 void display_person(person *current_user){
-    printf("User's infomation:\n"
+    printf("\nUser's infomation:\n"
            "ID:%-5d|Name:%-10s|",current_user->id_number,current_user->name);
     printf("password:%-12s|",current_user->password);
     if(current_user->sex==male)printf("Sex:Male  |\n");
     else printf("Sex:Female|\n");
-    if(current_user->prop==prop_reader)printf("Property:Reader       |\n");
-    else printf("Property:Administrator|");
-    printf("Penalty:%f\n",current_user->penalty);
-    printf("Book borrowed:%-3d|\n",current_user->borrow_quantity);
+    if(current_user->prop==prop_reader)printf("Property:Reader         |");
+    else printf("Property:Administrator  |");
+    printf("Penalty:%6.2f       |",current_user->penalty);
+    printf("Book borrowed:%-3d\n\n",current_user->borrow_quantity);
 }
