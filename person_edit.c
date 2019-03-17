@@ -66,7 +66,9 @@ void person_edit(person_list *person_status) {
                 display_person(p_pointer);
                 //Ñ¯ÎÊÊÇ·ñ¼ÌÐø
                 printf("whether to continue or not£¿ [0]No  [1]Yes [2]Manage another User\n");
-                if ((option=getchar())== '0') {
+                option=getchar();
+                fflush(stdin);
+                if (option== '0') {
                     fflush(stdin);
                     return;
                 }
@@ -85,5 +87,4 @@ void person_edit(person_list *person_status) {
             break;
         }
     }
-
 }
