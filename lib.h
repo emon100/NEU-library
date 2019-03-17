@@ -107,7 +107,7 @@ void            borrow_book(book_list *,person *);
 void            return_book(book_list *,person *);
 
 void            manage(book_list *,person_list *);
-void            person_edit(person_list *,int);
+void            person_edit(person_list *);
 
 
 book            *search_book_pointer(int,book_list *);//搜索获得书节点地址，修改和搜索时可以使用,至于删除的话就还是遍历多情况讨论吧
