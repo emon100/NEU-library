@@ -26,6 +26,7 @@ void information_reader(book_list *book_data){
                 system("cls");
                 break;
             case  '2':
+                system("cls");
                 printf("search book\n");
                 break;
             case  '3':

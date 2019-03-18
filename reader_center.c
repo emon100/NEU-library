@@ -62,7 +62,7 @@ void self_manage(book_list *book_data,person *current_user) {
             switch (option) {
                 case '1': {
                     printf("Enter new password:");//这个起码得有个确认的过程吧
-                    //scanf("%s", current_user->password);
+                    scanf("%s", current_user->password);
                     fflush(stdin);
                     break;
                 }
@@ -150,7 +150,7 @@ void display_book(book_list *book_data,int book_id){
                 printf("Life");
                 break;
         }
-        printf("         |Price:%4f\n",p_book->price);
+        printf("         |Price:%6.2f\n",p_book->price);
         printf("Borrow time:%s",ctime(&p_book->borrow_time));
 
     }
