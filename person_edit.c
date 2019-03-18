@@ -66,7 +66,7 @@ void person_edit(person_list *person_status) {
                             return;
                         }
                         default:
-                            printf("Input Error!Please Enter again:");
+                            printf("Input Error!Please Enter again:\n");
                             break;
                     }
                 }
@@ -74,7 +74,7 @@ void person_edit(person_list *person_status) {
                 system("cls");
                 display_person(p_pointer);
                 //输入判断
-                if(exit_flag==1)printf("Input error, please enter again:");
+                if(exit_flag==1)printf("Input error, please enter again:\n");
                 exit_flag=0;
                 //询问是否继续
                 printf("whether to continue or not？ [0]No  [1]Yes [2]Manage another User\n");
@@ -98,7 +98,7 @@ void person_edit(person_list *person_status) {
             }
         }
         else {
-            printf("User not Found!");
+            printf("User not Found!\n");
             break;
         }
     }

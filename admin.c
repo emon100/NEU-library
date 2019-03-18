@@ -44,10 +44,9 @@ void book_test(book_list *book_data){
     book        *next;
     time_t      timer,test_t;//当前时间,测试时间
     struct tm   *test_time;
-    test_time=(struct tm*)malloc(sizeof(struct tm));
     //对时间进行操作
     timer=time(NULL);
-    test_time=gmtime(&timer);
+    test_time=localtime(&timer);
     test_time->tm_mday=22;
     test_t=mktime(test_time);
 
@@ -75,7 +74,7 @@ void book_test(book_list *book_data){
     strcpy(next->press,"First press");
     strcpy(next->author_name,"XX");
     next->next=(book *)malloc(sizeof(book));
-    head->borrow_time=test_t;
+    next->borrow_time=test_t;
     next=next->next;
     next->code=3;
     next->id_number=-1;

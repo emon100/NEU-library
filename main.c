@@ -51,7 +51,7 @@ int main(void) {
                         return 0;
                     default     :
                         system("cls");
-                        printf("Please enter again");
+                        printf("Please enter again\n");
                         break;
                 }
                 printf("\t\t\t*Thank you for using Library system, enter number to choose functions*\n"

@@ -126,6 +126,7 @@ void display_person(person *current_user){
 
 void display_book(book_list *book_data,int book_id){
     book        *p_book=book_data->head;
+    time_t      now,borrow_time,return_time;
     while(p_book->code!=book_id&&p_book!=NULL){
         p_book=p_book->next;
     }
@@ -151,8 +152,12 @@ void display_book(book_list *book_data,int book_id){
                 break;
         }
         printf("         |Price:%6.2f\n",p_book->price);
-        printf("Borrow time:%s",ctime(&p_book->borrow_time));
-
+        now=time(NULL);
+        borrow_time=p_book->borrow_time;
+        return_time=p_book->borrow_time+2678400;//一个月的秒数是2678400故，time_t类型其实和long差不多
+        printf("Now time:%s\n",ctime(&now));
+        printf("Borrow time:%s\n",ctime(&borrow_time));
+        printf("Should return before:%s\n",ctime(&return_time));
     }
 }
 void borrow_book(book_list *book_data,person *current_user){
@@ -165,7 +170,7 @@ void borrow_book(book_list *book_data,person *current_user){
 
 void return_book(book_list *book_data,person *current_user){
     system("cls");
-    printf("Borrow book\nPress any key to continue:\n");
+    printf("Return book\nPress any key to continue:\n");
     getchar();
     fflush(stdin);
     system("cls");
