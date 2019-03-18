@@ -5,7 +5,7 @@ person * add(person_list *status) {
     status->admin_size          =0;
     status->male_reader_size    =0;
 
-    char flag;
+    int flag;
 
 
     status->head = p_start = p_next = (person *) malloc(sizeof(person));

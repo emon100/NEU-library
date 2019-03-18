@@ -6,7 +6,7 @@
 
 void person_edit(person_list *person_status) {
     int         id_number;
-    char        option;
+    int option;
     int         exit_flag=0;
     while(1) {
         printf("Enter user id:\n");
@@ -33,8 +33,8 @@ void person_edit(person_list *person_status) {
                             break;
                         }
                         case '2': {
-                            printf("Enter new password:");//这个起码得有个确认的过程吧
-                            //scanf("%s", p_pointer->password);
+                            printf("Enter new password:");
+                            scanf("%s", p_pointer->password);
                             fflush(stdin);
                             break;
                         }

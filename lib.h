@@ -93,9 +93,9 @@ void user_init(person_list *);//读取用户文件创建用户链表
 void book_init(book_list *);//读取书籍文件创建书籍链表
 
 
-int             login(int,person_list *);//与正式版本不同的函数
+enum login_status        login(int,person_list *);//与正式版本不同的函数
 
-void            information_reader(book_list *,person_list *);//只能搜索书籍和查看普通图书馆数据
+void            information_reader(book_list *);//只能搜索书籍和查看普通图书馆数据
 void            information_admin(book_list *,person_list *);//可以看所有图书馆数据，搜索图书和人员
 
 

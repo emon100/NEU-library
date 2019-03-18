@@ -3,8 +3,8 @@
 //
 #include "lib.h"
 //读者查看统计的函数
-void information_reader(book_list *book_data,person_list *person_data){
-    char        choice;
+void information_reader(book_list *book_data){
+    int choice;
     system("cls");
     printf("information_reader\n");//记得删掉
     printf("\t\t\t*Welcome!--------------------------------*\n"

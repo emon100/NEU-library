@@ -4,7 +4,7 @@
 #include "lib.h"
 
 void manage(book_list *book_data,person_list *person_data) {
-    char        choice;
+    int choice;
     system("cls");
     fflush(stdin);
     printf("\t\t\t*Welcome to management system!*\n"
@@ -33,6 +33,9 @@ void manage(book_list *book_data,person_list *person_data) {
             case '7':
                 system("cls");
                 return;
+            default:
+                system("cls");
+
         }
         system("cls");
         printf("\t\t\t*Welcome to management system!*\n"

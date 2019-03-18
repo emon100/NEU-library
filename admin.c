@@ -43,7 +43,8 @@ void book_test(book_list *book_data){
     book        *head=book_data->head=(book *)malloc(sizeof(book));
     book        *next;
     time_t      timer,test_t;//当前时间,测试时间
-    struct tm   *test_time=(struct tm*)malloc(sizeof(struct tm));
+    struct tm   *test_time;
+    test_time=(struct tm*)malloc(sizeof(struct tm));
     //对时间进行操作
     timer=time(NULL);
     test_time=gmtime(&timer);

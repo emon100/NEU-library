@@ -6,7 +6,7 @@
 
 void person_insert(person_list *person_data) {
     person *p_previous, *p_new;
-    char flag;
+    int flag;
 
     p_previous = p_new = (person *) malloc(sizeof(person));
     person_data->tail->next = p_previous;

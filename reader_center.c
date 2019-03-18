@@ -8,7 +8,7 @@
 void  reader_center(book_list *book_data,person *current_user){
     //printf("reader_center\n");
     //printf("Press any key to continue:\n");
-    char        choice;
+    int choice;
     printf("\t\t\t[1]Manage personal info---[2]Borrow book\n"
            "\t\t\t[3]Return book-----------------[4]Return\n");
     while(1){
@@ -45,7 +45,7 @@ void  reader_center(book_list *book_data,person *current_user){
 void self_manage(book_list *book_data,person *current_user) {
     int borrow_quantity = current_user->borrow_quantity;
     int exit_flag = 0;
-    char option;
+    int option;
     system("cls");
     display_person(current_user);
     for (int i = 0; i < borrow_quantity; ++i) {
@@ -134,19 +134,19 @@ void display_book(book_list *book_data,int book_id){
         printf("|Title:%-30s|Author:%-20s|Press:%-20s\n",p_book->book_name,p_book->author_name,p_book->press);
         printf("|Field:");
         switch(p_book->field){
-            case 0:
+            case science:
                 printf("Science");
                 break;
-            case 1:
+            case literature:
                 printf("Literature");
                 break;
-            case 2:
+            case education:
                 printf("Education");
                 break;
-            case 3:
+            case art:
                 printf("Art");
                 break;
-            case 4:
+            case life:
                 printf("Life");
                 break;
         }

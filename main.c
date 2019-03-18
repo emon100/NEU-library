@@ -9,7 +9,7 @@ int main(void) {
     int                 exit_flag=0;
     int                 user_id;//当前用户id
     enum login_status   validity = no_user;//有效性-1为找不到人，0为密码错误，1为任何读者，2为管理员
-    char                choice;//用户输入的命令
+    char choice;//用户输入的命令
     /*人和书本数据类型指针初始化*/
     person_list *person_data = (person_list *) malloc(sizeof(person_list));
     book_list *book_data = (book_list *) malloc(sizeof(book_list));
@@ -39,7 +39,7 @@ int main(void) {
                 switch (choice) {
                     case '1'    :
                         system("cls");
-                        information_reader(book_data,person_data);
+                        information_reader(book_data);
                         break;
                     case '2'    :
                         system("cls");

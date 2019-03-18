@@ -4,10 +4,10 @@
 #include "lib.h"
 
 
-int login(int user_id,person_list *persondata){
+enum login_status login(int user_id,person_list *persondata){
     //²âÊÔµÇÂ¼
     person              *p1=persondata->head;
-    int                 validity    =password_err;
+    enum login_status   validity    =password_err;
     char *password_tmp=(char *)malloc(sizeof(char)*13);
     while(1){
         if(user_id==p1->id_number){
