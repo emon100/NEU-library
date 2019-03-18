@@ -1,6 +1,6 @@
 
 #include "lib.h"
-
+//史雨迪
 //人员插入函数
 //获取的参数为person_list类型的一个变量
 
@@ -71,7 +71,5 @@ void person_insert(person_list *person_data) {
             continue;
         }
     }
-
-
 }
 

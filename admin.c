@@ -42,6 +42,15 @@ void admin_init(person_list *admin){
 void book_test(book_list *book_data){
     book        *head=book_data->head=(book *)malloc(sizeof(book));
     book        *next;
+    time_t      timer,test_t;//当前时间,测试时间
+    struct tm   *test_time=(struct tm*)malloc(sizeof(struct tm));
+    //对时间进行操作
+    timer=time(NULL);
+    test_time=gmtime(&timer);
+    test_time->tm_mday=22;
+    test_t=mktime(test_time);
+
+    //对书进行操作
     book_data->size=4;
     book_data->book_borrowed=2;
     book_data->code=4;
@@ -55,6 +64,7 @@ void book_test(book_list *book_data){
     strcpy(head->author_name,"WW");
     strcpy(head->press,"People's press");
     head->field=science;
+    head->borrow_time=timer;
     head->next=next=(book *)malloc(sizeof(book));
     next->code=2;
     next->id_number=100;
@@ -64,6 +74,7 @@ void book_test(book_list *book_data){
     strcpy(next->press,"First press");
     strcpy(next->author_name,"XX");
     next->next=(book *)malloc(sizeof(book));
+    head->borrow_time=test_t;
     next=next->next;
     next->code=3;
     next->id_number=-1;
@@ -82,4 +93,5 @@ void book_test(book_list *book_data){
     strcpy(next->press,"Second press");
     strcpy(next->author_name,"ZZ");
     next->next=NULL;
+    book_data->tail=next;
 }

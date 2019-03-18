@@ -47,7 +47,7 @@ typedef struct book {
     char            press[50];
     enum field      field;
     float           price;
-    int             date;//½èÊéÈÕÆÚ,ËãÒ»ÏÂÕâÊÇÒ»ÄêÖĞµÚ¼¸Ìì°É
+    time_t          borrow_time;//½èÊéÈÕÆÚ£¬Ê±¼äÀàĞÍ±äÁ¿£¬µ½Ê±ºòÓÃµÄÊ±ºò¿ÉÄÜ¶¼ÒªÈ¡µØÖ·
     struct book     *next;
 }book;
 
@@ -100,14 +100,16 @@ void            information_admin(book_list *,person_list *);//¿ÉÒÔ¿´ËùÓĞÍ¼Êé¹İÊ
 
 
 void            reader_center(book_list *,person *);//¶ÁÕßÏµÍ³
-void            self_manage(person *);
+void            self_manage(book_list *,person *);
 void            display_person(person *);//Õ¹Ê¾¸öÈËĞÅÏ¢
-void            display_book(int book_id);//Õ¹Ê¾Êé¼®ĞÅÏ¢
+void            display_book(book_list *,int book_id);//Õ¹Ê¾Êé¼®ĞÅÏ¢
 void            borrow_book(book_list *,person *);
 void            return_book(book_list *,person *);
 
 void            manage(book_list *,person_list *);
 void            person_edit(person_list *);
+void            person_insert(person_list *);
+void            person_delete(person_list *);
 
 
 book            *search_book_pointer(int,book_list *);//ËÑË÷»ñµÃÊé½ÚµãµØÖ·£¬ĞŞ¸ÄºÍËÑË÷Ê±¿ÉÒÔÊ¹ÓÃ,ÖÁÓÚÉ¾³ıµÄ»°¾Í»¹ÊÇ±éÀú¶àÇé¿öÌÖÂÛ°É

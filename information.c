@@ -16,7 +16,7 @@ void information_reader(book_list *book_data,person_list *person_data){
         fflush(stdin);
         switch(choice){
             case  '1':
-                printf("|-Total book-|-science-|-literature-|-education--|--art--|--life--|\n  ");
+                printf("|-Total book-|-science-|-literature-|--education--|--art--|-----life-----|\n  ");
                 printf("%5d",book_data->size);
                 for(int i=science;i<=life;i++)printf("%12d",book_data->book_size_field[i]);
                 printf("\n");
@@ -55,21 +55,24 @@ void information_admin(book_list *book_data,person_list *person_data) {
         fflush(stdin);
         switch (choice) {
             case '1':
-                printf("|-Total book-|-science-|-literature-|-education--|---art----|-life-|\n  ");
+                system("cls");
+                printf("|-Total book-|-science-|-literature-|-education--|---art----|---life---|\n  ");
                 printf("%5d", book_data->size);
                 for (int i = science; i <= life; i++)printf("%12d", book_data->book_size_field[i]);
                 printf("\n");
                 printf("|-Total User-|-Admins-|-Total readers-|-male readers-|-Female readers-|\n");
-                printf("%5d%11d%13d%13d%15d\n",person_data->size,person_data->admin_size,person_data->size-person_data->admin_size,person_data->male_reader_size,person_data->size-person_data->admin_size-person_data->male_reader_size);
+                printf("%9d%13d%9d%15d%17d\n",person_data->size,person_data->admin_size,person_data->size-person_data->admin_size,person_data->male_reader_size,person_data->size-person_data->admin_size-person_data->male_reader_size);
                 printf("Press any key to continue:\n");
                 getchar();
                 fflush(stdin);
                 system("cls");
                 break;
             case '2':
+                system("cls");
                 printf("search book\n");
                 break;
             case '3':
+                system("cls");
                 printf("search user\n");
                 break;
             case '4':

@@ -1,6 +1,7 @@
 
 #include "lib.h"
 
+//史雨迪
 //人员修改函数
 
 void person_edit(person_list *person_status) {
@@ -50,7 +51,7 @@ void person_edit(person_list *person_status) {
                             break;
                         }
                         case '5': {
-                            printf("Enter new prop([0]Admin[1]Reader):");
+                            printf("Enter new prop([0]Reader[1]Admin):");
                             scanf("%d", &p_pointer->prop);
                             fflush(stdin);
                             break;
@@ -80,6 +81,7 @@ void person_edit(person_list *person_status) {
                 option=getchar();
                 fflush(stdin);
                 if (option== '0') {
+                    system("cls");
                     return;
                 }
                 else if (option== '1') {
@@ -96,7 +98,7 @@ void person_edit(person_list *person_status) {
             }
         }
         else {
-            printf("User not Found");
+            printf("User not Found!");
             break;
         }
     }

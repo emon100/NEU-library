@@ -1,9 +1,13 @@
 
 #include "lib.h"
-
+//史雨迪
 //人员删除函数
 
-void person_delete(person_list *person_data,int id_number){
+void person_delete(person_list *person_data){
+    //输入user_id
+    int         id_number;
+    scanf("%d",&id_number);
+    fflush(stdin);
     person *person_1,*person_2;
     if(person_1 == NULL){
         printf("没有数据");

@@ -14,11 +14,11 @@ int main(void) {
     person_list *person_data = (person_list *) malloc(sizeof(person_list));
     book_list *book_data = (book_list *) malloc(sizeof(book_list));
     admin_init(person_data);
+    book_test(book_data);
     system("cls");
     printf("Thank you for using Library system, enter your id number to continue:\n");
     scanf("%d", &user_id);
     fflush(stdin);
-    book_test(book_data);
     validity = login(user_id,person_data);
     switch (validity) {
         case no_user        :
@@ -38,15 +38,19 @@ int main(void) {
                 fflush(stdin);//吃回车
                 switch (choice) {
                     case '1'    :
+                        system("cls");
                         information_reader(book_data,person_data);
                         break;
                     case '2'    :
+                        system("cls");
                         reader_center(book_data,current_user);
                         break;
                     case '3'    :
+                        system("cls");
                         printf("Thank you for using, goodbye!\n");
                         return 0;
                     default     :
+                        system("cls");
                         printf("Please enter again");
                         break;
                 }
@@ -66,12 +70,15 @@ int main(void) {
                 fflush(stdin);//吃回车
                 switch (choice) {
                     case '1'    :
+                        system("cls");
                         information_admin(book_data,person_data);
                         break;
                     case '2'    :
+                        system("cls");
                         reader_center(book_data,current_user);
                         break;
                     case '3'    :
+                        system("cls");
                         manage(book_data,person_data);
                         break;
                     case '4'    :
@@ -79,6 +86,7 @@ int main(void) {
                         printf("Thank you for using, goodbye!\n");
                         return 0;
                     default     :
+                        system("cls");
                         printf("Please enter again!\n");
                         break;
                 }
