@@ -15,6 +15,8 @@ int main(void) {
     book_list *book_data = (book_list *) malloc(sizeof(book_list));
     admin_init(person_data);
     book_test(book_data);
+    //菜单部分开始
+    while(1){
     system("cls");
     printf("Thank you for using Library system, enter your id number to continue:\n");
     scanf("%d", &user_id);
@@ -30,10 +32,11 @@ int main(void) {
         case as_reader      :
             system("cls");
             fflush(stdin);//吃回车
-            printf("id:%5d--name:%10s--borrow:%5d\n",current_user->id_number,current_user->name,current_user->borrow_quantity);//测试current_user
+            printf("id:%5d--name:%10s--borrow:%5d\n", current_user->id_number, current_user->name,
+                   current_user->borrow_quantity);//测试current_user
             printf("\t\t\t*Thank you for using Library system, enter number to choose functions*\n"
                    "\t\t\t*[1]Statistic----------------------------------------[2]Reader center*\n"
-                   "\t\t\t*[3]Quit-------------------------------------------------------------*\n");
+                   "\t\t\t*[3]Change user-----------------------------------------------[4]Quit*\n");
             while (choice = getchar()) {
                 fflush(stdin);//吃回车
                 switch (choice) {
@@ -43,9 +46,13 @@ int main(void) {
                         break;
                     case '2'    :
                         system("cls");
-                        reader_center(book_data,current_user);
+                        reader_center(book_data, current_user);
                         break;
                     case '3'    :
+                        system("cls");
+                        exit_flag=1;
+                        break;
+                    case '4'    :
                         system("cls");
                         printf("Thank you for using, goodbye!\n");
                         return 0;
@@ -54,34 +61,44 @@ int main(void) {
                         printf("Please enter again\n");
                         break;
                 }
+                if(exit_flag==1){
+                    exit_flag=0;
+                    break;
+                }
                 printf("\t\t\t*Thank you for using Library system, enter number to choose functions*\n"
                        "\t\t\t*[1]Statistic----------------------------------------[2]Reader center*\n"
-                       "\t\t\t*[3]Quit-------------------------------------------------------------*\n");
+                       "\t\t\t*[3]Change user-----------------------------------------------[4]Quit*\n");
             }
             break;
         case as_admin     :
             system("cls");
-            printf("id:%5d--name:%10s--borrow:%5d\n",current_user->id_number,current_user->name,current_user->borrow_quantity);//测试current_user
+            printf("id:%5d--name:%10s--borrow:%5d\n", current_user->id_number, current_user->name,
+                   current_user->borrow_quantity);//测试current_user
             printf("\t\t\t*Thank you for using Library system, enter number to choose functions*\n"
                    "\t\t\t*[1]library's info-----------------------------------[2]Reader center*\n"
-                   "\t\t\t*[3]Manage system---------------------------------------------[4]Quit*\n");
+                   "\t\t\t*[3]Manage system--------------------------------------[4]Change user*\n"
+                   "\t\t\t*[5]Quit-------------------------------------------------------------*");
             fflush(stdin);
             while (choice = getchar()) {
                 fflush(stdin);//吃回车
                 switch (choice) {
                     case '1'    :
                         system("cls");
-                        information_admin(book_data,person_data);
+                        information_admin(book_data, person_data);
                         break;
                     case '2'    :
                         system("cls");
-                        reader_center(book_data,current_user);
+                        reader_center(book_data, current_user);
                         break;
                     case '3'    :
                         system("cls");
-                        manage(book_data,person_data);
+                        manage(book_data, person_data);
                         break;
                     case '4'    :
+                        system("cls");
+                        exit_flag=1;
+                        break;
+                    case '5'    :
                         system("cls");
                         printf("Thank you for using, goodbye!\n");
                         return 0;
@@ -90,10 +107,16 @@ int main(void) {
                         printf("Please enter again!\n");
                         break;
                 }
+                if(exit_flag==1){
+                    exit_flag=0;
+                    break;
+                }
                 printf("\t\t\t*Thank you for using Library system, enter number to choose functions*\n"
                        "\t\t\t*[1]library's info-----------------------------------[2]Reader center*\n"
-                       "\t\t\t*[3]Manage system---------------------------------------------[4]Quit*\n");
+                       "\t\t\t*[3]Manage system--------------------------------------[4]Change user*\n"
+                       "\t\t\t*[5]Quit-------------------------------------------------------------*");
             }
             break;
+        }
     }
 }

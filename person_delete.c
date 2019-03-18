@@ -2,32 +2,41 @@
 #include "lib.h"
 //史雨迪
 //人员删除函数
-
+//TODO:把person_data里面的size之类的各项信息都要动态调整
 void person_delete(person_list *person_data){
     //输入user_id
     int         id_number;
     scanf("%d",&id_number);
     fflush(stdin);
-    person *person_1,*person_2;
-    if(person_1 == NULL){
+    person *person_previous,*person_delete,*person_next;
+    person_delete=person_previous=person_data->head;
+    if(person_previous == NULL){
         printf("没有数据");
         return;
     }
-    while(person_1->id_number != id_number && person_1->next != NULL){
-        person_2 =person_1;
-        person_1 =person_1->next;
+    /*
+    if(person_delete->id_number==id_number){
+        person_next=person_delete->next;
+        free(person_delete);
+        person_data->head=person_next;
+        person_data
     }
-    if(person_1->id_number == id_number){
-        if(person_1 == person_data->head){
-            person_data->head = person_1->next;
+     */
+    while(person_previous->id_number != id_number && person_previous->next != NULL){
+        person_delete;
+        person_previous =person_previous->next;
+    }
+    if(person_previous->id_number == id_number){
+        if(person_previous == person_data->head){
+            person_data->head = person_previous->next;
         }
         else{
-            person_2->next =person_1->next;
+            person_next->next =person_previous->next;
         }
-        free(person_1);
+        free(person_previous);
     }
     else{
-        printf("没有找到您要删除的数据");
+        printf("没有找到您要删除的数据\n");
+        return;
     }
-
 }
