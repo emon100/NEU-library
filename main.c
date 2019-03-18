@@ -2,7 +2,8 @@
 /*
  * author:emon100
  */
-
+//TODO:到时候记得把测试current_user那两行删了,管理员退出要备份一下用户数据文件
+//TODO:把菜单弄成居中的
 person *current_user=NULL;
 
 int main(void) {
@@ -77,7 +78,7 @@ int main(void) {
             printf("\t\t\t*Thank you for using Library system, enter number to choose functions*\n"
                    "\t\t\t*[1]library's info-----------------------------------[2]Reader center*\n"
                    "\t\t\t*[3]Manage system--------------------------------------[4]Change user*\n"
-                   "\t\t\t*[5]Quit-------------------------------------------------------------*");
+                   "\t\t\t*[5]Quit-------------------------------------------------------------*\n");
             fflush(stdin);
             while (choice = getchar()) {
                 fflush(stdin);//吃回车
@@ -114,7 +115,7 @@ int main(void) {
                 printf("\t\t\t*Thank you for using Library system, enter number to choose functions*\n"
                        "\t\t\t*[1]library's info-----------------------------------[2]Reader center*\n"
                        "\t\t\t*[3]Manage system--------------------------------------[4]Change user*\n"
-                       "\t\t\t*[5]Quit-------------------------------------------------------------*");
+                       "\t\t\t*[5]Quit-------------------------------------------------------------*\n");
             }
             break;
         }
