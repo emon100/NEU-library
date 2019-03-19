@@ -90,6 +90,12 @@ void self_manage(book_list *book_data,person *current_user) {
         //显示用户信息
         system("cls");
         display_person(current_user);
+        for (int i = 0; i < borrow_quantity; ++i) {
+            if(i==0)printf("\t\t\t--------Book borrowed--------\n");
+            printf("Book_id:%d\n", current_user->book_id[i]);
+            //display(book_id)展示书籍信息
+            display_book(book_data,current_user->book_id[i]);
+        }
         //输入判断
         if (exit_flag == 1)printf("Input error, please enter again:");
         exit_flag = 0;
@@ -98,6 +104,7 @@ void self_manage(book_list *book_data,person *current_user) {
         option = getchar();
         fflush(stdin);
         if (option == '0') {
+            system("cls");
             return;
         }
         else if (option == '1') {
@@ -130,7 +137,7 @@ void display_book(book_list *book_data,int book_id){
     while(p_book->code!=book_id&&p_book!=NULL){
         p_book=p_book->next;
     }
-    if(p_book==NULL)printf("Book not found");
+    if(p_book==NULL)printf("Book not found!\n");
     else {
         printf("|Title:%-30s|Author:%-20s|Press:%-20s\n",p_book->book_name,p_book->author_name,p_book->press);
         printf("|Field:");
@@ -152,14 +159,19 @@ void display_book(book_list *book_data,int book_id){
                 break;
         }
         printf("         |Price:%6.2f\n",p_book->price);
-        now=time(NULL);
-        borrow_time=p_book->borrow_time;
-        return_time=p_book->borrow_time+2678400;//一个月的秒数是2678400故，time_t类型其实和long差不多
-        printf("Now time:%s\n",ctime(&now));
-        printf("Borrow time:%s\n",ctime(&borrow_time));
-        printf("Should return before:%s\n",ctime(&return_time));
+        if(p_book->id_number==-1)
+            return;
+        else{
+            now=time(NULL);
+            borrow_time=p_book->borrow_time;
+            return_time=p_book->borrow_time+2678400;//一个月的秒数是2678400故，time_t类型其实和long差不多
+            printf("Now time:%s\n",ctime(&now));
+            printf("Borrow time:%s\n",ctime(&borrow_time));
+            printf("Should return before:%s\n",ctime(&return_time));
+        }
     }
 }
+
 void borrow_book(book_list *book_data,person *current_user){
     system("cls");
     printf("Borrow book\nPress any key to continue:\n");

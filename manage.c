@@ -37,7 +37,6 @@ void manage(book_list *book_data,person_list *person_data) {
                 system("cls");
 
         }
-        system("cls");
         printf("\t\t\t*Welcome to management system!*\n"
                "\t\t\t*[1]Edit User's info----------*\n"
                "\t\t\t*[2]Add new User--------------*\n"
