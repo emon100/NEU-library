@@ -34,9 +34,8 @@ void person_delete(person_list *person_data) {
             person_data->head = person_delete->next;
             //进行判断修改总览
             person_data->size--;
-            if (person_delete->prop == as_admin)person_data->admin_size--;
-            if (person_delete->prop == as_reader && person_delete->sex == male)person_data->male_reader_size--;
-
+            if (person_delete->prop == prop_administrator)person_data->admin_size--;
+            if (person_delete->prop == prop_reader && person_delete->sex == male)person_data->male_reader_size--;
             free(person_delete);
             printf("Delete finished\n");
         }
