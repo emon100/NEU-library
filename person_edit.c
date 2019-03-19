@@ -63,19 +63,24 @@ void person_edit(person_list *person_status) {
                             printf("Enter new prop([0]Reader[1]Admin):");
                             temp=p_pointer->prop;
                             scanf("%d", &p_pointer->prop);
-                            //某人变管理员
+                            //读者和error变管理员
                             if(p_pointer->prop==prop_administrator&&temp!=p_pointer->prop) {
                                 //而且之前是男的读者
                                 if (temp==prop_reader&&p_pointer->sex == male)person_status->male_reader_size--;
                                 //管理员数量++
                                 person_status->admin_size++;
                             }
-                            //某人变读者
+                            //管理员和error变读者
                             else if(p_pointer->prop==prop_reader&&temp!=p_pointer->prop){
                                 //而且之前是男的
                                 if(p_pointer->sex == male)person_status->male_reader_size++;
                                 //而且之前是管理员,管理员数量--
                                 if(temp==prop_administrator)person_status->admin_size--;
+                            }
+                            //管理员和读者变error
+                            else if((p_pointer->prop!=prop_administrator||p_pointer!=prop_reader)&&temp!=p_pointer->prop){
+                               if(temp==prop_administrator)person_status->admin_size--;
+                               if(temp==prop_reader&&p_pointer->sex==male)person_status->male_reader_size--;
                             }
                             fflush(stdin);
                             break;
