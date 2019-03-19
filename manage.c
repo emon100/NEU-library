@@ -1,6 +1,6 @@
 //
 // Created by emon100 on 2019/3/12 0012.
-//
+//TODO: Complete it
 #include "lib.h"
 
 void manage(book_list *book_data,person_list *person_data) {
@@ -14,7 +14,8 @@ void manage(book_list *book_data,person_list *person_data) {
            "\t\t\t*[4]Edit book's info----------*\n"
            "\t\t\t*[5]Add book------------------*\n"
            "\t\t\t*[6]Delete book---------------*\n"
-           "\t\t\t*[7]Return--------------------*\n");
+           "\t\t\t*[7]Backup and Recovery-------*\n"
+           "\t\t\t*[8]Return--------------------*\n");
     while (choice = getchar()) {
         fflush(stdin);//³Ô»Ø³µ
         switch (choice) {
@@ -30,7 +31,12 @@ void manage(book_list *book_data,person_list *person_data) {
                 system("cls");
                 person_delete(person_data);
                 break;
+               //TOBECONTINUE
             case '7':
+                system("cls");
+                file_io(book_data,person_data);
+                break;
+            case '8':
                 system("cls");
                 return;
             default:
@@ -44,7 +50,8 @@ void manage(book_list *book_data,person_list *person_data) {
                "\t\t\t*[4]Edit book's info----------*\n"
                "\t\t\t*[5]Add book------------------*\n"
                "\t\t\t*[6]Delete book---------------*\n"
-               "\t\t\t*[7]Return--------------------*\n");
+               "\t\t\t*[7]Backup and Recovery-------*\n"
+               "\t\t\t*[8]Return--------------------*\n");
     }
 }
 
