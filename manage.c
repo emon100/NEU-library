@@ -40,6 +40,10 @@ void manage(book_list *book_data,person_list *person_data) {
                 system("cls");
                 book_insert(book_data);
                 break;
+            case '6':
+                system("cls");
+                order_in_price(book_data);
+                break;
             case '7':
                 system("cls");
                 file_io(book_data,person_data);

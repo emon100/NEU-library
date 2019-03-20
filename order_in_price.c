@@ -6,32 +6,36 @@ void order_in_price(book_list *book_data) {
     book           *c_next;
     book           *p_book;
 
-    if (book_data->size == 1);
+    if (book_data->size <= 1);
     else {
-        current = book_data->head;
-        c_next = current->next;
         for (int i = 1; i <= book_data->size - 1; ++i) {
+            current=book_data->head;
+            c_next=current->next;
+
             if (current->price > c_next->price) {
-                former = c_next;//存储原先链表信息
-                current->next = former->next;//前者的尾部变为后者的尾部
+                current->next = c_next->next;//前者的尾部变为后者的尾部
                 c_next->next = current;//后者的尾部变为前者的地址
                 book_data->head = c_next;//******
+                former=c_next;
                 c_next = current->next;
             }//第一个和第二个排序，保留head
 
             else{
+                former=c_next;
                 current=current->next;
                 c_next=c_next->next;
             }
 
             for (int j = 3; j <= book_data->size; ++j) {
                 if (current->price > c_next->price) {
-                    former = c_next;//存储原先链表信息
-                    current->next = former->next;//前者的尾部变为后者的尾部
+                    current->next = c_next->next;//前者的尾部变为后者的尾部
                     c_next->next = current;//后者的尾部变为前者的地址
+                    former->next=c_next;
+                    former=c_next;
                     c_next = current->next;//后移
                 }//从小到大排序
                 else {
+                    former=c_next;
                     current = current->next;
                     c_next = c_next->next;
                 }//后移

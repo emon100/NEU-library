@@ -60,6 +60,7 @@ void book_insert(book_list *book_data) {
             book_data->tail = book_new;//链表元素+1
             display_book_pointer(book_new);
             printf("whether to continue or not? [1]Yes [0]No\n");
+            fflush(stdin);
         }
         else {
             fflush(stdin);
