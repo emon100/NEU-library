@@ -113,6 +113,7 @@ void            person_insert(person_list *);
 void            person_delete(person_list *);
 void            book_edit(book_list *);
 void            book_insert(book_list *);
+void            book_delete(book_list *);
 
 void            file_io(book_list *,person_list *);
 void            backup(book_list *,person_list *);

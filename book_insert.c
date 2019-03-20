@@ -1,5 +1,5 @@
-/*åˆ¶ä½œäººï¼šè´¾æµ©æ¥ 
- *å‡½æ•°åŠŸèƒ½ï¼šæ·»åŠ ä¹¦ç±ä¿¡æ¯
+/*ÖÆ×÷ÈË£º¼ÖºÆéª
+ *º¯Êı¹¦ÄÜ£ºÌí¼ÓÊé¼®ĞÅÏ¢
  */
 
 #include"lib.h"
@@ -10,7 +10,7 @@ void book_insert(book_list *book_data) {
     book *book_new;
     book_new = book_data->tail;
 
-    //bookä¿¡æ¯ä¿®æ”¹
+    //bookĞÅÏ¢ĞŞ¸Ä
     printf("You are adding new book.whether to continue or not? [1]Yes [0]No\n");
     fflush(stdin);
     while (1) {
@@ -21,7 +21,7 @@ void book_insert(book_list *book_data) {
             break;
         }
         else if (flag=='1') {
-            book_new->next = (book *) malloc(sizeof(book));//å¼€è¾Ÿbookç¼“å­˜åŒº
+            book_new->next = (book *) malloc(sizeof(book));//¿ª±Ùbook»º´æÇø
             book_new=book_new->next;
             book_new->code = book_data->code;
 
@@ -29,42 +29,42 @@ void book_insert(book_list *book_data) {
             fflush(stdin);
             gets(current);
             fflush(stdin);
-            strcpy(book_new->book_name, current);//å›¾ä¹¦å
+            strcpy(book_new->book_name, current);//Í¼ÊéÃû
 
             printf("Please input the authors' name:\n");
             fflush(stdin);
             gets(current);
             fflush(stdin);
-            strcpy(book_new->author_name, current);//ä½œè€…å
+            strcpy(book_new->author_name, current);//×÷ÕßÃû
 
             printf("Please input its press:\n");
             fflush(stdin);
             gets(current);
             fflush(stdin);
-            strcpy(book_new->press, current);//å‡ºç‰ˆç¤¾
+            strcpy(book_new->press, current);//³ö°æÉç
 
             printf("Please choose its field:\n0.science\n1.literature\n2.education\n3.atr\n4.life\n");
-            scanf("%d", &book_new->field);//é¢†åŸŸ
+            scanf("%d", &book_new->field);//ÁìÓò
 
             printf("Please input its price:\n");
-            scanf("%f", &book_new->price);//ä»·æ ¼
+            scanf("%f", &book_new->price);//¼Û¸ñ
 
-            book_new->id_number = -1;//å€Ÿä¹¦è€…å·ç é»˜è®¤-1è¡¨ç¤ºæ²¡äººå€Ÿ
+            book_new->id_number = -1;//½èÊéÕßºÅÂëÄ¬ÈÏ-1±íÊ¾Ã»ÈË½è
 
-            //book_listä¿¡æ¯ä¿®æ”¹
+            //book_listĞÅÏ¢ĞŞ¸Ä
             book_new->next=NULL;
-            book_data->size++;//ä¹¦æœ¬æ€»é‡+1
-            book_data->code = book_data->code + 1;//ä¹¦ç±æ¡ç æ·»åŠ 
+            book_data->size++;//Êé±¾×ÜÁ¿+1
+            book_data->code = book_data->code + 1;//Êé¼®ÌõÂëÌí¼Ó
             if(book_new->field<=life)
-                book_data->book_size_field[book_new->field]++;//ç›¸å…³é¢†åŸŸä¹¦æ•°é‡+1
-            book_data->tail = book_new;//é“¾è¡¨å…ƒç´ +1
+                book_data->book_size_field[book_new->field]++;//Ïà¹ØÁìÓòÊéÊıÁ¿+1
+            book_data->tail = book_new;//Á´±íÔªËØ+1
             display_book_pointer(book_new);
             printf("whether to continue or not? [1]Yes [0]No\n");
             fflush(stdin);
         }
         else {
             fflush(stdin);
-            printf("è¯·é‡æ–°è¾“å…¥æŒ‡ä»¤\n");
+            printf("ÇëÖØĞÂÊäÈëÖ¸Áî\n");
             continue;
         }
     }

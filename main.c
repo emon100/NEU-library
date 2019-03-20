@@ -15,7 +15,7 @@ int main(void) {
     person_list *person_data = (person_list *) malloc(sizeof(person_list));
     book_list *book_data = (book_list *) malloc(sizeof(book_list));
     person_recovery(person_data);
-    book_test(book_data);
+    book_recovery(book_data);
     //菜单部分开始
     while(1){
     system("cls");
