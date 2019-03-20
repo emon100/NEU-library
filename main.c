@@ -44,7 +44,7 @@ int main(void) {
                    "\t\t\t*[1]Statistic\n"
                    "\t\t\t*[2]Reader center\n"
                    "\t\t\t*[3]Change user\n"
-                   "\t\t\t*[4]Quit*\n");
+                   "\t\t\t*[4]Quit\n");
             fflush(stdin);//吃回车
             while (choice = getchar()) {
                 fflush(stdin);//吃回车
@@ -79,7 +79,7 @@ int main(void) {
                    "\t\t\t*[1]Statistic\n"
                    "\t\t\t*[2]Reader center\n"
                    "\t\t\t*[3]Change user\n"
-                   "\t\t\t*[4]Quit*\n");
+                   "\t\t\t*[4]Quit\n");
             }
             break;
         case as_admin     :
@@ -114,8 +114,7 @@ int main(void) {
                         break;
                     case '5'    :
                         system("cls");
-                        printf("Thank you for using, goodbye!\n");
-                        return 0;
+                        printf("Thank you for using, goodbye!\n");return 0;
                     default     :
                         system("cls");
                         printf("Please enter again!\n");
