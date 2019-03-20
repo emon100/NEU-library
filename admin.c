@@ -69,7 +69,7 @@ void book_test(book_list *book_data){
     next->code=2;
     next->id_number=100;
     strcpy(next->book_name,"book2");
-    next->price=19.99;
+    next->price=29.99;
     next->field=art;
     strcpy(next->press,"First press");
     strcpy(next->author_name,"XX");

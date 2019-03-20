@@ -4,8 +4,8 @@
 #include "lib.h"
 
 
-enum login_status login(int user_id,person_list *persondata){
-    person              *p1=persondata->head;
+enum login_status login(int user_id,person_list *person_data){
+    person              *p1=person_data->head;
     enum login_status   validity    =password_err;
     char *password_tmp=(char *)malloc(sizeof(char)*13);
     while(1){
@@ -17,7 +17,7 @@ enum login_status login(int user_id,person_list *persondata){
                 case prop_reader       :
                     validity=as_reader;break;
             }
-            printf("%s,Enter your password:\n",p1->name);//到时候肯定不应该出名字
+            printf("%s,Enter your password:\n",p1->name);
             scanf("%s",password_tmp);
             if(strcmp(p1->password,password_tmp)==0){
                 free(password_tmp);

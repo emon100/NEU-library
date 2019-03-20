@@ -1,36 +1,45 @@
 #include"lib.h"
-void order_in_price(book_list *book_data){
-    book    *former;
-    book    *current;
-    book    *cnext;
-    book    *p_book;
 
-    current =book_data->head;
-    cnext   =current->next;
-    for(int i=1;i<=book_data->size-1;++i){
-    if(current->price>cnext->price){
-        former=cnext;//存储原先链表信息
-        current->next=former->next;//前者的尾部变为后者的尾部
-        cnext->next=current;//后者的尾部变为前者的地址
-        book_data->head=cnext;//******
-        cnext=current->next;
-    }//第一个和第二个排序，保留head
+void order_in_price(book_list *book_data) {
+    book           *former;
+    book           *current;
+    book           *c_next;
+    book           *p_book;
 
-    for(int i=3;i<=book_data->size;++i)
-    {
-    if(current->price>cnext->price){
-        former=cnext;//存储原先链表信息
-        current->next=former->next;//前者的尾部变为后者的尾部
-        cnext->next=current;//后者的尾部变为前者的地址
-        cnext=current->next;//后移
-    }//从小到大排序
-    else{
-    current=current->next;
-    cnext=cnext->next;}//后移
-    }}
+    if (book_data->size == 1);
+    else {
+        current = book_data->head;
+        c_next = current->next;
+        for (int i = 1; i <= book_data->size - 1; ++i) {
+            if (current->price > c_next->price) {
+                former = c_next;//存储原先链表信息
+                current->next = former->next;//前者的尾部变为后者的尾部
+                c_next->next = current;//后者的尾部变为前者的地址
+                book_data->head = c_next;//******
+                c_next = current->next;
+            }//第一个和第二个排序，保留head
 
-    p_book=book_data->head;
-    do {
+            else{
+                current=current->next;
+                c_next=c_next->next;
+            }
+
+            for (int j = 3; j <= book_data->size; ++j) {
+                if (current->price > c_next->price) {
+                    former = c_next;//存储原先链表信息
+                    current->next = former->next;//前者的尾部变为后者的尾部
+                    c_next->next = current;//后者的尾部变为前者的地址
+                    c_next = current->next;//后移
+                }//从小到大排序
+                else {
+                    current = current->next;
+                    c_next = c_next->next;
+                }//后移
+            }
+        }
+    }
+    p_book = book_data->head;
+    while (p_book != NULL) {
         printf("|Title:%-30s|Author:%-20s|Press:%-20s\n", p_book->book_name, p_book->author_name, p_book->press);
         printf("|Field:");
         switch (p_book->field) {
@@ -51,6 +60,6 @@ void order_in_price(book_list *book_data){
                 break;
         }
         printf("         |Price:%6.2f\n", p_book->price);
-        p_book=p_book->next;
-    }while(p_book->next=NULL);//输出书籍信息
+        p_book = p_book->next;
+    }//输出书籍信息
 }

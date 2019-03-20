@@ -89,8 +89,8 @@ void            admin_init(person_list *);//测试函数
 void            book_test(book_list *book_data);//测试函数
 
 
-void user_init(person_list *);//读取用户文件创建用户链表
-void book_init(book_list *);//读取书籍文件创建书籍链表
+//void user_init(person_list *);//读取用户文件创建用户链表
+//void book_init(book_list *);//读取书籍文件创建书籍链表
 
 
 enum login_status        login(int,person_list *);//与正式版本不同的函数

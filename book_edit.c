@@ -5,7 +5,7 @@
 #include"lib.h"
 void book_edit(book_list *book_data) {
     int         code = 0;
-    int         exit_flag;
+    int         exit_flag=0;
     book        *book_current;
     int         choice = 0;
     char        current[200];
