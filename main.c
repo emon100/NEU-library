@@ -41,8 +41,10 @@ int main(void) {
             printf("id:%5d--name:%10s--borrow:%5d\n", current_user->id_number, current_user->name,
                    current_user->borrow_quantity);//测试current_user
             printf("\t\t\t*Thank you for using Library system, enter number to choose functions*\n"
-                   "\t\t\t*[1]Statistic----------------------------------------[2]Reader center*\n"
-                   "\t\t\t*[3]Change user-----------------------------------------------[4]Quit*\n");
+                   "\t\t\t*[1]Statistic\n"
+                   "\t\t\t*[2]Reader center\n"
+                   "\t\t\t*[3]Change user\n"
+                   "\t\t\t*[4]Quit*\n");
             fflush(stdin);//吃回车
             while (choice = getchar()) {
                 fflush(stdin);//吃回车
@@ -74,8 +76,10 @@ int main(void) {
                 }
                 fflush(stdin);//吃回车
                 printf("\t\t\t*Thank you for using Library system, enter number to choose functions*\n"
-                       "\t\t\t*[1]Statistic----------------------------------------[2]Reader center*\n"
-                       "\t\t\t*[3]Change user-----------------------------------------------[4]Quit*\n");
+                   "\t\t\t*[1]Statistic\n"
+                   "\t\t\t*[2]Reader center\n"
+                   "\t\t\t*[3]Change user\n"
+                   "\t\t\t*[4]Quit*\n");
             }
             break;
         case as_admin     :
@@ -83,9 +87,11 @@ int main(void) {
             printf("id:%5d--name:%10s--borrow:%5d\n", current_user->id_number, current_user->name,
                    current_user->borrow_quantity);//测试current_user
             printf("\t\t\t*Thank you for using Library system, enter number to choose functions*\n"
-                   "\t\t\t*[1]library's info-----------------------------------[2]Reader center*\n"
-                   "\t\t\t*[3]Manage system--------------------------------------[4]Change user*\n"
-                   "\t\t\t*[5]Quit-------------------------------------------------------------*\n");
+                   "\t\t\t*[1]library's info\n"
+                   "\t\t\t*[2]Reader center\n"
+                   "\t\t\t*[3]Manage system\n"
+                   "\t\t\t*[4]Change user\n"
+                   "\t\t\t*[5]Quit\n");
             fflush(stdin);
             while (choice = getchar()) {
                 fflush(stdin);//吃回车
@@ -120,9 +126,11 @@ int main(void) {
                     break;
                 }
                 printf("\t\t\t*Thank you for using Library system, enter number to choose functions*\n"
-                       "\t\t\t*[1]library's info-----------------------------------[2]Reader center*\n"
-                       "\t\t\t*[3]Manage system--------------------------------------[4]Change user*\n"
-                       "\t\t\t*[5]Quit-------------------------------------------------------------*\n");
+                       "\t\t\t*[1]library's info\n"
+                       "\t\t\t*[2]Reader center\n"
+                       "\t\t\t*[3]Manage system\n"
+                       "\t\t\t*[4]Change user\n"
+                       "\t\t\t*[5]Quit\n");
                 fflush(stdin);//吃回车
             }
             break;
