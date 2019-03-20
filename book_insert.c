@@ -45,9 +45,11 @@ void book_insert(book_list *book_data) {
 
             printf("Please choose its field:\n0.science\n1.literature\n2.education\n3.atr\n4.life\n");
             scanf("%d", &book_new->field);//领域
+            fflush(stdin);
 
             printf("Please input its price:\n");
             scanf("%f", &book_new->price);//价格
+            fflush(stdin);
 
             book_new->id_number = -1;//借书者号码默认-1表示没人借
 
