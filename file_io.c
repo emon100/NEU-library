@@ -52,7 +52,6 @@ void backup(book_list *book_data,person_list *person_data){
         printf("正在备份书本信息...\n");
         book_backup(book_data);
     }
-    return;
 }
 
 void recovery(book_list *book_data,person_list *person_data){
@@ -68,5 +67,4 @@ void recovery(book_list *book_data,person_list *person_data){
         printf("正在恢复书本信息...\n");
         book_recovery(book_data);
     }
-    return;
 }

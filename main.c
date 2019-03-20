@@ -9,7 +9,7 @@ person *current_user=NULL;
 int main(void) {
     int                 exit_flag=0;
     int                 user_id;//当前用户id
-    enum login_status   validity = no_user;//有效性-1为找不到人，0为密码错误，1为任何读者，2为管理员
+    enum login_status   validity;//有效性-1为找不到人，0为密码错误，1为任何读者，2为管理员
     char choice;//用户输入的命令
     /*人和书本数据类型指针初始化*/
     person_list *person_data = (person_list *) malloc(sizeof(person_list));

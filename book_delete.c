@@ -6,7 +6,6 @@
 //TODO:111111
 void book_delete(book_list *book_data) {
     int code = 0;
-    book *head;
     book *book_current;
     book *book_last;
     //信息输入
@@ -15,7 +14,7 @@ void book_delete(book_list *book_data) {
     fflush(stdin);
 
     //书本匹配
-    book_current = head = book_data->head;
+    book_current = book_data->head;
     //如果是头部书本
     if (book_current->code == code) {
         book_data->head = book_current->next;
@@ -27,7 +26,7 @@ void book_delete(book_list *book_data) {
             book_current = book_current->next;
         }//匹配书籍条码，获得删除书籍的指针
         //重连链表
-        if(book_current->code==code) {
+        if(book_current!=NULL) {
             book_last->next = book_current->next;
             //book_list信息修改
             book_data->size--;//总数修改
