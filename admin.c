@@ -60,7 +60,7 @@ void book_test(book_list *book_data){
     head->code=1;
     head->id_number=101;
     strcpy(head->book_name,"book1");
-    head->price=9.99;
+    head->price=49.99;
     strcpy(head->author_name,"WW");
     strcpy(head->press,"People's press");
     head->field=science;
@@ -79,7 +79,7 @@ void book_test(book_list *book_data){
     next->code=3;
     next->id_number=-1;
     strcpy(next->book_name,"book3");
-    next->price=29.99;
+    next->price=19.99;
     next->field=art;
     strcpy(next->press,"People's press");
     strcpy(next->author_name,"YY");
@@ -88,7 +88,7 @@ void book_test(book_list *book_data){
     next->code=4;
     next->id_number=-1;
     strcpy(next->book_name,"book4");
-    next->price=49.99;
+    next->price=9.99;
     next->field=science;
     strcpy(next->press,"Second press");
     strcpy(next->author_name,"ZZ");

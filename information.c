@@ -6,6 +6,7 @@
 //TODO:搜书搜人
 void information_reader(book_list *book_data){
     int choice;
+    int book_code;
     system("cls");
     printf("information_reader\n");//记得删掉
     printf("\t\t\t*Welcome!--------------------------------*\n"
@@ -28,7 +29,10 @@ void information_reader(book_list *book_data){
                 break;
             case  '2':
                 system("cls");
-                printf("search book\n");
+                printf("search book,Enter code of the book:\n");
+                scanf("%d",&book_code);
+                fflush(stdin);
+                display_book_code(book_data,book_code);
                 break;
             case  '3':
                 system("cls");

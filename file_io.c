@@ -3,8 +3,7 @@
 //
 // Created by emon100 on 2019/3/20 0020.
 //
-//TODO:加入备份书的功能, 菜单
-//TODO:void recovery();
+//TODO:书的备份还原
 
 void file_io(book_list *book_data,person_list *person_data){
     int     exit_flag=0;
@@ -21,7 +20,7 @@ void file_io(book_list *book_data,person_list *person_data){
                 backup(book_data,person_data);
                 break;
             case '2':
-                //recovery(book_data,person_data);
+                recovery(book_data,person_data);
                 break;
             case '3':
                 exit_flag=1;
@@ -30,15 +29,20 @@ void file_io(book_list *book_data,person_list *person_data){
                 printf("Please enter again!\n");
                 break;
         }
+        system("cls");
         if(exit_flag==1) break;
-        else continue;
+        printf("[1]Backup------[2]Recovery\n"
+               "[3]Return\n");
+        fflush(stdin);
+        option=getchar();
+        fflush(stdin);
     }
 }
 
 void backup(book_list *book_data,person_list *person_data){
     char    option;
     system("cls");
-    printf("Backup all infomation.Whether to continue or not?\nPress 1 to continue:\n");
+    printf("Backup all infomation.Whether to continue or not?\nPress 1 to continue, another key to abort:\n");
     fflush(stdin);
     option=getchar();
     fflush(stdin);
@@ -52,13 +56,15 @@ void backup(book_list *book_data,person_list *person_data){
 void recovery(book_list *book_data,person_list *person_data){
     char    option;
     system("cls");
-    printf("Recovery all infomation.Whether to continue or not?\nPress 1 to continue:\n");
+    printf("Recovery all information.Whether to continue or not?\nPress 1 to continue, another key to abort:\n");
     fflush(stdin);
     option=getchar();
     fflush(stdin);
     if(option=='1') {
-        printf("正在备份人员信息...\n");
+        printf("正在恢复人员信息...\n");
         person_recovery(person_data);
+        //book_recovery;
     }
+
     return;
 }

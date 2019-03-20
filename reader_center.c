@@ -51,7 +51,7 @@ void self_manage(book_list *book_data,person *current_user) {
     for (int i = 0; i < borrow_quantity; ++i) {
         printf("Book_id:%d\n", current_user->book_id[i]);
         //display(book_id)展示书籍信息
-        display_book(book_data,current_user->book_id[i]);
+        display_book_code(book_data, current_user->book_id[i]);
     }
     while (1) {
         if (exit_flag != 1) {
@@ -94,7 +94,7 @@ void self_manage(book_list *book_data,person *current_user) {
             if(i==0)printf("\t\t\t--------Book borrowed--------\n");
             printf("Book_id:%d\n", current_user->book_id[i]);
             //display(book_id)展示书籍信息
-            display_book(book_data,current_user->book_id[i]);
+            display_book_code(book_data, current_user->book_id[i]);
         }
         //输入判断
         if (exit_flag == 1)printf("Input error, please enter again:");
@@ -131,7 +131,40 @@ void display_person(person *current_user){
     printf("Book borrowed:%-3d\n\n",current_user->borrow_quantity);
 }
 
-void display_book(book_list *book_data,int book_id){
+void display_book_pointer(book *p_book){
+    time_t      now,borrow_time,return_time;
+    printf("|Title:%-30s|Author:%-20s|Press:%-20s\n",p_book->book_name,p_book->author_name,p_book->press);
+    printf("|Field:");
+    switch(p_book->field){
+        case science:
+            printf("Science");
+            break;
+        case literature:
+            printf("Literature");
+            break;
+        case education:
+            printf("Education");
+            break;
+        case art:
+            printf("Art");
+            break;
+        case life:
+            printf("Life");
+            break;
+    }
+    printf("         |Price:%6.2f\n",p_book->price);
+    if(p_book->id_number==-1)
+        return;
+    else{
+        now=time(NULL);
+        borrow_time=p_book->borrow_time;
+        return_time=p_book->borrow_time+2678400;//一个月的秒数是2678400故，time_t类型其实和long差不多
+        printf("Now time:%s\n",ctime(&now));
+        printf("Borrow time:%s\n",ctime(&borrow_time));
+        printf("Should return before:%s\n",ctime(&return_time));
+    }
+}
+void display_book_code(book_list *book_data, int book_id){
     book        *p_book=book_data->head;
     time_t      now,borrow_time,return_time;
     while(p_book->code!=book_id&&p_book!=NULL){

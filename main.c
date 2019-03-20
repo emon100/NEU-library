@@ -16,6 +16,7 @@ int main(void) {
     book_list *book_data = (book_list *) malloc(sizeof(book_list));
     person_recovery(person_data);
     book_test(book_data);
+//    order_in_price(book_data);
     //菜单部分开始
     while(1){
     system("cls");

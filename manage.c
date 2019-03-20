@@ -32,6 +32,14 @@ void manage(book_list *book_data,person_list *person_data) {
                 person_delete(person_data);
                 break;
                //TOBECONTINUE
+            case '4':
+                system("cls");
+                book_edit(book_data);
+                break;
+            case '5':
+                system("cls");
+                book_insert(book_data);
+                break;
             case '7':
                 system("cls");
                 file_io(book_data,person_data);

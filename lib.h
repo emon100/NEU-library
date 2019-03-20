@@ -102,7 +102,8 @@ void            information_admin(book_list *,person_list *);//¿ÉÒÔ¿´ËùÓĞÍ¼Êé¹İÊ
 void            reader_center(book_list *,person *);//¶ÁÕßÏµÍ³
 void            self_manage(book_list *,person *);
 void            display_person(person *);//Õ¹Ê¾¸öÈËĞÅÏ¢
-void            display_book(book_list *,int book_id);//Õ¹Ê¾Êé¼®ĞÅÏ¢
+void            display_book_pointer(book *);//¸ù¾İÊé¼®½ÚµãµØÖ·Õ¹Ê¾Êé¼®ĞÅÏ¢
+void            display_book_code(book_list *, int book_id);//¸ù¾İÊé¼®codeÕ¹Ê¾Êé¼®ĞÅÏ¢
 void            borrow_book(book_list *,person *);
 void            return_book(book_list *,person *);
 
@@ -110,6 +111,7 @@ void            manage(book_list *,person_list *);
 void            person_edit(person_list *);
 void            person_insert(person_list *);
 void            person_delete(person_list *);
+void            book_edit(book_list *);
 void            book_insert(book_list *);
 
 void            file_io(book_list *,person_list *);
@@ -118,7 +120,7 @@ void            recovery(book_list *,person_list *);
 void            person_backup(person_list *);
 void            person_recovery(person_list *);
 
-
+void            order_in_price(book_list *);
 book            *search_book_pointer(int,book_list *);//ËÑË÷»ñµÃÊé½ÚµãµØÖ·£¬ĞŞ¸ÄºÍËÑË÷Ê±¿ÉÒÔÊ¹ÓÃ,ÖÁÓÚÉ¾³ıµÄ»°¾Í»¹ÊÇ±éÀú¶àÇé¿öÌÖÂÛ°É
 person          *search_person_pointer(int,person_list *);//ËÑË÷»ñµÃ½èÊéÕß½ÚµãµØÖ·£¬Í¬ÉÏ
 #endif

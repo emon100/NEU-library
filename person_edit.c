@@ -9,12 +9,14 @@ void person_edit(person_list *person_status) {
     int         option;
     int         exit_flag=0;
     int         temp;
+    person      *p_pointer;
     while(1) {
         printf("Enter user id:\n");
         scanf("%d",&id_number);
         fflush(stdin);
-        person *p_pointer = person_status->head;
+        p_pointer = person_status->head;//初始化指针位置
         system("cls");
+        //人员匹配
         while (p_pointer->id_number != id_number && p_pointer->next != NULL) {
             p_pointer = p_pointer->next;
         }
