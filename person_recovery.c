@@ -16,7 +16,7 @@ void person_recovery(person_list *person_data){
         printf("无法打开文件\n");
         return;
     }
-    for(int i=0;i<size;i++){
+    for(int i=0;i<size;++i){
         person_new=(person *)malloc(sizeof(person));
         if(i==0)person_data->head=person_new;
         else person_pointer->next=person_new;

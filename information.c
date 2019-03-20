@@ -20,7 +20,7 @@ void information_reader(book_list *book_data){
             case  '1':
                 printf("|-Total book-|-science-|-literature-|--education--|--art--|-----life-----|\n  ");
                 printf("%5d",book_data->size);
-                for(int i=science;i<=life;i++)printf("%12d",book_data->book_size_field[i]);
+                for(int i=science;i<=life;++i)printf("%12d",book_data->book_size_field[i]);
                 printf("\n");
                 printf("Press any key to continue:\n");
                 getchar();
@@ -64,7 +64,7 @@ void information_admin(book_list *book_data,person_list *person_data) {
                 system("cls");
                 printf("|-Total book-|-science-|-literature-|-education--|---art----|---life---|\n  ");
                 printf("%5d", book_data->size);
-                for (int i = science; i <= life; i++)printf("%12d", book_data->book_size_field[i]);
+                for (int i = science; i <= life; ++i)printf("%12d", book_data->book_size_field[i]);
                 printf("\n");
                 printf("|-Total User-|-Admins-|-Total readers-|-male readers-|-Female readers-|\n");
                 printf("%9d%13d%9d%15d%17d\n",person_data->size,person_data->admin_size,person_data->size-person_data->admin_size,person_data->male_reader_size,person_data->size-person_data->admin_size-person_data->male_reader_size);
