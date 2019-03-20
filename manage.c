@@ -15,7 +15,9 @@ void manage(book_list *book_data,person_list *person_data) {
            "\t\t\t*[5]Add book------------------*\n"
            "\t\t\t*[6]Delete book---------------*\n"
            "\t\t\t*[7]Backup and Recovery-------*\n"
-           "\t\t\t*[8]Return--------------------*\n");
+           "\t\t\t*[8]Sort users----------------*\n"
+           "\t\t\t*[9]Sort books----------------*\n"
+           "\t\t\t*[0]Return--------------------*\n");
     while (choice = getchar()) {
         fflush(stdin);//³Ô»Ø³µ
         switch (choice) {
@@ -31,7 +33,6 @@ void manage(book_list *book_data,person_list *person_data) {
                 system("cls");
                 person_delete(person_data);
                 break;
-               //TOBECONTINUE
             case '4':
                 system("cls");
                 book_edit(book_data);
@@ -42,13 +43,21 @@ void manage(book_list *book_data,person_list *person_data) {
                 break;
             case '6':
                 system("cls");
-                order_in_price(book_data);
+                book_delete(book_data);
                 break;
             case '7':
                 system("cls");
                 file_io(book_data,person_data);
                 break;
             case '8':
+                system("cls");
+                printf("sort users\n");
+                break;
+            case '9':
+                system("cls");
+                order_in_price(book_data);
+                break;
+            case '0':
                 system("cls");
                 return;
             default:
@@ -63,7 +72,10 @@ void manage(book_list *book_data,person_list *person_data) {
                "\t\t\t*[5]Add book------------------*\n"
                "\t\t\t*[6]Delete book---------------*\n"
                "\t\t\t*[7]Backup and Recovery-------*\n"
-               "\t\t\t*[8]Return--------------------*\n");
+               "\t\t\t*[8]Sort users----------------*\n"
+               "\t\t\t*[9]Sort books----------------*\n"
+               "\t\t\t*[0]Return--------------------*\n");
+        fflush(stdin);
     }
 }
 
