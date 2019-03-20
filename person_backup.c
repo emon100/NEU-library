@@ -4,7 +4,10 @@ void person_backup(person_list *person_data){
     person              *person_pointer;
     person_pointer   =  person_data->head;
     //先写总览信息
-    f_pointer = fopen("D:\\person_data_all.dat","wb+");
+    if((f_pointer = fopen("D:\\person_list.dat","wb+"))==NULL){
+        printf("无法打开文件\n");
+        return;
+    }
     fwrite(person_data, sizeof(person_list),1,f_pointer);
     fclose(f_pointer);
     //写入节点
