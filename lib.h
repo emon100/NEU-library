@@ -110,9 +110,11 @@ void            manage(book_list *,person_list *);
 void            person_edit(person_list *);
 void            person_insert(person_list *);
 void            person_delete(person_list *);
+void            book_insert(book_list *);
 
 void            file_io(book_list *,person_list *);
 void            backup(book_list *,person_list *);
+void            recovery(book_list *,person_list *);
 void            person_backup(person_list *);
 void            person_recovery(person_list *);
 

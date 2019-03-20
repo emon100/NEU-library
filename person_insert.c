@@ -4,8 +4,8 @@
 //人员插入函数
 //获取的参数为person_list类型的一个变量
 void person_insert(person_list *person_data) {
-    person *p_new=person_data->tail;
-    int flag;
+    person      *p_new=person_data->tail;
+    int         flag;
     printf("You are adding new new user.whether to continue or not? [1]Yes [0]No\n");
     fflush(stdin);
     while (1) {

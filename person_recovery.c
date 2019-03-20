@@ -25,5 +25,5 @@ void person_recovery(person_list *person_data){
     }
     fclose(f_pointer);
     person_pointer->next=NULL;
-    person_data->tail=person_pointer;
+    person_data->tail=person_pointer;//Î²²¿Ìí¼Ó
 }

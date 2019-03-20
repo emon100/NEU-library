@@ -5,7 +5,6 @@
 
 
 enum login_status login(int user_id,person_list *persondata){
-    //²âÊÔµÇÂ¼
     person              *p1=persondata->head;
     enum login_status   validity    =password_err;
     char *password_tmp=(char *)malloc(sizeof(char)*13);

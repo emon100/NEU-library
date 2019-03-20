@@ -14,7 +14,7 @@ int main(void) {
     /*人和书本数据类型指针初始化*/
     person_list *person_data = (person_list *) malloc(sizeof(person_list));
     book_list *book_data = (book_list *) malloc(sizeof(book_list));
-    admin_init(person_data);
+    person_recovery(person_data);
     book_test(book_data);
     //菜单部分开始
     while(1){
