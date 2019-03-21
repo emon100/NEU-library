@@ -48,11 +48,22 @@ void person_delete(person_list *person_data) {
     //如果非头部
     else {
         person_delete=person_delete->next;
-        while (person_delete->id_number != id_number && person_delete!= NULL) {
+        if(person_delete==NULL){
+            printf("没有找到您要删除的数据\n");
+            return;
+        }
+        else{
+        while (person_delete->id_number != id_number) {
             person_delete = person_delete->next;
             person_previous = person_previous->next;
+            if(person_delete==NULL)break;
+            }
         }
-        if (person_delete->id_number == id_number) {
+        if(person_delete==NULL){
+            printf("没有找到您要删除的数据\n");
+            return;
+        }
+        else if (person_delete->id_number == id_number) {
             printf("User info:\n");
             display_person_pointer(person_delete);
             printf("Still delete? Press 1 to continue, press another key to abort:\n");

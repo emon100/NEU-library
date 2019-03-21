@@ -37,6 +37,9 @@ void display_book_pointer(book *p_book){
         case life:
             printf("Life");
             break;
+        default:
+            printf("Error");
+            break;
     }
     printf("\n|Price:%6.2f\n\n",p_book->price);
     if(p_book->person_id_number==-1)
@@ -62,8 +65,11 @@ void display_book_code(int code, book_list *book_data) {
 //有可能返回NULL
 book *search_book_pointer(int code,book_list *book_data){
     book *book_current=book_data->head;
-    while(book_current->code!=code&&book_current!=NULL){
+    if(book_current==NULL)return book_current;
+    while(book_current->code!=code){
         book_current=book_current->next;
+        if(book_current==NULL)return book_current;
+        else continue;
     }
     return book_current;
 }
@@ -72,8 +78,10 @@ book *search_book_pointer(int code,book_list *book_data){
 //有可能返回NULL
 person *search_person_pointer(int id,person_list *person_data){
     person *person_current=person_data->head;
-    while(person_current->id_number!=id&&person_current!=NULL){
+    if(person_current==NULL)return person_current;
+    while(person_current->id_number!=id){
         person_current=person_current->next;
+        if(person_current==NULL)return person_current;
     }
     return person_current;
 }

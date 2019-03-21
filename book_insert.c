@@ -21,6 +21,7 @@ void book_insert(book_list *book_data) {
             break;
         }
         else if (flag=='1') {
+            system("cls");
             book_new->next = (book *) malloc(sizeof(book));//¿ª±Ùbook»º´æÇø
             book_new=book_new->next;
             book_new->code = book_data->code;

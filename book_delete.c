@@ -14,7 +14,7 @@ void book_delete(book_list *book_data) {
     fflush(stdin);
 
     //书本匹配
-    book_delete = book_data->head;
+    book_delete =book_previous = book_data->head;
 
     if (book_delete==NULL) {
         printf("No book in library!\n");
@@ -44,11 +44,22 @@ void book_delete(book_list *book_data) {
         //如果非头部
     else {
         book_delete=book_delete->next;
-        while (book_delete->code != code && book_delete!= NULL) {
-            book_delete = book_delete->next;
-            book_previous = book_previous->next;
+        if(book_delete==NULL){
+            printf("没有找到您要删除的数据\n");
+            return;
         }
-        if (book_delete->code == code) {
+        else {
+            while (book_delete->code != code) {
+                book_delete = book_delete->next;
+                book_previous = book_previous->next;
+                if(book_delete==NULL)break;
+            }
+        }
+        if(book_delete==NULL){
+            printf("没有找到您要删除的数据\n");
+            return;
+        }
+        else if (book_delete->code == code) {
             printf("User info:\n");
             display_book_pointer(book_delete);
             printf("Still delete? Press 1 to continue, press another key to abort:\n");

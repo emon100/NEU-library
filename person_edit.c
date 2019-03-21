@@ -17,7 +17,12 @@ void person_edit(person_list *person_data) {
         system("cls");
         //人员匹配
         p_pointer=search_person_pointer(id_number,person_data);
-        if (p_pointer->id_number == id_number) {
+        if (p_pointer==NULL) {
+            system("cls");
+            printf("User not Found!\n");
+            return;
+        }
+        else if (p_pointer->id_number == id_number) {
             //显示用户信息
             display_person_pointer(p_pointer);
             printf("请选择要修改的信息类型：\n[1]图书卡号码\n[2]图书卡密码\n[3]人员姓名\n[4]人员性别\n[5]人员属性\n[6]罚金金额\n[7]返回上一级菜单\n");
@@ -91,10 +96,12 @@ void person_edit(person_list *person_data) {
                             break;
                         }
                         case '7': {
+                            fflush(stdin);
                             system("cls");
                             return;
                         }
                         default:
+                            fflush(stdin);
                             printf("Input Error!Please Enter again:\n");
                             break;
                     }
@@ -132,7 +139,7 @@ void person_edit(person_list *person_data) {
         else {
             system("cls");
             printf("User not Found!\n");
-            break;
+            return;
         }
     }
 }

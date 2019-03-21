@@ -16,14 +16,18 @@ void book_edit(book_list *book_data) {
         fflush(stdin);
         system("cls");
         //书本匹配
-        book_current = book_data->head;
-        while (book_current->code != code&&book_current!=NULL)book_current = book_current->next;//匹配书籍条码，获得所修改书籍的指针
+        book_current=search_book_pointer(code,book_data);
+        if (book_current==NULL) {
+            system("cls");
+            printf("Book not Found!\n");
+            return;
+        }
         //信息修改
         //初次修改
-        if (book_current->code == code) {
+        else if (book_current->code == code) {
             display_book_pointer(book_current);
             printf("Please choose the information you want to change\n");
-            printf("[1]Book_name\n[2]Author's name\n[3]Press\n[4]Field\n[5]Price\n[6]Return");
+            printf("[1]Book_name\n[2]Author's name\n[3]Press\n[4]Field\n[5]Price\n[6]Return\n");
             fflush(stdin);
             while (1){
                 if(exit_flag!=1){
@@ -33,6 +37,7 @@ void book_edit(book_list *book_data) {
                         case '1': {
                             printf("Please input new book_name:\n");
                             gets(current);
+                            fflush(stdin);
                             strcpy(book_current->book_name, current);
                             break;
                         }//图书名修改
@@ -40,6 +45,7 @@ void book_edit(book_list *book_data) {
                         case '2': {
                             printf("Please input new author_name:\n");
                             gets(current);
+                            fflush(stdin);
                             strcpy(book_current->author_name, current);
                             break;
                         }//作者名修改
@@ -47,6 +53,7 @@ void book_edit(book_list *book_data) {
                         case '3': {
                             printf("Please input new press:\n");
                             gets(current);
+                            fflush(stdin);
                             strcpy(book_current->press, current);
                             break;
                         }//出版社修改
@@ -54,7 +61,9 @@ void book_edit(book_list *book_data) {
                         case '4': {
                             book_data->book_size_field[book_current->field]--;
                             printf("Please input new field:\n");
+                            printf("0.science\n1.literature\n2.education\n3.art\n4.life\n");
                             scanf("%d", &book_current->field);
+                            fflush(stdin);
                             if(book_current->field<=life)
                                 book_data->book_size_field[book_current->field]++;//领域数变动
                             break;
@@ -63,15 +72,18 @@ void book_edit(book_list *book_data) {
                         case '5': {
                             printf("Please input new price:\n");
                             scanf("%f", &book_current->price);
+                            fflush(stdin);
                             break;
                         }
 
                         case '6': {
                             system("cls");
+                            fflush(stdin);
                             return;
                         }
 
                         default:
+                            fflush(stdin);
                             printf("Input error!Please enter again:\n");
                             break;
                     }
@@ -91,7 +103,7 @@ void book_edit(book_list *book_data) {
                 else if (choice== '1') {
                     display_book_pointer(book_current);
                     printf("Please choose the information you want to change\n");
-                    printf("[1]Book_name\n[2]Author's name\n[3]Press\n[4]Field\n[5]Price\n[6]Return");
+                    printf("[1]Book_name\n[2]Author's name\n[3]Press\n[4]Field\n[5]Price\n[6]Return\n");
                     continue;
                 }
                 else if (choice=='2'){
@@ -108,7 +120,7 @@ void book_edit(book_list *book_data) {
         else {
             system("cls");
             printf("Book not Found!\n");
-            break;
+            return;
         }
     }
 }
