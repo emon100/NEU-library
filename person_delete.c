@@ -28,7 +28,7 @@ void person_delete(person_list *person_data) {
     if (person_delete->id_number == id_number) {
         printf("User info:\n");
         display_person_pointer(person_delete);
-        printf("Still delete? Press 1 to continue:\n");
+        printf("Still delete? Press 1 to continue,another key to abort:\n");
         option = getchar();
         fflush(stdin);
         if (option == '1') {
