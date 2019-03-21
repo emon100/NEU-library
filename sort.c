@@ -45,11 +45,11 @@ void sort(book_list *book_data,person_list *person_data) {
 
         }
         printf("\t\t\t*----------Welcome!-----------*\n"
-               "\t\t\t*[1]Sort Users by id number---*"
-               "\t\t\t*[2]Sort Users by name--------*"
-               "\t\t\t*[3]Sort Books by code--------*"
-               "\t\t\t*[4]Sort Books by name--------*"
-               "\t\t\t*[5]Sort Books by price--------*"
+               "\t\t\t*[1]Sort Users by id number---*\n"
+               "\t\t\t*[2]Sort Users by name--------*\n"
+               "\t\t\t*[3]Sort Books by code--------*\n"
+               "\t\t\t*[4]Sort Books by name--------*\n"
+               "\t\t\t*[5]Sort Books by price-------*\n"
                "\t\t\t*[0]Return--------------------*\n");
         fflush(stdin);
     }

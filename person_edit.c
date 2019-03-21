@@ -22,7 +22,7 @@ void person_edit(person_list *person_status) {
         }
         if (p_pointer->id_number == id_number) {
             //显示用户信息
-            display_person(p_pointer);
+            display_person_pointer(p_pointer);
             printf("请选择要修改的信息类型：\n[1]图书卡号码\n[2]图书卡密码\n[3]人员姓名\n[4]人员性别\n[5]人员属性\n[6]罚金金额\n[7]返回上一级菜单\n");
             fflush(stdin);
             while (1){
@@ -104,7 +104,7 @@ void person_edit(person_list *person_status) {
                 }
                 //显示用户信息
                 system("cls");
-                display_person(p_pointer);
+                display_person_pointer(p_pointer);
                 //输入判断
                 if(exit_flag==1)printf("Input error, please enter again:\n");
                 exit_flag=0;
@@ -117,7 +117,7 @@ void person_edit(person_list *person_status) {
                     return;
                 }
                 else if (option== '1') {
-                    display_person(p_pointer);
+                    display_person_pointer(p_pointer);
                     printf("请选择要修改的信息类型：\n[1]图书卡号码\n[2]图书卡密码\n[3]人员姓名\n[4]人员性别\n[5]人员属性\n[6]罚金金额\n[7]返回上一级菜单\n");
                     continue;
                 }

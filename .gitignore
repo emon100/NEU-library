@@ -2,5 +2,6 @@
 *.exe
 *.swp
 *.xmind
+*.xlsx
 /.idea
 /cmake-build-debug

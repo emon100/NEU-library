@@ -16,6 +16,7 @@ void person_insert(person_list *person_data) {
             break;
         }
         else if (flag == '1') {
+            system("cls");
             p_new->next = (person *) malloc(sizeof(person));
             p_new=p_new->next;
             p_new->id_number=person_data->id_number;
@@ -42,7 +43,7 @@ void person_insert(person_list *person_data) {
             person_data->size++;
             person_data->id_number++;
             person_data->tail = p_new;
-            display_person(p_new);
+            display_person_pointer(p_new);
             printf("whether to continue or not? [1]Yes [0]No\n");
         }
         else {

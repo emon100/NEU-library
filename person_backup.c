@@ -1,8 +1,7 @@
 #include"lib.h"
 void person_backup(person_list *person_data){
     FILE                *f_pointer;
-    person              *person_pointer;
-    person_pointer   =  person_data->head;
+    person              *person_pointer=person_data->head;
     //先写总览信息
     if((f_pointer = fopen("D:\\person_list.dat","wb+"))==NULL){
         printf("无法打开文件\n");

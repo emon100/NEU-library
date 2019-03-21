@@ -98,12 +98,15 @@ enum login_status        login(int,person_list *);//与正式版本不同的函数
 void            information_reader(book_list *);//只能搜索书籍和查看普通图书馆数据
 void            information_admin(book_list *,person_list *);//可以看所有图书馆数据，搜索图书和人员
 
+void            display_person_pointer(person *);//展示个人信息
+void            display_book_pointer(book *);//根据书籍节点地址展示书籍信息
+void            display_book_code(book_list *, int book_id);//根据书籍code展示书籍信息
+book            *search_book_pointer(int,book_list *);//搜索获得书节点地址，修改和搜索时可以使用,至于删除的话就还是遍历多情况讨论吧
+person          *search_person_pointer(int,person_list *);//搜索获得借书者节点地址，同上
+
 
 void            reader_center(book_list *,person *);//读者系统
 void            self_manage(book_list *,person *);
-void            display_person(person *);//展示个人信息
-void            display_book_pointer(book *);//根据书籍节点地址展示书籍信息
-void            display_book_code(book_list *, int book_id);//根据书籍code展示书籍信息
 void            borrow_book(book_list *,person *);
 void            return_book(book_list *,person *);
 
@@ -128,6 +131,5 @@ void            sort(book_list *,person_list *);
 void            book_order_in_price(book_list *);
 void            person_order_in_id_number(person_list *);
 void            person_order_in_name(person_list *);
-book            *search_book_pointer(int,book_list *);//搜索获得书节点地址，修改和搜索时可以使用,至于删除的话就还是遍历多情况讨论吧
-person          *search_person_pointer(int,person_list *);//搜索获得借书者节点地址，同上
+
 #endif

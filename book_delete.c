@@ -5,41 +5,76 @@
 #include"lib.h"
 //TODO:111111
 void book_delete(book_list *book_data) {
-    int code = 0;
-    book *book_current;
-    book *book_last;
+    int         code = 0;
+    char        option;
+    book        *book_previous;
+    book        *book_delete;
     //信息输入
     printf("Please input the book_code:\n");
     scanf("%d", &code);//获得要修改书的条码
     fflush(stdin);
 
     //书本匹配
-    book_current = book_data->head;
-    //如果是头部书本
-    if (book_current->code == code) {
-        book_data->head = book_current->next;
-        free(book_current);
+    book_delete = book_data->head;
+
+    if (book_delete==NULL) {
+        printf("No book in library!\n");
+        return;
     }
-    else {
-        while (book_current->code != code && book_current != NULL) {
-            book_last = book_current;
-            book_current = book_current->next;
-        }//匹配书籍条码，获得删除书籍的指针
-        //重连链表
-        if(book_current!=NULL) {
-            book_last->next = book_current->next;
-            //book_list信息修改
-            book_data->size--;//总数修改
-            book_data->book_size_field[book_current->field]--;//相关领域数修改
-            free(book_current);
-            printf("Delete complete!\n");
-            fflush(stdin);
-            getchar();
-            fflush(stdin);
+
+    //如果删头部
+    if (book_delete->code == code) {
+        printf("User info:\n");
+        display_book_pointer(book_delete);
+        printf("Still delete? Press 1 to continue:\n");
+        option = getchar();
+        fflush(stdin);
+        if (option == '1') {
+            book_data->head = book_delete->next;
+            //进行判断修改总览
+            book_data->size--;
+            book_data->book_size_field[book_delete->field]--;
+            free(book_delete);
+            printf("Delete finished\n");
         }
-        else{
-            printf("Book not found!\n");
+        else {
+            printf("Delete aborted. Returning\n");
+            return;
+        }
+    }
+        //如果非头部
+    else {
+        book_delete=book_delete->next;
+        while (book_delete->code != code && book_delete!= NULL) {
+            book_delete = book_delete->next;
+            book_previous = book_previous->next;
+        }
+        if (book_delete->code == code) {
+            printf("User info:\n");
+            display_book_pointer(book_delete);
+            printf("Still delete? Press 1 to continue, press another key to abort:\n");
+            option = getchar();
+            fflush(stdin);
+            if (option == '1') {
+                book_previous->next = book_delete->next;
+                //如果是尾部那么修改尾部
+                if(book_delete==book_data->tail)
+                    book_data->tail=book_previous;
+                //进行判断修改总览
+                book_data->size--;
+                book_data->book_size_field[book_delete->field]--;
+                free(book_delete);
+                printf("Delete finished!\n");
+            }
+            else {
+                printf("Delete aborted. Returning...\n");
+                return;
+            }
+        }
+        else {
+            printf("没有找到您要删除的数据\n");
             return;
         }
     }
 }
+

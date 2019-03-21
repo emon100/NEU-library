@@ -6,11 +6,12 @@ void person_delete(person_list *person_data) {
     //输入user_id
     int id_number;
     char option;
+    person *person_previous;//前一个节点
+    person *person_delete;//删除的节点
+
     printf("Enter the ID of the user that you'd like to delete:\n");
     scanf("%d", &id_number);
     fflush(stdin);
-    person *person_previous;//前一个节点
-    person *person_delete;//删除的节点
 
     person_delete = person_previous = person_data->head;
 
@@ -26,7 +27,7 @@ void person_delete(person_list *person_data) {
     //如果删头部
     if (person_delete->id_number == id_number) {
         printf("User info:\n");
-        display_person(person_delete);
+        display_person_pointer(person_delete);
         printf("Still delete? Press 1 to continue:\n");
         option = getchar();
         fflush(stdin);
@@ -53,7 +54,7 @@ void person_delete(person_list *person_data) {
         }
         if (person_delete->id_number == id_number) {
             printf("User info:\n");
-            display_person(person_delete);
+            display_person_pointer(person_delete);
             printf("Still delete? Press 1 to continue, press another key to abort:\n");
             option = getchar();
             fflush(stdin);

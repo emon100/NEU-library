@@ -29,8 +29,10 @@ void file_io(book_list *book_data,person_list *person_data){
                 printf("Please enter again!\n");
                 break;
         }
-        system("cls");
-        if(exit_flag==1) break;
+        if(exit_flag==1){
+            system("cls");
+            break;
+        }
         printf("[1]Backup------[2]Recovery\n"
                "[3]Return\n");
         fflush(stdin);

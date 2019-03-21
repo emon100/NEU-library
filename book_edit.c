@@ -23,7 +23,7 @@ void book_edit(book_list *book_data) {
         if (book_current->code == code) {
             display_book_pointer(book_current);
             printf("Please choose the information you want to change\n");
-            printf("1.book_name\n2.author_name\n3.press\n4.field\n5.price\n");
+            printf("[1]Book_name\n[2]Author's name\n[3]Press\n[4]Field\n[5]Price\n[6]Return");
             scanf("%d", &choice);
             fflush(stdin);
             while (1){
@@ -31,28 +31,28 @@ void book_edit(book_list *book_data) {
                     choice=getchar();
                     fflush(stdin);
                     switch (choice) {
-                        case 1: {
+                        case '1': {
                             printf("Please input new book_name:\n");
                             gets(current);
                             strcpy(book_current->book_name, current);
                             break;
                         }//图书名修改
 
-                        case 2: {
+                        case '2': {
                             printf("Please input new author_name:\n");
                             gets(current);
                             strcpy(book_current->author_name, current);
                             break;
                         }//作者名修改
 
-                        case 3: {
+                        case '3': {
                             printf("Please input new press:\n");
                             gets(current);
                             strcpy(book_current->press, current);
                             break;
                         }//出版社修改
 
-                        case 4: {
+                        case '4': {
                             book_data->book_size_field[book_current->field]--;
                             printf("Please input new field:\n");
                             scanf("%d", &book_current->field);
@@ -61,10 +61,15 @@ void book_edit(book_list *book_data) {
                             break;
                         }
 
-                        case 5: {
+                        case '5': {
                             printf("Please input new price:\n");
                             scanf("%f", &book_current->price);
                             break;
+                        }
+
+                        case '6': {
+                            system("cls");
+                            return;
                         }
 
                         default:
@@ -87,7 +92,7 @@ void book_edit(book_list *book_data) {
                 else if (choice== '1') {
                     display_book_pointer(book_current);
                     printf("Please choose the information you want to change\n");
-                    printf("1.book_name\n2.author_name\n3.press\n4.field\n5.price\n");
+                    printf("[1]Book_name\n[2]Author's name\n[3]Press\n[4]Field\n[5]Price\n[6]Return");
                     continue;
                 }
                 else if (choice=='2'){

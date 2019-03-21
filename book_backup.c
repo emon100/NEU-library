@@ -21,7 +21,7 @@ void book_backup(book_list *book_data){
         printf("无法打开文件\n");
         return;
     }
-    while(current!= NULL){
+    while(current != NULL){
         fwrite(current,sizeof(book),1,fp_book);
         current=current->next;
     }
