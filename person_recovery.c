@@ -11,6 +11,7 @@ void person_recovery(person_list *person_data){
     }
     fread(person_data, sizeof(person_list),1,f_pointer);
     fclose(f_pointer);
+
     if((f_pointer = fopen("D:\\person_data.dat","rb+"))==NULL){
         printf("无法打开文件\n");
         return;

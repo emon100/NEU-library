@@ -41,4 +41,8 @@ void person_order_in_name(person_list *person_data) {
             }
         }
     }
+    current = person_data->head;
+    while (current != NULL) {
+       display_person_pointer(current);
+    }
 }

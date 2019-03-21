@@ -38,7 +38,7 @@ void display_book_pointer(book *p_book){
             printf("Life");
             break;
     }
-    printf("\n|Price:%6.2f\n",p_book->price);
+    printf("\n|Price:%6.2f\n\n",p_book->price);
     if(p_book->id_number==-1)
         return;
     else{

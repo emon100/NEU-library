@@ -6,15 +6,14 @@
 #include"lib.h"
 void book_backup(book_list *book_data){
     FILE        *fp_book;
-    FILE        *fp_list;
     book        *current=book_data->head;
     //book_list储存
-    if((fp_list = fopen("D:\\book_list.dat","wb+"))==NULL){
+    if((fp_book = fopen("D:\\book_list.dat","wb+"))==NULL){
         printf("无法打开文件\n");
         return;
     }
-    fwrite(book_data,sizeof(book_list),1,fp_list);
-    fclose(fp_list);
+    fwrite(book_data,sizeof(book_list),1,fp_book);
+    fclose(fp_book);
 
     //book储存
     if((fp_book = fopen("D:\\book_data.dat","wb+"))==NULL){

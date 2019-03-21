@@ -23,6 +23,7 @@ void admin_init(person_list *admin){
     strcpy(admin->head->next->name,"emon");
     strcpy(admin->head->next->password,"123");
     admin->head->next->prop=prop_reader;
+    admin->head->next->sex=male;
     admin->head->next->borrow_quantity=1;
     admin->head->next->book_id[0]=2;
     admin->head->next->penalty=1;

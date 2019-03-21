@@ -5,30 +5,26 @@
 #include"lib.h"
 void book_recovery(book_list *book_data){
     int         size;
-    FILE        *fp_list;
     FILE        *fp_book;
-    book        *book_pointer;
-    book        *book_new;
-    if((fp_list=fopen("D:\\book_list.dat","rb+"))==NULL){
+    book        *book_pointer,*book_new;
+    if((fp_book=fopen("D:\\book_list.dat","rb+"))==NULL){
         printf("无法打开文件\n");
         return;
     }//开始读取图书总览信息
 
-    fread(book_data,sizeof(book_list),1,fp_list);
-    fclose(fp_list);
+    fread(book_data,sizeof(book_list),1,fp_book);
+    fclose(fp_book);
 
-    if((fp_book=fopen("D:\\book_list.dat","rb+"))==NULL){
+    if((fp_book=fopen("D:\\book_data.dat","rb+"))==NULL){
         printf("无法打开文件\n");
         return;
     }//开始读取图书链表信息
-
     size=book_data->size;
-
     for(int i=0;i<size;++i){
         book_new=(book *)malloc(sizeof(book));
         if(i==0)book_data->head=book_new;
         else book_pointer->next=book_new;
-        fread(book_new, sizeof(person),1,fp_book);
+        fread(book_new, sizeof(book),1,fp_book);
         book_pointer=book_new;
     }
     fclose(fp_book);
