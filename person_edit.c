@@ -4,7 +4,7 @@
 //史雨迪
 //人员修改函数
 
-void person_edit(person_list *person_status) {
+void person_edit(person_list *person_data) {
     int         id_number;
     int         option;
     int         exit_flag=0;
@@ -14,12 +14,9 @@ void person_edit(person_list *person_status) {
         printf("Enter user id:\n");
         scanf("%d",&id_number);
         fflush(stdin);
-        p_pointer = person_status->head;//初始化指针位置
         system("cls");
         //人员匹配
-        while (p_pointer->id_number != id_number && p_pointer->next != NULL) {
-            p_pointer = p_pointer->next;
-        }
+        p_pointer=search_person_pointer(id_number,person_data);
         if (p_pointer->id_number == id_number) {
             //显示用户信息
             display_person_pointer(p_pointer);
@@ -54,10 +51,10 @@ void person_edit(person_list *person_status) {
                             scanf("%d", &p_pointer->sex);
                             //读者而且变女性
                             if(p_pointer->prop==prop_reader&&temp!=female&&p_pointer->sex==female)
-                                person_status->male_reader_size--;
+                                person_data->male_reader_size--;
                             //读者而且变男性
                             if(p_pointer->prop==prop_reader&&temp!=male&&p_pointer->sex==male)
-                                person_status->male_reader_size++;
+                                person_data->male_reader_size++;
                             fflush(stdin);
                             break;
                         }
@@ -68,21 +65,21 @@ void person_edit(person_list *person_status) {
                             //读者和error变管理员
                             if(p_pointer->prop==prop_administrator&&temp!=p_pointer->prop) {
                                 //而且之前是男的读者
-                                if (temp==prop_reader&&p_pointer->sex == male)person_status->male_reader_size--;
+                                if (temp==prop_reader&&p_pointer->sex == male)person_data->male_reader_size--;
                                 //管理员数量++
-                                person_status->admin_size++;
+                                person_data->admin_size++;
                             }
                             //管理员和error变读者
                             else if(p_pointer->prop==prop_reader&&temp!=p_pointer->prop){
                                 //而且之前是男的
-                                if(p_pointer->sex == male)person_status->male_reader_size++;
+                                if(p_pointer->sex == male)person_data->male_reader_size++;
                                 //而且之前是管理员,管理员数量--
-                                if(temp==prop_administrator)person_status->admin_size--;
+                                if(temp==prop_administrator)person_data->admin_size--;
                             }
                             //管理员和读者变error
                             else if((p_pointer->prop!=prop_administrator||p_pointer->prop!=prop_reader)&&(temp==prop_reader||temp==prop_administrator)){
-                               if(temp==prop_administrator)person_status->admin_size--;
-                               if(temp==prop_reader&&p_pointer->sex==male)person_status->male_reader_size--;
+                               if(temp==prop_administrator)person_data->admin_size--;
+                               if(temp==prop_reader&&p_pointer->sex==male)person_data->male_reader_size--;
                             }
                             fflush(stdin);
                             break;

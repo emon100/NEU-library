@@ -32,7 +32,7 @@ void information_reader(book_list *book_data){
                 printf("search book,Enter code of the book:\n");
                 scanf("%d",&book_code);
                 fflush(stdin);
-                display_book_code(book_data,book_code);
+                display_book_code(book_code, book_data);
                 break;
             case  '3':
                 system("cls");

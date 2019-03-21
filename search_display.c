@@ -50,14 +50,30 @@ void display_book_pointer(book *p_book){
         printf("Should return before:%s\n",ctime(&return_time));
     }
 }
-void display_book_code(book_list *book_data, int book_id){
-    book        *p_book=book_data->head;
-    while(p_book->code!=book_id&&p_book!=NULL){
-        p_book=p_book->next;
-    }
+void display_book_code(int code, book_list *book_data) {
+    book        *p_book=search_book_pointer(code,book_data);
     if(p_book==NULL)
         printf("Book not found!\n");
     else
         display_book_pointer(p_book);
+}
 
+//搜索指定的书对应的节点
+//有可能返回NULL
+book *search_book_pointer(int code,book_list *book_data){
+    book *book_current=book_data->head;
+    while(book_current->code!=code&&book_current!=NULL){
+        book_current=book_current->next;
+    }
+    return book_current;
+}
+
+//搜索指定的人对应的节点
+//有可能返回NULL
+person *search_person_pointer(int id,person_list *person_data){
+    person *person_current=person_data->head;
+    while(person_current->id_number!=id&&person_current!=NULL){
+        person_current=person_current->next;
+    }
+    return person_current;
 }

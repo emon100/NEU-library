@@ -88,11 +88,6 @@ extern person              *current_user;//µ±Ç°ÓÃ»§µÄÓÃ»§½ÚµãµØÖ·
 void            admin_init(person_list *);//²âÊÔº¯Êı
 void            book_test(book_list *book_data);//²âÊÔº¯Êı
 
-
-//void user_init(person_list *);//¶ÁÈ¡ÓÃ»§ÎÄ¼ş´´½¨ÓÃ»§Á´±í
-//void book_init(book_list *);//¶ÁÈ¡Êé¼®ÎÄ¼ş´´½¨Êé¼®Á´±í
-
-
 enum login_status        login(int,person_list *);//ÓëÕıÊ½°æ±¾²»Í¬µÄº¯Êı
 
 void            information_reader(book_list *);//Ö»ÄÜËÑË÷Êé¼®ºÍ²é¿´ÆÕÍ¨Í¼Êé¹İÊı¾İ
@@ -100,7 +95,7 @@ void            information_admin(book_list *,person_list *);//¿ÉÒÔ¿´ËùÓĞÍ¼Êé¹İÊ
 
 void            display_person_pointer(person *);//Õ¹Ê¾¸öÈËĞÅÏ¢
 void            display_book_pointer(book *);//¸ù¾İÊé¼®½ÚµãµØÖ·Õ¹Ê¾Êé¼®ĞÅÏ¢
-void            display_book_code(book_list *, int book_id);//¸ù¾İÊé¼®codeÕ¹Ê¾Êé¼®ĞÅÏ¢
+void            display_book_code(int, book_list *);//¸ù¾İÊé¼®codeÕ¹Ê¾Êé¼®ĞÅÏ¢
 book            *search_book_pointer(int,book_list *);//ËÑË÷»ñµÃÊé½ÚµãµØÖ·£¬ĞŞ¸ÄºÍËÑË÷Ê±¿ÉÒÔÊ¹ÓÃ,ÖÁÓÚÉ¾³ıµÄ»°¾Í»¹ÊÇ±éÀú¶àÇé¿öÌÖÂÛ°É
 person          *search_person_pointer(int,person_list *);//ËÑË÷»ñµÃ½èÊéÕß½ÚµãµØÖ·£¬Í¬ÉÏ
 

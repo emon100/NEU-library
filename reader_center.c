@@ -51,7 +51,7 @@ void self_manage(book_list *book_data,person *user) {
     for (int i = 0; i < borrow_quantity; ++i) {
         printf("Book_id:%d\n", user->book_id[i]);
         //display(book_id)展示书籍信息
-        display_book_code(book_data, user->book_id[i]);
+        display_book_code(user->book_id[i], book_data);
     }
     while (1) {
         if (exit_flag != 1) {
@@ -94,7 +94,7 @@ void self_manage(book_list *book_data,person *user) {
             if(i==0)printf("\t\t\t--------Book borrowed--------\n");
             printf("Book_id:%d\n", user->book_id[i]);
             //display(book_id)展示书籍信息
-            display_book_code(book_data, user->book_id[i]);
+            display_book_code(user->book_id[i], book_data);
         }
         //输入判断
         if (exit_flag == 1)printf("Input error, please enter again:");
