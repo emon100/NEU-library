@@ -43,7 +43,7 @@ void book_insert(book_list *book_data) {
             fflush(stdin);
             strcpy(book_new->press, current);//≥ˆ∞Ê…Á
 
-            printf("Please choose its field:\n0.science\n1.literature\n2.education\n3.atr\n4.life\n");
+            printf("Please choose its field:\n0.science\n1.literature\n2.education\n3.art\n4.life\n");
             scanf("%d", &book_new->field);//¡Ï”Ú
             fflush(stdin);
 

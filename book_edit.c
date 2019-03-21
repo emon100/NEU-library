@@ -24,7 +24,6 @@ void book_edit(book_list *book_data) {
             display_book_pointer(book_current);
             printf("Please choose the information you want to change\n");
             printf("[1]Book_name\n[2]Author's name\n[3]Press\n[4]Field\n[5]Price\n[6]Return");
-            scanf("%d", &choice);
             fflush(stdin);
             while (1){
                 if(exit_flag!=1){
