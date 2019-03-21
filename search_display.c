@@ -39,7 +39,7 @@ void display_book_pointer(book *p_book){
             break;
     }
     printf("\n|Price:%6.2f\n\n",p_book->price);
-    if(p_book->id_number==-1)
+    if(p_book->person_id_number==-1)
         return;
     else{
         now=time(NULL);

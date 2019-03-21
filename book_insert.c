@@ -51,7 +51,7 @@ void book_insert(book_list *book_data) {
             scanf("%f", &book_new->price);//价格
             fflush(stdin);
 
-            book_new->id_number = -1;//借书者号码默认-1表示没人借
+            book_new->person_id_number = -1;//借书者号码默认-1表示没人借
 
             //book_list信息修改
             book_new->next=NULL;

@@ -47,6 +47,7 @@ void self_manage(book_list *book_data,person *user) {
     int exit_flag = 0;
     int option;
     system("cls");
+    penalty(book_data,user);
     display_person_pointer(user);
     for (int i = 0; i < borrow_quantity; ++i) {
         printf("Book_id:%d\n", user->book_id[i]);
@@ -89,11 +90,11 @@ void self_manage(book_list *book_data,person *user) {
         }
         //显示用户信息
         system("cls");
+        penalty(book_data,user);
         display_person_pointer(user);
         for (int i = 0; i < borrow_quantity; ++i) {
             if(i==0)printf("\t\t\t--------Book borrowed--------\n");
             printf("Book_id:%d\n", user->book_id[i]);
-            //display(book_id)展示书籍信息
             display_book_code(user->book_id[i], book_data);
         }
         //输入判断
@@ -117,19 +118,121 @@ void self_manage(book_list *book_data,person *user) {
     }
 }
 
-
-void borrow_book(book_list *book_data,person *current_user){
-    system("cls");
-    printf("Borrow book\nPress any key to continue:\n");
-    getchar();
-    fflush(stdin);
-    system("cls");
+//罚金计算函数，超出时间一天0.2元
+void penalty(book_list *book_data,person *user){
+    int         borrow_quantity=user->borrow_quantity;
+    float       penalty=0;
+    book        *borrowed_book=NULL;
+    time_t      now,diff;
+    now=time(NULL);
+    for (int i=0;i<borrow_quantity;++i){
+        borrowed_book=search_book_pointer(user->book_id[i],book_data);
+        diff=(now-(borrowed_book->borrow_time+5097600));//计算现在时间与应还时间差值
+        if(diff>0)penalty=penalty+(diff/86400)*0.2;
+        else continue;
+    }
+    if(user->penalty<penalty)user->penalty=penalty;
 }
 
-void return_book(book_list *book_data,person *current_user){
+
+void borrow_book(book_list *book_data,person *user){
+    int         code;
+    char        choice;
+    book        *current_book=NULL;
+
     system("cls");
-    printf("Return book\nPress any key to continue:\n");
-    getchar();
     fflush(stdin);
+    penalty(book_data,user);
+    while(1){
+        if(user->penalty>0||user->borrow_quantity>=10){
+            printf("You can't borrow book because you have borrowed over 10 books or you have penalty to pay!\n");
+            return;
+        }
+        else{
+            printf("Enter the code of the book you want to borrow:\n");
+            scanf("%d",&code);
+            fflush(stdin);
+            current_book = search_book_pointer(code,book_data);
+            if(current_book!=NULL){
+               if(current_book->person_id_number!=-1){
+                 user->book_id[user->borrow_quantity]=code;
+                 current_book->person_id_number=user->id_number;
+                 current_book->borrow_time=time(NULL);
+                 book_data->book_borrowed++;
+               }
+               else{
+                   printf("Sorry the book has been borrowed.\n");
+               }
+            }
+            else {
+                printf("Book not Found!\n");
+            }
+            printf("Whether to continue or not?Enter 1 to Borrow another book, enter something else to exit.\n");
+            choice=getchar();
+            fflush(stdin);
+            if(choice=='1')continue;
+            else {
+                system("cls");
+                return;
+            }
+        }
+    }
+}
+
+void return_book(book_list *book_data,person *user){
+    int         code;
+    int         borrow_quantity=user->borrow_quantity;
+    int         i;
+    char        choice;
+    book        *current_book=NULL;
     system("cls");
+    fflush(stdin);
+    if(user->borrow_quantity>0){
+        while(1){
+           scanf("%d",&code);
+           current_book=search_book_pointer(code,book_data);
+           if(current_book!=NULL&&current_book->person_id_number==user->id_number){
+                //先找元素，把这个元素从数组的某一个地方找到
+                for(i=0;i<borrow_quantity;++i){
+                   if(user->book_id[i]==code){
+                       user->book_id[i]=0;
+                       break;
+                   }
+                }
+                //找到后把后一个元素向前移动
+                for(;i<borrow_quantity-1;++i){
+                     if((i+1)<borrow_quantity){
+                        user->book_id[i]=user->book_id[i+1];
+                     }
+                     else break;
+                }
+                current_book->person_id_number=-1;
+                book_data->book_borrowed--;
+           }
+           else if(current_book==NULL){
+               printf("Book not found!\nEnter anything to continue:\n");
+               getchar();
+               fflush(stdin);
+           }
+           else {
+               printf("Book can't be returned by you!\nEnter anything to continue:\n");
+               getchar();
+               fflush(stdin);
+           }
+            printf("Whether to continue or not?Enter 1 to return another book, enter something else to exit.\n");
+            choice=getchar();
+            fflush(stdin);
+            if(choice=='1')continue;
+            else {
+                system("cls");
+                return;
+            }
+        }
+    }
+    else{
+        printf("You have no book to return!\nEnter anything to return menu.\n");
+        getchar();
+        fflush(stdin);
+        return;
+    }
 }

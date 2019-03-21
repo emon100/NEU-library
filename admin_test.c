@@ -59,7 +59,7 @@ void book_test(book_list *book_data){
     book_data->book_size_field[science]=2;
     book_data->book_size_field[art]=2;
     head->code=1;
-    head->id_number=101;
+    head->person_id_number=101;
     strcpy(head->book_name,"book1");
     head->price=49.99;
     strcpy(head->author_name,"WW");
@@ -68,7 +68,7 @@ void book_test(book_list *book_data){
     head->borrow_time=timer;
     head->next=next=(book *)malloc(sizeof(book));
     next->code=2;
-    next->id_number=100;
+    next->person_id_number=100;
     strcpy(next->book_name,"book2");
     next->price=29.99;
     next->field=art;
@@ -78,7 +78,7 @@ void book_test(book_list *book_data){
     next->borrow_time=test_t;
     next=next->next;
     next->code=3;
-    next->id_number=-1;
+    next->person_id_number=-1;
     strcpy(next->book_name,"book3");
     next->price=19.99;
     next->field=art;
@@ -87,7 +87,7 @@ void book_test(book_list *book_data){
     next->next=(book *)malloc(sizeof(book));
     next=next->next;
     next->code=4;
-    next->id_number=-1;
+    next->person_id_number=-1;
     strcpy(next->book_name,"book4");
     next->price=9.99;
     next->field=science;

@@ -41,7 +41,7 @@ enum login_status{
 
 typedef struct book {
     int             code;//条码
-    int             id_number;//借书者号码,-1代表没被借走
+    int             person_id_number;//借书者号码,-1代表没被借走
     char            book_name[100];
     char            author_name[200];
     char            press[50];
@@ -102,6 +102,7 @@ person          *search_person_pointer(int,person_list *);//搜索获得借书者节点地
 
 void            reader_center(book_list *,person *);//读者系统
 void            self_manage(book_list *,person *);
+void            penalty(book_list *,person *);
 void            borrow_book(book_list *,person *);
 void            return_book(book_list *,person *);
 

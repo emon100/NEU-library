@@ -39,6 +39,7 @@ void person_insert(person_list *person_data) {
             printf("ÇëÊäÈë·£½ğ½ğ¶î£º\n");
             scanf("%f", &p_new->penalty);
             fflush(stdin);
+            memset(p_new->book_id,0, sizeof(int)*10);
             p_new->next = NULL;
             person_data->size++;
             person_data->id_number++;
