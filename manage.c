@@ -15,8 +15,7 @@ void manage(book_list *book_data,person_list *person_data) {
            "\t\t\t*[5]Add book------------------*\n"
            "\t\t\t*[6]Delete book---------------*\n"
            "\t\t\t*[7]Backup and Recovery-------*\n"
-           "\t\t\t*[8]Sort users----------------*\n"
-           "\t\t\t*[9]Sort books----------------*\n"
+           "\t\t\t*[8]Sort----------------------*\n"
            "\t\t\t*[0]Return--------------------*\n");
     while (choice = getchar()) {
         fflush(stdin);//³Ô»Ø³µ
@@ -51,11 +50,7 @@ void manage(book_list *book_data,person_list *person_data) {
                 break;
             case '8':
                 system("cls");
-                printf("sort users\n");
-                break;
-            case '9':
-                system("cls");
-                order_in_price(book_data);
+                sort(book_data,person_data);
                 break;
             case '0':
                 system("cls");
@@ -72,8 +67,7 @@ void manage(book_list *book_data,person_list *person_data) {
                "\t\t\t*[5]Add book------------------*\n"
                "\t\t\t*[6]Delete book---------------*\n"
                "\t\t\t*[7]Backup and Recovery-------*\n"
-               "\t\t\t*[8]Sort users----------------*\n"
-               "\t\t\t*[9]Sort books----------------*\n"
+               "\t\t\t*[8]Sort----------------------*\n"
                "\t\t\t*[0]Return--------------------*\n");
         fflush(stdin);
     }

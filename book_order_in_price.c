@@ -1,6 +1,6 @@
 #include"lib.h"
 
-void order_in_price(book_list *book_data) {
+void book_order_in_price(book_list *book_data) {
     book           *former;
     book           *current;
     book           *c_next;
