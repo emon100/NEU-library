@@ -38,13 +38,13 @@ void person_edit(person_list *person_status) {
                         }
                         case '2': {
                             printf("Enter new password:");
-                            scanf("%s", p_pointer->password);
+                            gets(p_pointer->password);
                             fflush(stdin);
                             break;
                         }
                         case '3': {
                             printf("Enter new name:");
-                            scanf("%s", p_pointer->name);
+                            gets(p_pointer->name);
                             fflush(stdin);
                             break;
                         }
@@ -80,7 +80,7 @@ void person_edit(person_list *person_status) {
                                 if(temp==prop_administrator)person_status->admin_size--;
                             }
                             //管理员和读者变error
-                            else if((p_pointer->prop!=prop_administrator||p_pointer->prop!=prop_reader)&&temp!=p_pointer->prop){
+                            else if((p_pointer->prop!=prop_administrator||p_pointer->prop!=prop_reader)&&(temp==prop_reader||temp==prop_administrator){
                                if(temp==prop_administrator)person_status->admin_size--;
                                if(temp==prop_reader&&p_pointer->sex==male)person_status->male_reader_size--;
                             }

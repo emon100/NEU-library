@@ -23,10 +23,10 @@ void person_insert(person_list *person_data) {
             p_new->borrow_quantity=0;
             fflush(stdin);
             printf("请输入人员姓名:\n");
-            scanf("%s", p_new->name);
+            gets(p_new->name);
             fflush(stdin);
             printf("请输入图书卡密码(最多12位):\n");
-            scanf("%s", p_new->password);
+            gets(p_new->password);
             fflush(stdin);
             printf("请输入人员属性:[0]reader [1]admin\n");
             scanf("%d", &p_new->prop);

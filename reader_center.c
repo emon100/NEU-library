@@ -62,13 +62,13 @@ void self_manage(book_list *book_data,person *user) {
             switch (option) {
                 case '1': {
                     printf("Enter new password:");//这个起码得有个确认的过程吧
-                    scanf("%s", user->password);
+                    gets(user->password);
                     fflush(stdin);
                     break;
                 }
                 case '2': {
                     printf("Enter new name:");
-                    scanf("%s", user->name);
+                    gets(user->name);
                     fflush(stdin);
                     break;
                 }

@@ -3,7 +3,6 @@
  */
 
 #include"lib.h"
-//TODO:111111
 void book_delete(book_list *book_data) {
     int         code = 0;
     char        option;
