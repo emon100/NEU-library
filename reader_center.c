@@ -153,14 +153,25 @@ void borrow_book(book_list *book_data,person *user){
             scanf("%d",&code);
             fflush(stdin);
             current_book = search_book_pointer(code,book_data);
+            display_book_pointer(current_book);
+            printf("Is it the book you want to borrow? Press 1 to continue, another key to abort:\n");
+            choice=getchar();
+            fflush(stdin);
+            if(choice!='1'){
+                system("cls");
+                printf("Borrow aborted!\n");
+                return;
+            }
             if(current_book!=NULL){
-               if(current_book->person_id_number!=-1){
-                 user->book_id[user->borrow_quantity]=code;
-                 current_book->person_id_number=user->id_number;
-                 current_book->borrow_time=time(NULL);
-                 book_data->book_borrowed++;
+               if(current_book->person_id_number==-1){
+                   user->borrow_quantity++;
+                   user->book_id[user->borrow_quantity]=code;
+                   current_book->person_id_number=user->id_number;
+                   current_book->borrow_time=time(NULL);
+                   book_data->book_borrowed++;
+                   printf("Book has been borrowed.\n");
                }
-               else{
+               else if(current_book->person_id_number!=-1){
                    printf("Sorry the book has been borrowed.\n");
                }
             }
@@ -189,6 +200,7 @@ void return_book(book_list *book_data,person *user){
     fflush(stdin);
     if(user->borrow_quantity>0){
         while(1){
+            printf("Enter the code of the book you want to return:\n");
            scanf("%d",&code);
            current_book=search_book_pointer(code,book_data);
            if(current_book!=NULL&&current_book->person_id_number==user->id_number){
@@ -206,6 +218,7 @@ void return_book(book_list *book_data,person *user){
                      }
                      else break;
                 }
+                user->borrow_quantity--;
                 current_book->person_id_number=-1;
                 book_data->book_borrowed--;
            }

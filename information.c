@@ -62,8 +62,8 @@ void information_admin(book_list *book_data,person_list *person_data) {
         switch (choice) {
             case '1':
                 system("cls");
-                printf("|-Total book-|-science-|-literature-|-education--|---art----|---life---|\n  ");
-                printf("%5d", book_data->size);
+                printf("|-Total book-|-Not returned-|-science-|-literature-|-education--|---art----|---life---|\n  ");
+                printf("%5d%10d", book_data->size,book_data->book_borrowed);
                 for (int i = science; i <= life; ++i)printf("%12d", book_data->book_size_field[i]);
                 printf("\n");
                 printf("|-Total User-|-Admins-|-Total readers-|-male readers-|-Female readers-|\n");
