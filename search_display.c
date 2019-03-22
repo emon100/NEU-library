@@ -47,11 +47,11 @@ void display_person_pointer(person *user){
     printf("|已借书籍数量:%-3d\n\n",user->borrow_quantity);
 }
 
-void display_book_pointer(book *p_book){
-    time_t      now,borrow_time,return_time;
-    printf("|标题:%s\n|作者:%-20s\n|出版社:%-20s\n",p_book->book_name,p_book->author_name,p_book->press);
+void display_book_pointer(book *p_book) {
+    time_t now, borrow_time, return_time;
+    printf("|标题:%s\n|作者:%-20s\n|出版社:%-20s\n", p_book->book_name, p_book->author_name, p_book->press);
     printf("|领域:");
-    switch(p_book->field){
+    switch (p_book->field) {
         case science:
             printf("科学");
             break;
@@ -71,18 +71,19 @@ void display_book_pointer(book *p_book){
             printf("未知");
             break;
     }
-    printf("\n|价格:%6.2f\n\n",p_book->price);
-    if(p_book->person_id_number==-1)
+    printf("\n|价格:%6.2f\n\n", p_book->price);
+    if (p_book->person_id_number == -1)
         return;
-    else{
-        printf("借书者:%d\n\n",p_book->person_id_number);
-        now=time(NULL);
-        borrow_time=p_book->borrow_time;
-        return_time=p_book->borrow_time+5184000;//2个月的秒数是2678400故，time_t类型其实和long差不多
-        printf("当前时间:%s\n",ctime(&now));
-        printf("结束时间:%s\n",ctime(&borrow_time));
-        printf("规定还书时间:%s\n",ctime(&return_time));
+    else {
+        printf("借书者:%d\n\n", p_book->person_id_number);
+        now = time(NULL);
+        borrow_time = p_book->borrow_time;
+        return_time = p_book->borrow_time + 5184000;//2个月的秒数是2678400故，time_t类型其实和long差不多
+        printf("当前时间:%s\n", ctime(&now));
+        printf("结束时间:%s\n", ctime(&borrow_time));
+        printf("规定还书时间:%s\n", ctime(&return_time));
     }
+}
 
 void display_book_code(int code, book_list *book_data){
     book        *p_book=search_book_pointer(code,book_data);
@@ -106,12 +107,13 @@ book *search_book_pointer(int code,book_list *book_data){
 
 //搜索指定的人对应的节点
 //有可能返回NULL
-person *search_person_pointer(int id,person_list *person_data){
-    person *person_current=person_data->head;
-    if(person_current==NULL)return person_current;
-    while(person_current->id_number!=id){
-        person_current=person_current->next;
-        if(person_current==NULL)return person_current;
+person *search_person_pointer(int id,person_list *person_data) {
+    person *person_current = person_data->head;
+    if (person_current == NULL)return person_current;
+    while (person_current->id_number != id) {
+        person_current = person_current->next;
+        if (person_current == NULL)return person_current;
     }
     return person_current;
 }
+

@@ -98,6 +98,7 @@ void            search_book(book_list *);
 void            display_person_pointer(person *);//展示个人信息
 void            display_book_pointer(book *);//根据书籍节点地址展示书籍信息
 void            display_book_code(int, book_list *);//根据书籍code展示书籍信息
+
 book            *search_book_pointer(int,book_list *);//搜索获得书节点地址，修改和搜索时可以使用,至于删除的话就还是遍历多情况讨论吧
 person          *search_person_pointer(int,person_list *);//搜索获得借书者节点地址，同上
 
