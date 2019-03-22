@@ -4,6 +4,7 @@ void person_order_in_id_number(person_list *person_data) {
     person          *former;
     person          *current;
     person          *c_next;
+    person          *user;
 
     if (person_data->size <= 1);
     else{
@@ -41,4 +42,20 @@ void person_order_in_id_number(person_list *person_data) {
             }
         }
     }
+    user=person_data->head;
+
+    while (user != NULL) {
+        printf("\nUser's infomation:\n"
+               "ID:%-5d|Name:%-10s|",user->id_number,user->name);
+        printf("password:%-12s|",user->password);
+        if(user->sex==male)printf("Sex:Male  |\n");
+        else if(user->sex==female)printf("Sex:Female|\n");
+        else printf("Sex:Error\n");
+        if(user->prop==prop_reader)printf("Property:Reader         |");
+        else if(user->prop==prop_administrator)printf("Property:Administrator  |");
+        else printf("Property:Error  |");
+        printf("Penalty:%6.2f       |",user->penalty);
+        printf("Book borrowed:%-3d\n\n",user->borrow_quantity);
+        user = user->next;
+    }//输出人员信息
 }

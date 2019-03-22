@@ -27,11 +27,11 @@ void sort(book_list *book_data,person_list *person_data) {
                 break;
             case '3':
                 system("cls");
-                printf("Book order by code");
+                book_order_in_code(book_data);
                 break;
             case '4':
                 system("cls");
-                printf("Book order by name");
+                book_order_in_name(book_data);
                 break;
             case '5':
                 system("cls");

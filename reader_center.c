@@ -47,8 +47,11 @@ void self_manage(book_list *book_data,person *user) {
     int exit_flag = 0;
     int option;
     system("cls");
+    printf("ok");
     penalty(book_data,user);
+    printf("penalty is %f:\n",user->penalty);//TODO
     display_person_pointer(user);
+    printf("display is ok");//TODO
     for (int i = 0; i < borrow_quantity; ++i) {
         printf("Book_id:%d\n", user->book_id[i]);
         //display(book_id)展示书籍信息
@@ -166,7 +169,7 @@ void borrow_book(book_list *book_data,person *user){
             if(current_book!=NULL){
                if(current_book->person_id_number==-1){
                    user->borrow_quantity++;
-                   user->book_id[user->borrow_quantity]=code;
+                   user->book_id[user->borrow_quantity-1]=code;
                    current_book->person_id_number=user->id_number;
                    current_book->borrow_time=time(NULL);
                    book_data->book_borrowed++;
@@ -214,12 +217,10 @@ void return_book(book_list *book_data,person *user){
                    }
                 }
                 //找到后把后一个元素向前移动
-                for(;i<borrow_quantity-1;++i){
-                     if((i+1)<borrow_quantity){
-                        user->book_id[i]=user->book_id[i+1];
-                     }
-                     else break;
+                for(i=i+1;i<borrow_quantity;++i){
+                        user->book_id[i-1]=user->book_id[i];
                 }
+
                 user->borrow_quantity--;
                 current_book->person_id_number=-1;
                 book_data->book_borrowed--;
