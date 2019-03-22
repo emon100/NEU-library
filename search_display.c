@@ -102,6 +102,10 @@ void search_book(book_list *book_data) {
                         } else break;
                         current_book = current_book->next;
                     }
+                    if(count==0){
+                        printf("没有找到指定书籍\n");
+                        break;
+                    }
                     for (int i = 0; i < count; i++) {
                         display_book_pointer(book_pointers[i]);
                     }
@@ -110,6 +114,7 @@ void search_book(book_list *book_data) {
                 fflush(stdin);
                 break;
             case 0:
+                system("cls");
                 return;
             default:
                 printf("输入错误请重新输入:\n");
@@ -292,7 +297,7 @@ void display_book_pointer(book *p_book) {
         borrow_time = p_book->borrow_time;
         return_time = p_book->borrow_time + 5184000;//2个月的秒数是2678400故，time_t类型其实和long差不多
         printf("当前时间:%s\n", ctime(&now));
-        printf("结束时间:%s\n", ctime(&borrow_time));
+        printf("借书时间:%s\n", ctime(&borrow_time));
         printf("规定还书时间:%s\n", ctime(&return_time));
     }
 }

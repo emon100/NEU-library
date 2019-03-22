@@ -8,7 +8,6 @@ void information_reader(book_list *book_data){
     int choice;
     int book_code;
     system("cls");
-    printf("information_reader\n");//记得删掉
     printf("\t\t\t\t欢迎查询!\n"
            "\t\t\t\t[1]总览信息\n"
            "\t\t\t\t[2]查询书籍\n"
@@ -35,6 +34,9 @@ void information_reader(book_list *book_data){
                 scanf("%d",&book_code);
                 fflush(stdin);
                 display_book_code(book_code, book_data);
+                printf("输入任何内容以继续\n")
+                getchar();
+                fflush();
                 search_book(book_data);
                 break;
             case  '3':
@@ -55,7 +57,6 @@ void information_reader(book_list *book_data){
 void information_admin(book_list *book_data,person_list *person_data) {
     char choice;
     system("cls");
-    printf("information_admin\n");//记得删掉
     printf("\t\t\t\t欢迎查询!\n"
            "\t\t\t\t[1]总览信息\n"
            "\t\t\t\t[2]查询书籍\n"
@@ -81,6 +82,7 @@ void information_admin(book_list *book_data,person_list *person_data) {
                 break;
             case '2':
                 system("cls");
+                search_book(book_data);
                 printf("书籍查询\n");
                 break;
             case '3':

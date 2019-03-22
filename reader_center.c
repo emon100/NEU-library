@@ -55,6 +55,7 @@ void self_manage(book_list *book_data,person *user) {
     penalty(book_data,user);
     display_person_pointer(user);
     for (int i = 0; i < borrow_quantity; ++i) {
+        if(i==0)printf("\t\t\t--------已借书籍--------\n");
         printf("书本编号:%d\n", user->book_code[i]);
         //display(book_code)展示书籍信息
         display_book_code(user->book_code[i], book_data);
@@ -98,7 +99,7 @@ void self_manage(book_list *book_data,person *user) {
         penalty(book_data,user);
         display_person_pointer(user);
         for (int i = 0; i < borrow_quantity; ++i) {
-            if(i==0)printf("\t\t\t--------Book borrowed--------\n");
+            if(i==0)printf("\t\t\t--------已借书籍--------\n");
             printf("书籍编号:%d\n", user->book_code[i]);
             display_book_code(user->book_code[i], book_data);
         }

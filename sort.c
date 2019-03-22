@@ -44,13 +44,13 @@ void sort(book_list *book_data,person_list *person_data) {
                 system("cls");
 
         }
-        printf("\t\t\t*----------Welcome!-----------*\n"
-               "\t\t\t*[1]Sort Users by id number---*\n"
-               "\t\t\t*[2]Sort Users by name--------*\n"
-               "\t\t\t*[3]Sort Books by code--------*\n"
-               "\t\t\t*[4]Sort Books by name--------*\n"
-               "\t\t\t*[5]Sort Books by price-------*\n"
-               "\t\t\t*[0]Return--------------------*\n");
+        printf("\t\t\t欢迎使用信息排序系统!\n"
+               "\t\t\t[1]以用户账号排序\n"
+               "\t\t\t[2]以用户姓名排序\n"
+               "\t\t\t[3]以书籍编码排序\n"
+               "\t\t\t[4]以书籍名称排序\n"
+               "\t\t\t[5]以书籍价格排序\n"
+               "\t\t\t[0]返回上级菜单\n");
         fflush(stdin);
     }
 }
