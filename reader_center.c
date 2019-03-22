@@ -9,6 +9,7 @@ void  reader_center(book_list *book_data,person *user){
     //printf("reader_center\n");
     //printf("Press any key to continue:\n");
     int choice;
+    penalty(book_data,user);
     printf("\t\t\t[1]修改私人信息\n"
            "\t\t\t[2]借书\n"
            "\t\t\t[3]还书\n"
