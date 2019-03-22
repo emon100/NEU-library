@@ -222,6 +222,7 @@ void return_book(book_list *book_data,person *user){
                 user->borrow_quantity--;
                 current_book->person_id_number=-1;
                 book_data->book_borrowed--;
+                printf("Book returned!\n");
            }
            else if(current_book==NULL){
                printf("Book not found!\nEnter anything to continue:\n");
