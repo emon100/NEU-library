@@ -202,6 +202,7 @@ void return_book(book_list *book_data,person *user){
         while(1){
             printf("Enter the code of the book you want to return:\n");
            scanf("%d",&code);
+            fflush(stdin);
            current_book=search_book_pointer(code,book_data);
            if(current_book!=NULL&&current_book->person_id_number==user->id_number){
                 //先找元素，把这个元素从数组的某一个地方找到

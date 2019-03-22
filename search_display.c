@@ -3,6 +3,14 @@
 //
 #include "lib.h"
 
+void search_book(book_list *book_data){
+   ;
+}
+
+void search_user(person_list *book_data){
+    ;
+}
+
 void display_person_pointer(person *user){
     printf("\nUser's infomation:\n"
            "ID:%-5d|Name:%-10s|",user->id_number,user->name);
@@ -45,6 +53,7 @@ void display_book_pointer(book *p_book){
     if(p_book->person_id_number==-1)
         return;
     else{
+        printf("Who borrowed:%d\n",p_book->person_id_number);
         now=time(NULL);
         borrow_time=p_book->borrow_time;
         return_time=p_book->borrow_time+5184000;//2个月的秒数是2678400故，time_t类型其实和long差不多

@@ -93,6 +93,8 @@ enum login_status        login(int,person_list *);//与正式版本不同的函数
 void            information_reader(book_list *);//只能搜索书籍和查看普通图书馆数据
 void            information_admin(book_list *,person_list *);//可以看所有图书馆数据，搜索图书和人员
 
+void            search_user(person_list *);
+void            search_book(book_list *);
 void            display_person_pointer(person *);//展示个人信息
 void            display_book_pointer(book *);//根据书籍节点地址展示书籍信息
 void            display_book_code(int, book_list *);//根据书籍code展示书籍信息
