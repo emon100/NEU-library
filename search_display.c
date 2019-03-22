@@ -34,60 +34,60 @@ void search_user(person_list *book_data){
  */
 
 void display_person_pointer(person *user){
-    printf("\nUser's infomation:\n"
-           "ID:%-5d|Name:%-10s|",user->id_number,user->name);
-    printf("password:%-12s|",user->password);
-    if(user->sex==male)printf("Sex:Male  |\n");
-    else if(user->sex==female)printf("Sex:Female|\n");
-    else printf("Sex:Error\n");
-    if(user->prop==prop_reader)printf("Property:Reader         |");
-    else if(user->prop==prop_administrator)printf("Property:Administrator  |");
-    else printf("Property:Error  |");
-    printf("Penalty:%6.2f       |",user->penalty);
-    printf("Book borrowed:%-3d\n\n",user->borrow_quantity);
+    printf("用户信息:\n"
+           "|ID:%-10d\n|姓名:%-10s\n",user->id_number,user->name);
+    printf("|密码:%-12s\n",user->password);
+    if(user->sex==male)printf("|性别:男性  \n");
+    else if(user->sex==female)printf("|性别:女性\n");
+    else printf("性别:未知\n");
+    if(user->prop==prop_reader)printf("|属性:读者\n");
+    else if(user->prop==prop_administrator)printf("|属性:管理员");
+    else printf("|属性:未知");
+    printf("|罚金:%.2f\n",user->penalty);
+    printf("|已借书籍数量:%-3d\n\n",user->borrow_quantity);
 }
 
 void display_book_pointer(book *p_book){
     time_t      now,borrow_time,return_time;
-    printf("|Title:%-30s\n|Author:%-20s\n|Press:%-20s\n",p_book->book_name,p_book->author_name,p_book->press);
-    printf("|Field:");
+    printf("|标题:%s\n|作者:%-20s\n|出版社:%-20s\n",p_book->book_name,p_book->author_name,p_book->press);
+    printf("|领域:");
     switch(p_book->field){
         case science:
-            printf("Science");
+            printf("科学");
             break;
         case literature:
-            printf("Literature");
+            printf("文学");
             break;
         case education:
-            printf("Education");
+            printf("教育");
             break;
         case art:
-            printf("Art");
+            printf("艺术");
             break;
         case life:
-            printf("Life");
+            printf("生活");
             break;
         default:
-            printf("Error");
+            printf("未知");
             break;
     }
-    printf("\n|Price:%6.2f\n\n",p_book->price);
+    printf("\n|价格:%6.2f\n\n",p_book->price);
     if(p_book->person_id_number==-1)
         return;
     else{
-        printf("Who borrowed:%d\n",p_book->person_id_number);
+        printf("借书者:%d\n\n",p_book->person_id_number);
         now=time(NULL);
         borrow_time=p_book->borrow_time;
         return_time=p_book->borrow_time+5184000;//2个月的秒数是2678400故，time_t类型其实和long差不多
-        printf("Now time:%s\n",ctime(&now));
-        printf("Borrow time:%s\n",ctime(&borrow_time));
-        printf("Should return before:%s\n",ctime(&return_time));
+        printf("当前时间:%s\n",ctime(&now));
+        printf("结束时间:%s\n",ctime(&borrow_time));
+        printf("规定还书时间:%s\n",ctime(&return_time));
     }
 
 void display_book_code(int code, book_list *book_data){
     book        *p_book=search_book_pointer(code,book_data);
     if(p_book==NULL)
-        printf("Book not found!\n");
+        printf("无法找到此书!\n");
     else
         display_book_pointer(p_book);
 }

@@ -17,14 +17,14 @@ enum login_status login(int user_id,person_list *person_data){
                 case prop_reader       :
                     validity=as_reader;break;
             }
-            printf("%s,Enter your password:\n",p1->name);
+            printf("%s,ÇëÊäÈëÄãµÄÃÜÂë:\n",p1->name);
             scanf("%s",password_tmp);
             if(strcmp(p1->password,password_tmp)==0){
                 free(password_tmp);
                 return validity;
             }
             else {
-                printf("Password error,try again:\n");
+                printf("ÃÜÂë´íÎó,ÇëÔÙ´ÎÊäÈë:\n");
                 scanf("%s",password_tmp);
                 if(strcmp(p1->password,password_tmp)==0){
                     free(password_tmp);

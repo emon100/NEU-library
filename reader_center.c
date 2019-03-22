@@ -9,8 +9,10 @@ void  reader_center(book_list *book_data,person *user){
     //printf("reader_center\n");
     //printf("Press any key to continue:\n");
     int choice;
-    printf("\t\t\t[1]Manage personal info---[2]Borrow book\n"
-           "\t\t\t[3]Return book-----------------[4]Return\n");
+    printf("\t\t\t[1]修改私人信息\n"
+           "\t\t\t[2]借书\n"
+           "\t\t\t[3]还书\n"
+           "\t\t\t[4]返回上级菜单\n");
     while(1){
         fflush(stdin);
         choice=getchar();
@@ -34,11 +36,13 @@ void  reader_center(book_list *book_data,person *user){
                 return;
             default:
                 system("cls");
-                printf("Please enter again:\n");
+                printf("请再次输入:\n");
                 break;
         }
-        printf("\t\t\t[1]Manage personal info---[2]Borrow book\n"
-               "\t\t\t[3]Return book-----------------[4]Return\n");
+        printf("\t\t\t[1]修改私人信息\n"
+                "\t\t\t[2]借书\n"
+                "\t\t\t[3]还书\n"
+                "\t\t\t[4]返回上级菜单\n");
     }
 }
 
@@ -47,14 +51,12 @@ void self_manage(book_list *book_data,person *user) {
     int exit_flag = 0;
     int option;
     system("cls");
-    printf("ok");
     penalty(book_data,user);
-    printf("penalty is %f:\n",user->penalty);//TODO
     display_person_pointer(user);
-    printf("display is ok");//TODO
     for (int i = 0; i < borrow_quantity; ++i) {
-        printf("Book_id:%d\n", user->book_id[i]);
-        display_book_code(user->book_id[i], book_data);//展示书籍信息
+        printf("书本编号:%d\n", user->book_id[i]);
+        //display(book_id)展示书籍信息
+        display_book_code(user->book_id[i], book_data);
     }
     while (1) {
         if (exit_flag != 1) {
@@ -64,19 +66,19 @@ void self_manage(book_list *book_data,person *user) {
             fflush(stdin);
             switch (option) {
                 case '1': {
-                    printf("Enter new password:");//这个起码得有个确认的过程吧
+                    printf("输入新的密码:");//这个起码得有个确认的过程吧
                     gets(user->password);
                     fflush(stdin);
                     break;
                 }
                 case '2': {
-                    printf("Enter new name:");
+                    printf("输入新的姓名:");
                     gets(user->name);
                     fflush(stdin);
                     break;
                 }
                 case '3': {
-                    printf("Enter new sex([0]Male[1]Female):");
+                    printf("输入新的性别([0]男性[1]女性):");
                     scanf("%d", &user->sex);
                     fflush(stdin);
                     break;
@@ -86,7 +88,7 @@ void self_manage(book_list *book_data,person *user) {
                     return;
                 }
                 default:
-                    printf("Input Error!Please Enter again:");
+                    printf("输入错误!请再次输入:");
                     break;
             }
         }
@@ -96,14 +98,14 @@ void self_manage(book_list *book_data,person *user) {
         display_person_pointer(user);
         for (int i = 0; i < borrow_quantity; ++i) {
             if(i==0)printf("\t\t\t--------Book borrowed--------\n");
-            printf("Book_id:%d\n", user->book_id[i]);
-            display_book_code(user->book_id[i], book_data);//展示书籍信息
+            printf("书籍编号:%d\n", user->book_id[i]);
+            display_book_code(user->book_id[i], book_data);
         }
         //输入判断
-        if (exit_flag == 1)printf("Input error, please enter again:");
+        if (exit_flag == 1)printf("输入错误!请再次输入:");
         exit_flag = 0;
         //询问是否继续
-        printf("whether to continue or not？ [1]Yes  [0]No\n");
+        printf("是否继续？ [1]是  [0]否\n");
         option = getchar();
         fflush(stdin);
         if (option == '0') {
@@ -156,7 +158,6 @@ void borrow_book(book_list *book_data,person *user){
             scanf("%d",&code);
             fflush(stdin);
             current_book = search_book_pointer(code,book_data);
-            if(current_book!=NULL){
             display_book_pointer(current_book);
             printf("Is it the book you want to borrow? Press 1 to continue, another key to abort:\n");
             choice=getchar();
@@ -166,9 +167,10 @@ void borrow_book(book_list *book_data,person *user){
                 printf("Borrow aborted!\n");
                 return;
             }
+            if(current_book!=NULL){
                if(current_book->person_id_number==-1){
                    user->borrow_quantity++;
-                   user->book_id[user->borrow_quantity-1]=code;
+                   user->book_id[user->borrow_quantity]=code;
                    current_book->person_id_number=user->id_number;
                    current_book->borrow_time=time(NULL);
                    book_data->book_borrowed++;
@@ -182,7 +184,6 @@ void borrow_book(book_list *book_data,person *user){
                 printf("Book not Found!\n");
             }
             printf("Whether to continue or not?Enter 1 to Borrow another book, enter something else to exit.\n");
-            fflush(stdin);
             choice=getchar();
             fflush(stdin);
             if(choice=='1')continue;
@@ -200,18 +201,15 @@ void return_book(book_list *book_data,person *user){
     int         i;
     char        choice;
     book        *current_book=NULL;
-    time_t      now,borrowed_time;
-    now=time(NULL);
     system("cls");
     fflush(stdin);
     if(user->borrow_quantity>0){
         while(1){
             printf("Enter the code of the book you want to return:\n");
-            scanf("%d",&code);
+           scanf("%d",&code);
             fflush(stdin);
-            current_book=search_book_pointer(code,book_data);
-            if(current_book!=NULL&&current_book->person_id_number==user->id_number){
-                penalty(book_data,user);//计算一次罚金
+           current_book=search_book_pointer(code,book_data);
+           if(current_book!=NULL&&current_book->person_id_number==user->id_number){
                 //先找元素，把这个元素从数组的某一个地方找到
                 for(i=0;i<borrow_quantity;++i){
                    if(user->book_id[i]==code){
@@ -220,28 +218,27 @@ void return_book(book_list *book_data,person *user){
                    }
                 }
                 //找到后把后一个元素向前移动
-                for(i=i+1;i<borrow_quantity;++i){
-                        user->book_id[i-1]=user->book_id[i];
+                for(;i<borrow_quantity-1;++i){
+                     if((i+1)<borrow_quantity){
+                        user->book_id[i]=user->book_id[i+1];
+                     }
+                     else break;
                 }
-
                 user->borrow_quantity--;
                 current_book->person_id_number=-1;
                 book_data->book_borrowed--;
                 printf("Book returned!\n");
-                if((now-current_book->borrow_time)>518400){
-                    printf("由于逾期还书，产生了罚金:%f\n请及时寻找管理员缴纳以便继续借书！\n",((now-current_book->borrow_time+5097600)/86400)*0.2);
-                }
-            }
-            else if(current_book==NULL){
+           }
+           else if(current_book==NULL){
                printf("Book not found!\nEnter anything to continue:\n");
                getchar();
                fflush(stdin);
-            }
-            else {
+           }
+           else {
                printf("Book can't be returned by you!\nEnter anything to continue:\n");
                getchar();
                fflush(stdin);
-            }
+           }
             printf("Whether to continue or not? Enter 1 to return another book, enter something else to exit.\n");
             choice=getchar();
             fflush(stdin);
