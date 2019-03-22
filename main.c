@@ -17,7 +17,7 @@ int main(void) {
     //菜单部分开始
     while(1){
         system("cls");
-        printf("\t\t\t欢迎使用图书管理系统, 请输入您的账号以继续:\n");
+        printf("\t\t\t欢迎使用图书管理系统!\n请输入您的账号以继续:\n");
         scanf("%d", &user_id);
         fflush(stdin);
         validity = login(user_id,person_data);
