@@ -2,52 +2,133 @@
 // Created by emon100 on 2019/3/21 0021.
 //
 #include "lib.h"
-void search_book(book_list *book_data){
+void search_book(book_list *book_data) {
     system("cls");
-    int     size=0;
-    book    book_pointers[10];
-    book    *current_book=book_data->head;
-    char    book_keyword[360];
-    char    search[1000];
-    char    search_format_keywords[10][210];
-    char    search_normal_keywords[210];
-    char    *format_keyword;
-    while(1){
-        fflush(stdin);
-        size=0;
-        printf("欢迎使用搜索系统!\n"
-               "你可以用一个关键词模糊查询书籍，也可以在输完一个关键词后不加空格加“|”符号再不加空格搭配\n以下关键词语句筛选指定书籍，每组关键词只能输一遍之间要有空格:\n"
-               "author_name=你要搜索的作者名\n"
-               "book_name=你要搜索的书名\n"
+    book *book_pointers[10] = {0};
+    book *current_book = book_data->head;
+    int exit_flag = 0;
+    int flag[5] = {0};
+    int count;
+    int choice;
+    char book_keywords[400];
+    char search_blurred[200] = {0};
+
+    int code;
+    char name[100];
+    char author[200];
+    char press[50];
+    enum field field;
+    //TODO：循环初始化变量
+    while (1) {
+        memset(flag, 0, sizeof(int) * 5);
+        memset(search_blurred, 0, sizeof(char) * 200);
+        count = 0;
+        exit_flag = 0;
+        system("cls");
+        printf("欢迎使用查找系统!\n请选择功能：\n"
                "code=你要搜索的条码\n"
-               "press=你要搜索的出版社\n"
+               "book_name=你要搜索的书名\n"
+               "author_name=你要搜索的作者名\n"
+               "专业领域\n"
                "borrowed=-1来筛选被借走的书\n"
-               "最多输入10组关键词，请输入你要搜索的关键词:\n");
-        gets(search);
+               "[1]模糊查找功能\n[2]筛选功能\n[0]退出");
         fflush(stdin);
-        format_keyword=strrchr(search,'|')+1;//寻找|的下一个位置，如果没有则为NULL
-        strncpy(search_normal_keywords,search,(strlen(search)-strlen(format_keyword))*sizeof(char));
-        printf("%s\n%s",search_normal_keywords,format_keyword);//测试普通关键词和形式关键词
-        getchar();
+        scanf("%d", &choice);
         fflush(stdin);
-        while(current_book!=NULL){
-            sprintf(book_keyword,"author_name=%s book_name=%s borrowed=%d code=%d press=%s",current_book->author_name,current_book->book_name,current_book->person_id_number,current_book->code,current_book->press);
-            if(strstr)
-
+        switch (choice) {
+            case 1:
+                gets(search_blurred);
+                while (current_book != NULL) {
+                    sprintf(book_keywords, "%d %s %s %s %d", current_book->code, current_book->book_name,
+                            current_book->author_name, current_book->press, current_book->person_id_number);
+                    if (strstr(search_blurred, book_keywords) != NULL && count < 10) {
+                        book_pointers[count] = current_book;
+                        count++;
+                    } else break;
+                }
+                for (int i = 0; i < count; ++i) {
+                    display_book_pointer(book_pointers[i]);
+                    break;
+                }
+                getchar();
+                fflush(stdin);
+                break;
+            case 2:
+                printf("输入0以不用书籍条码查找，输入其他内容继续\n");
+                if (getchar() == '0')flag[0] = 1;
+                fflush(stdin);
+                printf("输入0以不用书名查找，输入其他内容继续\n");
+                if (getchar() == '0')flag[1] = 1;
+                fflush(stdin);
+                printf("输入0以不用作者名查找，输入其他内容继续\n");
+                if (getchar() == '0')flag[2] = 1;
+                fflush(stdin);
+                printf("输入0以不用专业领域查找，输入其他内容继续\n");
+                if (getchar() == '0')flag[3] = 1;
+                fflush(stdin);
+                printf("输入0搜索结果不筛选借走的书，输入其他内容搜索结果只有未借走的书\n");
+                if (getchar() == '0')flag[4] = 1;
+                fflush(stdin);
+                if (flag[0] == 0) {
+                    printf("输入条码：\n");
+                    scanf("%d", &code);
+                    fflush(stdin);
+                    display_book_code(code,book_data);
+                    break;
+                }
+                if (flag[1] == 0) {
+                    printf("输入书名：\n");
+                    gets(name);
+                    fflush(stdin);
+                }
+                if (flag[2] == 0) {
+                    printf("输入作者：\n");
+                    gets(name);
+                    fflush(stdin);
+                }
+                if (flag[3] == 0) {
+                    printf("输入专业领域\n[0]科学[1]文学[2]教育[3]艺术[4]生活\n");
+                    scanf("%d", &field);
+                    fflush(stdin);
+                }
+                if (flag[0] != 1) {
+                    display_book_code(code, book_data);
+                } else {
+                    while (current_book != NULL) {
+                        if (count < 10) {
+                            if (strstr(name, current_book->book_name) != NULL || flag[1]) {
+                                if (strstr(author, current_book->author_name) != NULL || flag[2]) {
+                                    if (current_book->field == field || flag[3]) {
+                                        if (current_book->person_id_number == -1 || flag[4]) {
+                                            book_pointers[count] = current_book;
+                                            count++;
+                                        }
+                                    }
+                                }
+                            }
+                        } else break;
+                        current_book = current_book->next;
+                    }
+                    for (int i = 0; i < count; i++) {
+                        display_book_pointer(book_pointers[i]);
+                    }
+                }
+                getchar();
+                fflush(stdin);
+                break;
+            case 0:
+                return;
+            default:
+                printf("输入错误请重新输入:\n");
+                break;
         }
-        /*
-         *
-        sprintf(bala)
-        if找子串
-        bp[size]=b_p
-        size++
-        遍历结束
-                (或者如果能找到子串直接输出吧)
-
-        问是否继续
-        continue
-        break:
-         */
+        printf("是否继续查询，输入1继续，其他键取消\n");
+        if(getchar()=='1'){
+            fflush(stdin);
+            continue;
+        }
+        fflush(stdin);
+        else break;
     }
 }
 
