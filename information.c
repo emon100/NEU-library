@@ -9,27 +9,29 @@ void information_reader(book_list *book_data){
     int book_code;
     system("cls");
     printf("information_reader\n");//记得删掉
-    printf("\t\t\t*Welcome!--------------------------------*\n"
-           "\t\t\t*[1]Check statistics-------[2]Search Book*\n"
-           "\t\t\t*[3]Return-------------------------------*\n");
+    printf("\t\t\t\t欢迎查询!\n"
+           "\t\t\t\t[1]总览信息\n"
+           "\t\t\t\t[2]查询书籍\n"
+           "\t\t\t\t[3]返回上级菜单\n");
     //菜单
     fflush(stdin);
     while(choice=getchar()){
         fflush(stdin);
         switch(choice){
             case  '1':
-                printf("|-Total book-|-science-|-literature-|--education--|--art--|-----life-----|\n  ");
+                printf("\n");
+                printf("|--书本总数--|--科学--|-----文学-----|--教育--|-----艺术-----|---生活---|\n  ");
                 printf("%5d",book_data->size);
                 for(int i=science;i<=life;++i)printf("%12d",book_data->book_size_field[i]);
-                printf("\n");
-                printf("Press any key to continue:\n");
+                printf("\n\n");
+                printf("输入任何内容以继续:\n");
                 getchar();
                 fflush(stdin);//吃回车
                 system("cls");
                 break;
             case  '2':
                 system("cls");
-                printf("search book,Enter code of the book:\n");
+                printf("请输入书籍编码以查询该书本:\n");
                 scanf("%d",&book_code);
                 fflush(stdin);
                 display_book_code(book_code, book_data);
@@ -39,12 +41,13 @@ void information_reader(book_list *book_data){
                 return;
             default:
                 system("cls");
-                printf("Please enter again!:\n");
+                printf("请重新输入指令:\n");
                 break;
         }
-        printf("\t\t\t*Welcome!--------------------------------*\n"
-               "\t\t\t*[1]Check statistics-------[2]Search Book*\n"
-               "\t\t\t*[3]Return-------------------------------*\n");
+        printf("\t\t\t\t欢迎查询!\n"
+               "\t\t\t\t[1]总览信息\n"
+               "\t\t\t\t[2]查询书籍\n"
+               "\t\t\t\t[3]返回上级菜单\n");
     }
 }
 //管理员查看统计的函数
@@ -52,9 +55,11 @@ void information_admin(book_list *book_data,person_list *person_data) {
     char choice;
     system("cls");
     printf("information_admin\n");//记得删掉
-    printf("\t\t\t*Welcome!--------------------------------*\n"
-           "\t\t\t*[1]Check statistics-------[2]Search Book*\n"
-           "\t\t\t*[3]Search User-----------------[4]Return*\n");
+    printf("\t\t\t\t欢迎查询!\n"
+           "\t\t\t\t[1]总览信息\n"
+           "\t\t\t\t[2]查询书籍\n"
+           "\t\t\t\t[3]查询用户\n"
+           "\t\t\t\t[4]返回上级菜单\n");
     fflush(stdin);
     //下面都是菜单
     while (choice = getchar()) {
@@ -62,12 +67,12 @@ void information_admin(book_list *book_data,person_list *person_data) {
         switch (choice) {
             case '1':
                 system("cls");
-                printf("|-Total book-|-Not returned-|-science-|-literature-|-education--|---art----|---life---|\n  ");
+                printf("|-书籍总数-|---未还书籍数量---|-科学-|-----文学-----|--教育--|-----艺术-----|---生活---|\n  ");
                 printf("%5d%15d", book_data->size,book_data->book_borrowed);
                 for (int i = science; i <= life; ++i)printf("%12d", book_data->book_size_field[i]);
-                printf("\n");
-                printf("|-Total User-|-Admins-|-Total readers-|-male readers-|-Female readers-|\n");
-                printf("%9d%13d%9d%15d%17d\n",person_data->size,person_data->admin_size,person_data->size-person_data->admin_size,person_data->male_reader_size,person_data->size-person_data->admin_size-person_data->male_reader_size);
+                printf("\n\n");
+                printf("|-用户总数-|-管理员-|-读者总数-|-男性读者-|-女性读者-|\n");
+                printf("%6d%10d%10d%12d%11d\n",person_data->size,person_data->admin_size,person_data->size-person_data->admin_size,person_data->male_reader_size,person_data->size-person_data->admin_size-person_data->male_reader_size);
                 printf("Press any key to continue:\n");
                 getchar();
                 fflush(stdin);

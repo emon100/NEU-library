@@ -9,8 +9,10 @@ void  reader_center(book_list *book_data,person *user){
     //printf("reader_center\n");
     //printf("Press any key to continue:\n");
     int choice;
-    printf("\t\t\t[1]Manage personal info---[2]Borrow book\n"
-           "\t\t\t[3]Return book-----------------[4]Return\n");
+    printf("\t\t\t[1]修改私人信息\n"
+           "\t\t\t[2]借书\n"
+           "\t\t\t[3]还书\n"
+           "\t\t\t[4]返回上级菜单\n");
     while(1){
         fflush(stdin);
         choice=getchar();
@@ -34,11 +36,13 @@ void  reader_center(book_list *book_data,person *user){
                 return;
             default:
                 system("cls");
-                printf("Please enter again:\n");
+                printf("请再次输入:\n");
                 break;
         }
-        printf("\t\t\t[1]Manage personal info---[2]Borrow book\n"
-               "\t\t\t[3]Return book-----------------[4]Return\n");
+        printf("\t\t\t[1]修改私人信息\n"
+                "\t\t\t[2]借书\n"
+                "\t\t\t[3]还书\n"
+                "\t\t\t[4]返回上级菜单\n");
     }
 }
 
@@ -50,7 +54,7 @@ void self_manage(book_list *book_data,person *user) {
     penalty(book_data,user);
     display_person_pointer(user);
     for (int i = 0; i < borrow_quantity; ++i) {
-        printf("Book_id:%d\n", user->book_id[i]);
+        printf("书本编号:%d\n", user->book_id[i]);
         //display(book_id)展示书籍信息
         display_book_code(user->book_id[i], book_data);
     }
@@ -62,19 +66,19 @@ void self_manage(book_list *book_data,person *user) {
             fflush(stdin);
             switch (option) {
                 case '1': {
-                    printf("Enter new password:");//这个起码得有个确认的过程吧
+                    printf("输入新的密码:");//这个起码得有个确认的过程吧
                     gets(user->password);
                     fflush(stdin);
                     break;
                 }
                 case '2': {
-                    printf("Enter new name:");
+                    printf("输入新的姓名:");
                     gets(user->name);
                     fflush(stdin);
                     break;
                 }
                 case '3': {
-                    printf("Enter new sex([0]Male[1]Female):");
+                    printf("输入新的性别([0]男性[1]女性):");
                     scanf("%d", &user->sex);
                     fflush(stdin);
                     break;
@@ -84,7 +88,7 @@ void self_manage(book_list *book_data,person *user) {
                     return;
                 }
                 default:
-                    printf("Input Error!Please Enter again:");
+                    printf("输入错误!请再次输入:");
                     break;
             }
         }
@@ -94,14 +98,14 @@ void self_manage(book_list *book_data,person *user) {
         display_person_pointer(user);
         for (int i = 0; i < borrow_quantity; ++i) {
             if(i==0)printf("\t\t\t--------Book borrowed--------\n");
-            printf("Book_id:%d\n", user->book_id[i]);
+            printf("书籍编号:%d\n", user->book_id[i]);
             display_book_code(user->book_id[i], book_data);
         }
         //输入判断
-        if (exit_flag == 1)printf("Input error, please enter again:");
+        if (exit_flag == 1)printf("输入错误!请再次输入:");
         exit_flag = 0;
         //询问是否继续
-        printf("whether to continue or not？ [1]Yes  [0]No\n");
+        printf("是否继续？ [1]是  [0]否\n");
         option = getchar();
         fflush(stdin);
         if (option == '0') {

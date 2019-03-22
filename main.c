@@ -14,8 +14,8 @@ int main(void) {
     /*人和书本数据类型指针初始化*/
     person_list *person_data = (person_list *) malloc(sizeof(person_list));
     book_list *book_data = (book_list *) malloc(sizeof(book_list));
-    person_recovery(person_data);
-    book_recovery(book_data);
+    admin_init(person_data);
+    book_test(book_data);
     //菜单部分开始
     while(1){
     system("cls");
@@ -25,13 +25,13 @@ int main(void) {
     validity = login(user_id,person_data);
     switch (validity) {
         case no_user        :
-            printf("请重新登录\n错误提示：没有该用户\n输入任何内容以继续:\n");
+            printf("请重新登录!\t错误提示:没有该用户\n\n输入任何内容以继续:\n");
             fflush(stdin);
             getchar();
             fflush(stdin);
             break;
         case password_err   :
-            printf("请重新登录\n错误提示：密码错误!\n输入任何内容以继续:\n");
+            printf("请重新登录!\t错误提示:密码错误!\n\n输入任何内容以继续:\n");
             fflush(stdin);
             getchar();
             fflush(stdin);
@@ -40,11 +40,11 @@ int main(void) {
             system("cls");
             printf("id:%5d--name:%10s--borrow:%5d\n", current_user->id_number, current_user->name,
                    current_user->borrow_quantity);//测试current_user
-            printf("\t\t\t*尊敬的读者，感谢您使用图书管理系统，请输入指令来选择功能\n"
-                   "\t\t\t*[1]总览信息\n"
-                   "\t\t\t*[2]读者中心\n"
-                   "\t\t\t*[3]修改用户信息\n"
-                   "\t\t\t*[4]退出\n");
+            printf("\t\t\t\t尊敬的读者,感谢您使用图书管理系统,请输入指令来选择功能\n"
+                   "\t\t\t\t[1]总览信息\n"
+                   "\t\t\t\t[2]读者中心\n"
+                   "\t\t\t\t[3]更换用户\n"
+                   "\t\t\t\t[4]退出\n");
             fflush(stdin);//吃回车
             while (choice = getchar()) {
                 fflush(stdin);//吃回车
@@ -75,23 +75,23 @@ int main(void) {
                     break;
                 }
                 fflush(stdin);//吃回车
-                printf("\t\t\t*尊敬的读者，感谢您使用图书管理系统，请输入指令来选择功能\n"
-                   "\t\t\t*[1]总览信息\n"
-                   "\t\t\t*[2]读者中心\n"
-                   "\t\t\t*[3]用户信息修改\n"
-                   "\t\t\t*[4]退出\n");
+                printf("\t\t\t\t尊敬的读者,感谢您使用图书管理系统,请输入指令来选择功能\n"
+                   "\t\t\t\t[1]总览信息\n"
+                   "\t\t\t\t[2]读者中心\n"
+                   "\t\t\t\t[3]更换用户\n"
+                   "\t\t\t\t[4]退出\n");
             }
             break;
         case as_admin     :
             system("cls");
             printf("id:%5d--name:%10s--borrow:%5d\n", current_user->id_number, current_user->name,
                    current_user->borrow_quantity);//测试current_user
-            printf("\t\t\t*尊敬的管理员，感谢您使用图书管理系统，请输入指令来选择功能\n"
-                   "\t\t\t*[1]图书馆总览信息\n"
-                   "\t\t\t*[2]读者中心\n"
-                   "\t\t\t*[3]管理系统\n"
-                   "\t\t\t*[4]用户信息修改\n"
-                   "\t\t\t*[5]退出\n");
+            printf("\t\t\t\t尊敬的管理员,感谢您使用图书管理系统,请输入指令来选择功能\n"
+                   "\t\t\t\t[1]图书馆总览信息\n"
+                   "\t\t\t\t[2]读者中心\n"
+                   "\t\t\t\t[3]管理系统\n"
+                   "\t\t\t\t[4]更换用户\n"
+                   "\t\t\t\t[5]退出\n");
             fflush(stdin);
             while (choice = getchar()) {
                 fflush(stdin);//吃回车
@@ -114,22 +114,22 @@ int main(void) {
                         break;
                     case '5'    :
                         system("cls");
-                        printf("感谢您的使用，下次再见！\n");return 0;
+                        printf("感谢您的使用,下次再见!\n");return 0;
                     default     :
                         system("cls");
-                        printf("请再次输入指令！\n");
+                        printf("请再次输入指令!\n");
                         break;
                 }
                 if(exit_flag==1){
                     exit_flag=0;
                     break;
                 }
-                printf("\t\t\t*尊敬的管理员，感谢您使用图书管理系统，请输入指令来选择功能\n"
-                       "\t\t\t*[1]图书馆总览信息\n"
-                       "\t\t\t*[2]读者中心\n"
-                       "\t\t\t*[3]管理系统\n"
-                       "\t\t\t*[4]用户信息修改\n"
-                       "\t\t\t*[5]退出\n");
+                printf("\t\t\t\t尊敬的管理员,感谢您使用图书管理系统,请输入指令来选择功能\n"
+                       "\t\t\t\t[1]图书馆总览信息\n"
+                       "\t\t\t\t[2]读者中心\n"
+                       "\t\t\t\t[3]管理系统\n"
+                       "\t\t\t\t[4]更换用户\n"
+                       "\t\t\t\t[5]退出\n");
                 fflush(stdin);//吃回车
             }
             break;
