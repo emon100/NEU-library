@@ -147,7 +147,6 @@ void borrow_book(book_list *book_data,person *user){
     system("cls");
     fflush(stdin);
     penalty(book_data,user);
-    printf("penalty is ok:%f\n",user->penalty);
     while(1){
         if(user->penalty>0||user->borrow_quantity>=10){
             printf("You can't borrow book because you have borrowed over 10 books or you have penalty to pay!\n");
