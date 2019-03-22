@@ -54,9 +54,9 @@ void self_manage(book_list *book_data,person *user) {
     penalty(book_data,user);
     display_person_pointer(user);
     for (int i = 0; i < borrow_quantity; ++i) {
-        printf("书本编号:%d\n", user->book_id[i]);
-        //display(book_id)展示书籍信息
-        display_book_code(user->book_id[i], book_data);
+        printf("书本编号:%d\n", user->book_code[i]);
+        //display(book_code)展示书籍信息
+        display_book_code(user->book_code[i], book_data);
     }
     while (1) {
         if (exit_flag != 1) {
@@ -98,8 +98,8 @@ void self_manage(book_list *book_data,person *user) {
         display_person_pointer(user);
         for (int i = 0; i < borrow_quantity; ++i) {
             if(i==0)printf("\t\t\t--------Book borrowed--------\n");
-            printf("书籍编号:%d\n", user->book_id[i]);
-            display_book_code(user->book_id[i], book_data);
+            printf("书籍编号:%d\n", user->book_code[i]);
+            display_book_code(user->book_code[i], book_data);
         }
         //输入判断
         if (exit_flag == 1)printf("输入错误!请再次输入:");
@@ -130,7 +130,7 @@ void penalty(book_list *book_data,person *user){
     time_t      now,diff;
     now=time(NULL);
     for (int i=0;i<borrow_quantity;++i){
-        borrowed_book=search_book_pointer(user->book_id[i],book_data);
+        borrowed_book=search_book_pointer(user->book_code[i],book_data);
         diff=(now-(borrowed_book->borrow_time+5097600));//计算现在时间与应还时间差值
         if(diff>0)penalty=penalty+(diff/86400)*0.2;
         else continue;
@@ -170,7 +170,7 @@ void borrow_book(book_list *book_data,person *user){
             if(current_book!=NULL){
                if(current_book->person_id_number==-1){
                    user->borrow_quantity++;
-                   user->book_id[user->borrow_quantity]=code;
+                   user->book_code[user->borrow_quantity]=code;
                    current_book->person_id_number=user->id_number;
                    current_book->borrow_time=time(NULL);
                    book_data->book_borrowed++;
@@ -212,15 +212,15 @@ void return_book(book_list *book_data,person *user){
            if(current_book!=NULL&&current_book->person_id_number==user->id_number){
                 //先找元素，把这个元素从数组的某一个地方找到
                 for(i=0;i<borrow_quantity;++i){
-                   if(user->book_id[i]==code){
-                       user->book_id[i]=0;
+                   if(user->book_code[i]==code){
+                       user->book_code[i]=0;
                        break;
                    }
                 }
                 //找到后把后一个元素向前移动
                 for(;i<borrow_quantity-1;++i){
                      if((i+1)<borrow_quantity){
-                        user->book_id[i]=user->book_id[i+1];
+                        user->book_code[i]=user->book_code[i+1];
                      }
                      else break;
                 }

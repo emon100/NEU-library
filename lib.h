@@ -68,7 +68,7 @@ typedef struct person {
     enum sex        sex;
     enum property   prop;//人员属性
     int             borrow_quantity;//已借书籍数量
-    int             book_id[10];//书籍条码，这个地方到时候改成书籍类型的指针以方便查找书籍
+    int             book_code[10];//书籍条码，这个地方到时候改成书籍类型的指针以方便查找书籍
     float           penalty;//罚款
     struct person   *next;//下一位人员地址
 }person;//类型为person
