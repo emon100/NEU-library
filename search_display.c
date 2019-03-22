@@ -24,7 +24,120 @@ void search_book(book_list *book_data) {
         count = 0;
         system("cls");
         printf("欢迎使用查找系统!\n请选择功能：\n"
+               "[1]模糊查找功能\n[2]筛选功能\n[0]退出\n");
+        fflush(stdin);
+        scanf("%d", &choice);
+        fflush(stdin);
+        switch (choice) {
+            case 1:
+                printf("输入关键词:\n");
+                gets(search_blurred);
+                while (current_book != NULL) {
+                    sprintf(book_keywords, "%d %s %s %s %d", current_book->code, current_book->book_name,
+                            current_book->author_name, current_book->press, current_book->person_id_number);
+                    if (strstr(search_blurred, book_keywords) != NULL && count < 10) {
+                        book_pointers[count] = current_book;
+                        count++;
+                    } else break;
+                }
+                for (int i = 0; i < count; ++i) {
+                    display_book_pointer(book_pointers[i]);
+                }
+                getchar();
+                fflush(stdin);
+                break;
+            case 2:
+                printf("输入0以不用书籍条码查找，输入其他内容继续\n");
+                if (getchar() == '0')flag[0] = 1;
+                fflush(stdin);
+                printf("输入0以不用书名查找，输入其他内容继续\n");
+                if (getchar() == '0')flag[1] = 1;
+                fflush(stdin);
+                printf("输入0以不用作者名查找，输入其他内容继续\n");
+                if (getchar() == '0')flag[2] = 1;
+                fflush(stdin);
+                printf("输入0以不用专业领域查找，输入其他内容继续\n");
+                if (getchar() == '0')flag[3] = 1;
+                fflush(stdin);
+                printf("输入0搜索结果不筛选借走的书，输入其他内容搜索结果只有未借走的书\n");
+                if (getchar() == '0')flag[4] = 1;
+                fflush(stdin);
+                if (flag[0] == 0) {
+                    printf("输入条码：\n");
+                    scanf("%d", &code);
+                    fflush(stdin);
+                    display_book_code(code,book_data);
+                    break;
+                }
+                if (flag[1] == 0) {
+                    printf("输入书名：\n");
+                    gets(name);
+                    fflush(stdin);
+                }
+                if (flag[2] == 0) {
+                    printf("输入作者：\n");
+                    gets(name);
+                    fflush(stdin);
+                }
+                if (flag[3] == 0) {
+                    printf("输入专业领域\n[0]科学[1]文学[2]教育[3]艺术[4]生活\n");
+                    scanf("%d", &field);
+                    fflush(stdin);
+                }
+                if (flag[0] != 1) {
+                    display_book_code(code, book_data);
+                } else {
+                    while (current_book != NULL) {
+                        if (count < 10) {
+                            if (strstr(name, current_book->book_name) != NULL || flag[1]) {
+                                if (strstr(author, current_book->author_name) != NULL || flag[2]) {
+                                    if (current_book->field == field || flag[3]) {
+                                        if (current_book->person_id_number == -1 || flag[4]) {
+                                            book_pointers[count] = current_book;
+                                            count++;
+                                        }
+                                    }
+                                }
+                            }
+                        } else break;
+                        current_book = current_book->next;
+                    }
+                    for (int i = 0; i < count; i++) {
+                        display_book_pointer(book_pointers[i]);
+                    }
+                }
+                getchar();
+                fflush(stdin);
+                break;
+            case 0:
+                return;
+            default:
+                printf("输入错误请重新输入:\n");
+                break;
+        }
+        printf("是否继续查询，输入1继续，其他键取消\n");
+        if(getchar()=='1'){
+            fflush(stdin);
+            system("cls");
+            continue;
+        }
+        else {
+            fflush(stdin);
+            system("cls");
+            break;
+        }
 
+    }
+}
+/*
+
+void search_user(person_list *person_data){
+    while (1) {
+        memset(flag, 0, sizeof(int) * 5);
+        memset(search_blurred, 0, sizeof(char) * 200);
+        count = 0;
+        system("cls");
+        printf("欢迎使用查找系统!\n请选择功能：\n"
                "code=你要搜索的条码\n"
                "book_name=你要搜索的书名\n"
                "author_name=你要搜索的作者名\n"
@@ -129,17 +242,9 @@ void search_book(book_list *book_data) {
             fflush(stdin);
             break;
         }
-
     }
 }
-
-
-/*
-void search_user(person_list *book_data){
-    ;
-}
- */
-
+*/
 void display_person_pointer(person *user){
     printf("用户信息:\n"
            "|ID:%-10d\n|姓名:%-10s\n",user->id_number,user->name);
