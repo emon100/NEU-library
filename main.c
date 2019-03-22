@@ -42,7 +42,8 @@ int main(void) {
                    "\t\t\t\t[1]总览信息\n"
                    "\t\t\t\t[2]读者中心\n"
                    "\t\t\t\t[3]更换用户\n"
-                   "\t\t\t\t[4]退出\n");
+                   "\t\t\t\t[4]帮助\n"
+                   "\t\t\t\t[5]退出\n");
             fflush(stdin);//吃回车
             while (choice = getchar()) {
                 fflush(stdin);//吃回车
@@ -61,6 +62,10 @@ int main(void) {
                         break;
                     case '4'    :
                         system("cls");
+                        help();
+                        break;
+                    case '5'    :
+                        system("cls");
                         printf("Thank you for using, goodbye!\n");
                         return 0;
                     default     :
@@ -77,7 +82,8 @@ int main(void) {
                    "\t\t\t\t[1]总览信息\n"
                    "\t\t\t\t[2]读者中心\n"
                    "\t\t\t\t[3]更换用户\n"
-                   "\t\t\t\t[4]退出\n");
+                   "\t\t\t\t[4]帮助\n"
+                   "\t\t\t\t[5]退出\n");
             }
             break;
         case as_admin     :
@@ -87,7 +93,8 @@ int main(void) {
                    "\t\t\t\t[2]读者中心\n"
                    "\t\t\t\t[3]管理系统\n"
                    "\t\t\t\t[4]更换用户\n"
-                   "\t\t\t\t[5]退出\n");
+                   "\t\t\t\t[5]帮助\n"
+                   "\t\t\t\t[6]退出\n");
             fflush(stdin);
             while (choice = getchar()) {
                 fflush(stdin);//吃回车
@@ -110,6 +117,10 @@ int main(void) {
                         break;
                     case '5'    :
                         system("cls");
+                        help();
+                        break;
+                    case '6'    :
+                        system("cls");
                         printf("感谢您的使用,下次再见!\n");return 0;
                     default     :
                         system("cls");
@@ -125,7 +136,8 @@ int main(void) {
                        "\t\t\t\t[2]读者中心\n"
                        "\t\t\t\t[3]管理系统\n"
                        "\t\t\t\t[4]更换用户\n"
-                       "\t\t\t\t[5]退出\n");
+                       "\t\t\t\t[5]帮助\n"
+                       "\t\t\t\t[6]退出\n");
                 fflush(stdin);//吃回车
             }
             break;

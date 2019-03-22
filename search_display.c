@@ -33,7 +33,7 @@ void search_book(book_list *book_data) {
                 printf("输入关键词:\n");
                 gets(search_blurred);
                 while (current_book != NULL) {
-                    sprintf(book_keywords, "%d %s %s %s %d", current_book->code, current_book->book_name,
+                    sprintf(book_keywords, "%d%s%s%s%d", current_book->code, current_book->book_name,
                             current_book->author_name, current_book->press, current_book->person_id_number);
                     if (strstr(search_blurred, book_keywords) != NULL && count < 10) {
                         book_pointers[count] = current_book;
@@ -43,7 +43,7 @@ void search_book(book_list *book_data) {
                 for (int i = 0; i < count; ++i) {
                     display_book_pointer(book_pointers[i]);
                 }
-                printf("查询完成");
+                printf("查询完成，输入任意内容以继续\n");
                 getchar();
                 fflush(stdin);
                 break;
@@ -111,6 +111,8 @@ void search_book(book_list *book_data) {
                         display_book_pointer(book_pointers[i]);
                     }
                 }
+                printf("查询完成，输入任意内容以继续\n");
+                fflush(stdin);
                 getchar();
                 fflush(stdin);
                 break;

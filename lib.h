@@ -133,4 +133,5 @@ void            book_order_in_code(book_list *);
 void            person_order_in_id_number(person_list *);
 void            person_order_in_name(person_list *);
 
+void            help(void);
 #endif
