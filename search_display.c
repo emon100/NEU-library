@@ -48,7 +48,6 @@ void search_book(book_list *book_data) {
                 }
                 for (int i = 0; i < count; ++i) {
                     display_book_pointer(book_pointers[i]);
-                    break;
                 }
                 getchar();
                 fflush(stdin);
@@ -127,10 +126,13 @@ void search_book(book_list *book_data) {
             fflush(stdin);
             continue;
         }
-        fflush(stdin);
-        else break;
+        else {
+            fflush(stdin);
+            break;
+        }
     }
 }
+
 
 /*
 void search_user(person_list *book_data){
