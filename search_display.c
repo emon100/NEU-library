@@ -2,32 +2,56 @@
 // Created by emon100 on 2019/3/21 0021.
 //
 #include "lib.h"
-/*
 void search_book(book_list *book_data){
-        int size=0;
-        book book_pointers[50];
-        book current_book=book_data->head;
-        char keyword[360];
-        char search[100];
-        while(1){
-            size=0
-            print(enter key bala)
-            size=0
-            gets(search)
-            while()遍历book_current
-            sprintf(bala)
-            if找子串
-            bp[size]=b_p
-            size++
-            遍历结束
-                    (或者如果能找到子串直接输出吧)
+    system("cls");
+    int     size=0;
+    book    book_pointers[10];
+    book    *current_book=book_data->head;
+    char    book_keyword[360];
+    char    search[1000];
+    char    search_format_keywords[10][210];
+    char    search_normal_keywords[210];
+    char    *format_keyword;
+    while(1){
+        fflush(stdin);
+        size=0;
+        printf("欢迎使用搜索系统!\n"
+               "你可以用一个关键词模糊查询书籍，也可以在输完一个关键词后不加空格加“|”符号再不加空格搭配\n以下关键词语句筛选指定书籍，每组关键词只能输一遍之间要有空格:\n"
+               "author_name=你要搜索的作者名\n"
+               "book_name=你要搜索的书名\n"
+               "code=你要搜索的条码\n"
+               "press=你要搜索的出版社\n"
+               "borrowed=-1来筛选被借走的书\n"
+               "最多输入10组关键词，请输入你要搜索的关键词:\n");
+        gets(search);
+        fflush(stdin);
+        format_keyword=strrchr(search,'|')+1;//寻找|的下一个位置，如果没有则为NULL
+        strncpy(search_normal_keywords,search,(strlen(search)-strlen(format_keyword))*sizeof(char));
+        printf("%s\n%s",search_normal_keywords,format_keyword);//测试普通关键词和形式关键词
+        getchar();
+        fflush(stdin);
+        while(current_book!=NULL){
+            sprintf(book_keyword,"author_name=%s book_name=%s borrowed=%d code=%d press=%s",current_book->author_name,current_book->book_name,current_book->person_id_number,current_book->code,current_book->press);
+            if(strstr)
 
-            问是否继续
-            continue
-            break:
         }
+        /*
+         *
+        sprintf(bala)
+        if找子串
+        bp[size]=b_p
+        size++
+        遍历结束
+                (或者如果能找到子串直接输出吧)
+
+        问是否继续
+        continue
+        break:
+         */
+    }
 }
 
+/*
 void search_user(person_list *book_data){
     ;
 }

@@ -12,7 +12,7 @@ void person_order_in_name(person_list *person_data) {
             current = person_data->head;
             c_next  = current->next;
 
-            if(strcmp(current->name , c_next->name)>0){
+            if(strnicmp(current->name , c_next->name,strlen(current->name))>0){
                 current->next = c_next->next;
                 c_next->next  = current;
                 person_data->head = c_next;
@@ -29,7 +29,7 @@ void person_order_in_name(person_list *person_data) {
             if(person_data->size==2)break;
 
             for (int j = 0; j <= person_data->size-3; ++j) {
-                if (strcmp(current->name , c_next->name)>0) {   //讨论位置交换的情况
+                if (strnicmp(current->name , c_next->name,strlen(current->name))>0) {   //讨论位置交换的情况
                     current->next = c_next->next;       //前者的尾部变为后者的尾部
                     c_next->next = current;             //后者的尾部变为前者的地址
                     former->next = c_next;              //连接节点

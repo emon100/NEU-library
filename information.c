@@ -81,6 +81,7 @@ void information_admin(book_list *book_data,person_list *person_data) {
             case '2':
                 system("cls");
                 printf("search book\n");
+                search_book(book_data);
                 break;
             case '3':
                 system("cls");
