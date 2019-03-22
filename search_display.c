@@ -6,7 +6,6 @@ void search_book(book_list *book_data) {
     system("cls");
     book *book_pointers[10] = {0};
     book *current_book = book_data->head;
-    int exit_flag = 0;
     int flag[5] = {0};
     int count;
     int choice;
@@ -16,14 +15,12 @@ void search_book(book_list *book_data) {
     int code;
     char name[100];
     char author[200];
-    char press[50];
     enum field field;
     //TODO：循环初始化变量
     while (1) {
         memset(flag, 0, sizeof(int) * 5);
         memset(search_blurred, 0, sizeof(char) * 200);
         count = 0;
-        exit_flag = 0;
         system("cls");
         printf("欢迎使用查找系统!\n请选择功能：\n"
                "code=你要搜索的条码\n"
