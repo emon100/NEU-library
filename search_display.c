@@ -43,6 +43,7 @@ void search_book(book_list *book_data) {
                 for (int i = 0; i < count; ++i) {
                     display_book_pointer(book_pointers[i]);
                 }
+                printf("²éÑ¯Íê³É");
                 getchar();
                 fflush(stdin);
                 break;

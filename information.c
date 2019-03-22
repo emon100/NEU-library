@@ -34,9 +34,9 @@ void information_reader(book_list *book_data){
                 scanf("%d",&book_code);
                 fflush(stdin);
                 display_book_code(book_code, book_data);
-                printf("输入任何内容以继续\n")
+                printf("输入任何内容以继续\n");
                 getchar();
-                fflush();
+                fflush(stdin);
                 search_book(book_data);
                 break;
             case  '3':
