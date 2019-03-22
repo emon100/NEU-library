@@ -84,7 +84,7 @@ void display_book_pointer(book *p_book){
         printf("Should return before:%s\n",ctime(&return_time));
     }
 
-void display_book_code(int code, book_list *book_data) {
+void display_book_code(int code, book_list *book_data){
     book        *p_book=search_book_pointer(code,book_data);
     if(p_book==NULL)
         printf("Book not found!\n");
