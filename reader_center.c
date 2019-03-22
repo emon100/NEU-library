@@ -51,8 +51,8 @@ void self_manage(book_list *book_data,person *user) {
     int borrow_quantity = user->borrow_quantity;
     int exit_flag = 0;
     int option;
-    system("cls");
     penalty(book_data,user);
+    system("cls");
     display_person_pointer(user);
     for (int i = 0; i < borrow_quantity; ++i) {
         if(i==0)printf("\t\t\t--------ÒÑ½èÊé¼®--------\n");
@@ -170,8 +170,8 @@ void borrow_book(book_list *book_data,person *user){
             }
             if(current_book!=NULL){
                if(current_book->person_id_number==-1){
-                   user->borrow_quantity++;
                    user->book_code[user->borrow_quantity]=code;
+                   user->borrow_quantity++;
                    current_book->person_id_number=user->id_number;
                    current_book->borrow_time=time(NULL);
                    book_data->book_borrowed++;
