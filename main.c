@@ -19,7 +19,7 @@ int main(void) {
     //菜单部分开始
     while(1){
     system("cls");
-    printf("Thank you for using Library system, enter your id number to continue:\n");
+    printf("欢迎使用图书管理系统, enter your id number to continue:\n");
     scanf("%d", &user_id);
     fflush(stdin);
     validity = login(user_id,person_data);
