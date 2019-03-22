@@ -2,14 +2,36 @@
 // Created by emon100 on 2019/3/21 0021.
 //
 #include "lib.h"
-
+/*
 void search_book(book_list *book_data){
-   ;
+        int size=0;
+        book book_pointers[50];
+        book current_book=book_data->head;
+        char keyword[360];
+        char search[100];
+        while(1){
+            size=0
+            print(enter key bala)
+            size=0
+            gets(search)
+            while()遍历book_current
+            sprintf(bala)
+            if找子串
+            bp[size]=b_p
+            size++
+            遍历结束
+                    (或者如果能找到子串直接输出吧)
+
+            问是否继续
+            continue
+            break:
+        }
 }
 
 void search_user(person_list *book_data){
     ;
 }
+ */
 
 void display_person_pointer(person *user){
     printf("\nUser's infomation:\n"
