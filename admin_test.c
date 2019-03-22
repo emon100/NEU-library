@@ -55,7 +55,7 @@ void book_test(book_list *book_data){
 
     //对书进行操作
     book_data->size=4;
-    book_data->book_borrowed=2;
+    book_data->book_borrowed=3;
     book_data->code=5;
     memset(book_data->book_size_field,0, sizeof(int)*(life+1));
     book_data->book_size_field[science]=2;
