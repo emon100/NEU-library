@@ -65,7 +65,7 @@ void search_book(book_list *book_data) {
                 printf("输入0以不用专业领域查找，输入其他内容继续\n");
                 if (getchar() == '0')flag[3] = 1;
                 fflush(stdin);
-                printf("输入0搜索结果不筛选借走的书，输入其他内容搜索结果只有未借走的书\n");
+                printf("输入0搜索结果包含所有书，输入其他内容搜索结果不包含借走的书\n");
                 if (getchar() == '0')flag[4] = 1;
                 fflush(stdin);
                 if (flag[0] == 0) {
@@ -255,9 +255,9 @@ void display_book_pointer(book *p_book) {
         now = time(NULL);
         borrow_time = p_book->borrow_time;
         return_time = p_book->borrow_time + 5184000;//2个月的秒数是2678400故，time_t类型其实和long差不多
-        printf("当前时间:%s\n", ctime(&now));
         printf("借书时间:%s\n", ctime(&borrow_time));
         printf("规定还书时间:%s\n", ctime(&return_time));
+        printf("当前时间:%s\n", ctime(&now));
     }
 }
 
