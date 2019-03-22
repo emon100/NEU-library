@@ -7,13 +7,13 @@ void sort(book_list *book_data,person_list *person_data) {
     int choice;
     system("cls");
     fflush(stdin);
-    printf("\t\t\t*----------Welcome!-----------*\n"
-           "\t\t\t*[1]Sort Users by id number---*"
-           "\t\t\t*[2]Sort Users by name--------*"
-           "\t\t\t*[3]Sort Books by code--------*"
-           "\t\t\t*[4]Sort Books by name--------*"
-           "\t\t\t*[5]Sort Books by price--------*"
-           "\t\t\t*[0]Return--------------------*\n");
+    printf("\t\t\t欢迎使用信息排序系统!\n"
+           "\t\t\t[1]以用户账号排序\n"
+           "\t\t\t[2]以用户姓名排序\n"
+           "\t\t\t[3]以书籍编码排序\n"
+           "\t\t\t[4]以书籍名称排序\n"
+           "\t\t\t[5]以书籍价格排序\n"
+           "\t\t\t[0]返回上级菜单\n");
     while (choice = getchar()) {
         fflush(stdin);//吃回车
         switch (choice) {

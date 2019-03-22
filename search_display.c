@@ -2,9 +2,7 @@
 // Created by emon100 on 2019/3/21 0021.
 //
 #include "lib.h"
-void search_book(book_list *book_data){
-    system("cls");
-    int     size=0;
+/*    int     size=0;
     book    book_pointers[10];
     book    *current_book=book_data->head;
     char    book_keyword[360];
@@ -48,9 +46,6 @@ void search_book(book_list *book_data){
         continue
         break:
          */
-    }
-}
-
 /*
 void search_user(person_list *book_data){
     ;

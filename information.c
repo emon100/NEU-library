@@ -73,26 +73,25 @@ void information_admin(book_list *book_data,person_list *person_data) {
                 printf("\n\n");
                 printf("|-用户总数-|-管理员-|-读者总数-|-男性读者-|-女性读者-|\n");
                 printf("%6d%10d%10d%12d%11d\n",person_data->size,person_data->admin_size,person_data->size-person_data->admin_size,person_data->male_reader_size,person_data->size-person_data->admin_size-person_data->male_reader_size);
-                printf("Press any key to continue:\n");
+                printf("输入任何内容以继续:\n");
                 getchar();
                 fflush(stdin);
                 system("cls");
                 break;
             case '2':
                 system("cls");
-                printf("search book\n");
-                search_book(book_data);
+                printf("书籍查询\n");
                 break;
             case '3':
                 system("cls");
-                printf("search user\n");
+                printf("用户查询\n");
                 break;
             case '4':
                 system("cls");
                 return;
             default:
                 system("cls");
-                printf("Please enter again!:\n");
+                printf("请再次输入!:\n");
                 break;
         }
         printf("\t\t\t\t欢迎查询!\n"

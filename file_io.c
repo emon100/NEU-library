@@ -9,8 +9,9 @@ void file_io(book_list *book_data,person_list *person_data){
     int     exit_flag=0;
     char    option;
     system("cls");
-    printf("[1]Backup------[2]Recovery\n"
-           "[3]Return\n");
+    printf("[1]备份\n"
+           "[2]还原\n"
+           "[3]返回上级菜单\n");
     fflush(stdin);
     option=getchar();
     fflush(stdin);
@@ -26,15 +27,16 @@ void file_io(book_list *book_data,person_list *person_data){
                 exit_flag=1;
                 break;
             default :
-                printf("Please enter again!\n");
+                printf("请重新输入!\n");
                 break;
         }
         if(exit_flag==1){
             system("cls");
             break;
         }
-        printf("[1]Backup------[2]Recovery\n"
-               "[3]Return\n");
+        printf("[1]备份\n"
+               "[2]还原\n"
+               "[3]返回上级菜单\n");
         fflush(stdin);
         option=getchar();
         fflush(stdin);
@@ -44,7 +46,7 @@ void file_io(book_list *book_data,person_list *person_data){
 void backup(book_list *book_data,person_list *person_data){
     char    option;
     system("cls");
-    printf("Backup all information.Whether to continue or not?\nPress 1 to continue, another key to abort:\n");
+    printf("备份所有信息.是否要继续?\n输入 1 以继续 , 输入其他内容已取消此次操作:\n");
     fflush(stdin);
     option=getchar();
     fflush(stdin);
@@ -59,7 +61,7 @@ void backup(book_list *book_data,person_list *person_data){
 void recovery(book_list *book_data,person_list *person_data){
     char    option;
     system("cls");
-    printf("Recovery all information.Whether to continue or not?\nPress 1 to continue, another key to abort:\n");
+    printf("还原所有信息.是否要继续?\n输入 1 以继续 , 输入其他内容已取消此次操作:\n");
     fflush(stdin);
     option=getchar();
     fflush(stdin);

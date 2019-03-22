@@ -11,7 +11,7 @@ void book_insert(book_list *book_data) {
     book_new = book_data->tail;
 
     //book信息修改
-    printf("You are adding new book.whether to continue or not? [1]Yes [0]No\n");
+    printf("您正在添加一本新的书籍.是否要继续? [1]是 [0]否\n");
     fflush(stdin);
     while (1) {
         flag=getchar();
@@ -26,29 +26,29 @@ void book_insert(book_list *book_data) {
             book_new=book_new->next;
             book_new->code = book_data->code;
 
-            printf("Please input the book's name:\n");
+            printf("请输入书籍名称:\n");
             fflush(stdin);
             gets(current);
             fflush(stdin);
             strcpy(book_new->book_name, current);//图书名
 
-            printf("Please input the authors' name:\n");
+            printf("请输入作者姓名:\n");
             fflush(stdin);
             gets(current);
             fflush(stdin);
             strcpy(book_new->author_name, current);//作者名
 
-            printf("Please input its press:\n");
+            printf("请输入出版社:\n");
             fflush(stdin);
             gets(current);
             fflush(stdin);
             strcpy(book_new->press, current);//出版社
 
-            printf("Please choose its field:\n0.science\n1.literature\n2.education\n3.art\n4.life\n");
+            printf("请选择领域:\n0.科学\n1.文学\n2.教育\n3.艺术\n4.生活\n");
             scanf("%d", &book_new->field);//领域
             fflush(stdin);
 
-            printf("Please input its price:\n");
+            printf("请输入价格:\n");
             scanf("%f", &book_new->price);//价格
             fflush(stdin);
 
@@ -62,7 +62,7 @@ void book_insert(book_list *book_data) {
                 book_data->book_size_field[book_new->field]++;//相关领域书数量+1
             book_data->tail = book_new;//链表元素+1
             display_book_pointer(book_new);
-            printf("whether to continue or not? [1]Yes [0]No\n");
+            printf("是否要继续? [1]是 [0]否\n");
             fflush(stdin);
         }
         else {

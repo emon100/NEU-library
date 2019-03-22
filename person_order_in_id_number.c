@@ -47,17 +47,17 @@ void person_order_in_id_number(person_list *person_data) {
     user=person_data->head;
 
     while (user != NULL) {
-        printf("\nUser's infomation:\n"
-               "ID:%-5d|Name:%-10s|",user->id_number,user->name);
-        printf("password:%-12s|",user->password);
-        if(user->sex==male)printf("Sex:Male  |\n");
-        else if(user->sex==female)printf("Sex:Female|\n");
-        else printf("Sex:Error\n");
-        if(user->prop==prop_reader)printf("Property:Reader         |");
-        else if(user->prop==prop_administrator)printf("Property:Administrator  |");
-        else printf("Property:Error  |");
-        printf("Penalty:%6.2f       |",user->penalty);
-        printf("Book borrowed:%-3d\n\n",user->borrow_quantity);
+        printf("\n用户信息:\n"
+               "账号:%-5d|姓名:%-10s|",user->id_number,user->name);
+        printf("密码:%-12s|",user->password);
+        if(user->sex==male)printf("性别:男性  |\n");
+        else if(user->sex==female)printf("性别:女性|\n");
+        else printf("性别:未知\n");
+        if(user->prop==prop_reader)printf("属性:读者         |");
+        else if(user->prop==prop_administrator)printf("属性:管理员       |");
+        else printf("属性:未知  |");
+        printf("罚金:%6.2f       |",user->penalty);
+        printf("借书数量:%-3d\n\n",user->borrow_quantity);
         user = user->next;
     }//输出人员信息
 }

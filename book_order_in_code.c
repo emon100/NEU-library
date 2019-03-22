@@ -46,26 +46,26 @@ void book_order_in_code(book_list *book_data){
     }
     p_book=book_data->head;
     while(p_book!=NULL){
-        printf("|Title:%-30s|Author:%-20s|Press:%-20s|Code:%d\n", p_book->book_name, p_book->author_name, p_book->press,p_book->code);
-        printf("|Field:");
+        printf("|标题:%-30s\n|作者:%-20s|出版社:%-20s|编码:%d\n", p_book->book_name, p_book->author_name, p_book->press,p_book->code);
+        printf("|领域:");
         switch (p_book->field) {
             case science:
-                printf("Science");
+                printf("科学");
                 break;
             case literature:
-                printf("Literature");
+                printf("文学");
                 break;
             case education:
-                printf("Education");
+                printf("教育");
                 break;
             case art:
-                printf("Art");
+                printf("艺术");
                 break;
             case life:
-                printf("Life");
+                printf("生活");
                 break;
         }
-        printf("         |Price:%6.2f\n", p_book->price);
+        printf("         |Price:%6.2f\n\n", p_book->price);
         p_book=p_book->next;
     }//输出书籍信息
 }

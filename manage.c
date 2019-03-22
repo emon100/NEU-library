@@ -7,16 +7,16 @@ void manage(book_list *book_data,person_list *person_data) {
     int choice;
     system("cls");
     fflush(stdin);
-    printf("\t\t\t*Welcome to management system!*\n"
-           "\t\t\t*[1]Edit User's info----------*\n"
-           "\t\t\t*[2]Add new User--------------*\n"
-           "\t\t\t*[3]Delete User---------------*\n"
-           "\t\t\t*[4]Edit book's info----------*\n"
-           "\t\t\t*[5]Add book------------------*\n"
-           "\t\t\t*[6]Delete book---------------*\n"
-           "\t\t\t*[7]Backup and Recovery-------*\n"
-           "\t\t\t*[8]Sort----------------------*\n"
-           "\t\t\t*[0]Return--------------------*\n");
+    printf("\t\t\t欢迎来到管理系统!\n"
+           "\t\t\t[1]编辑用户信息\n"
+           "\t\t\t[2]添加新的用户\n"
+           "\t\t\t[3]删除用户\n"
+           "\t\t\t[4]编辑书籍信息\n"
+           "\t\t\t[5]添加书籍\n"
+           "\t\t\t[6]删除书籍\n"
+           "\t\t\t[7]备份和还原\n"
+           "\t\t\t[8]排序\n"
+           "\t\t\t[0]返回上级菜单\n");
     while (choice = getchar()) {
         fflush(stdin);//吃回车
         switch (choice) {
@@ -59,16 +59,16 @@ void manage(book_list *book_data,person_list *person_data) {
                 system("cls");
 
         }
-        printf("\t\t\t*Welcome to management system!*\n"
-               "\t\t\t*[1]Edit User's info----------*\n"
-               "\t\t\t*[2]Add new User--------------*\n"
-               "\t\t\t*[3]Delete User---------------*\n"
-               "\t\t\t*[4]Edit book's info----------*\n"
-               "\t\t\t*[5]Add book------------------*\n"
-               "\t\t\t*[6]Delete book---------------*\n"
-               "\t\t\t*[7]Backup and Recovery-------*\n"
-               "\t\t\t*[8]Sort----------------------*\n"
-               "\t\t\t*[0]Return--------------------*\n");
+        printf("\t\t\t欢迎来到管理系统!\n"
+               "\t\t\t[1]编辑用户信息\n"
+               "\t\t\t[2]添加新的用户\n"
+               "\t\t\t[3]删除用户\n"
+               "\t\t\t[4]编辑书籍信息\n"
+               "\t\t\t[5]添加书籍\n"
+               "\t\t\t[6]删除书籍\n"
+               "\t\t\t[7]备份和还原\n"
+               "\t\t\t[8]排序\n"
+               "\t\t\t[0]返回上级菜单\n");
         fflush(stdin);
     }
 }

@@ -6,7 +6,7 @@
 void person_insert(person_list *person_data) {
     person      *p_new=person_data->tail;
     int         flag;
-    printf("You are adding new new user.whether to continue or not? [1]Yes [0]No\n");
+    printf("您正在添加新的用户.是否要继续? [1]是 [0]否\n");
     fflush(stdin);
     while (1) {
         flag = getchar();
@@ -45,7 +45,7 @@ void person_insert(person_list *person_data) {
             person_data->id_number++;
             person_data->tail = p_new;
             display_person_pointer(p_new);
-            printf("whether to continue or not? [1]Yes [0]No\n");
+            printf("是否要继续? [1]是 [0]否\n");
         }
         else {
             fflush(stdin);

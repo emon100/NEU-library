@@ -9,7 +9,7 @@ void person_delete(person_list *person_data) {
     person *person_previous;//前一个节点
     person *person_delete;//删除的节点
 
-    printf("Enter the ID of the user that you'd like to delete:\n");
+    printf("输入您想要删除的用户账号:\n");
     scanf("%d", &id_number);
     fflush(stdin);
 
@@ -26,9 +26,9 @@ void person_delete(person_list *person_data) {
 
     //如果删头部
     if (person_delete->id_number == id_number) {
-        printf("User info:\n");
+        printf("用户信息:\n");
         display_person_pointer(person_delete);
-        printf("Still delete? Press 1 to continue,another key to abort:\n");
+        printf("是否仍要删除? 输入 1 以继续,输入其他内容以取消此次操作:\n");
         option = getchar();
         fflush(stdin);
         if (option == '1') {
@@ -38,10 +38,10 @@ void person_delete(person_list *person_data) {
             if (person_delete->prop == prop_administrator)person_data->admin_size--;
             if (person_delete->prop == prop_reader && person_delete->sex == male)person_data->male_reader_size--;
             free(person_delete);
-            printf("Delete finished\n");
+            printf("删除完成!\n");
         }
         else {
-            printf("Delete aborted. Returning\n");
+            printf("删除失败. 正在返回...\n");
             return;
         }
     }
@@ -64,9 +64,9 @@ void person_delete(person_list *person_data) {
             return;
         }
         else if (person_delete->id_number == id_number) {
-            printf("User info:\n");
+            printf("用户信息:\n");
             display_person_pointer(person_delete);
-            printf("Still delete? Press 1 to continue, press another key to abort:\n");
+            printf("是否仍要删除? 输入 1 以继续,输入其他内容以取消此次操作:\n");
             option = getchar();
             fflush(stdin);
             if (option == '1') {
@@ -81,10 +81,10 @@ void person_delete(person_list *person_data) {
                 if (person_delete->prop == as_reader && person_delete->sex == male)
                     person_data->male_reader_size--;
                 free(person_delete);
-                printf("Delete finished!\n");
+                printf("删除完成!\n");
             }
             else {
-                printf("Delete aborted. Returning...\n");
+                printf("删除失败. 正在返回...\n");
                 return;
             }
         }

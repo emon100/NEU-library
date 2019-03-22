@@ -11,7 +11,7 @@ void book_edit(book_list *book_data) {
     char        current[200];
     while (1) {
         //信息输入
-        printf("Please input the book_code:\n");
+        printf("请输入书本编码:\n");
         scanf("%d", &code);//获得要修改书的条码
         fflush(stdin);
         system("cls");
@@ -19,15 +19,15 @@ void book_edit(book_list *book_data) {
         book_current=search_book_pointer(code,book_data);
         if (book_current==NULL) {
             system("cls");
-            printf("Book not Found!\n");
+            printf("并未找到这本书!\n");
             return;
         }
         //信息修改
         //初次修改
         else if (book_current->code == code) {
             display_book_pointer(book_current);
-            printf("Please choose the information you want to change\n");
-            printf("[1]Book_name\n[2]Author's name\n[3]Press\n[4]Field\n[5]Price\n[6]Return\n");
+            printf("请输入指令以更改您想修改的书籍信息:\n");
+            printf("[1]书籍名称\n[2]作者姓名\n[3]出版社\n[4]书籍领域\n[5]书籍价格\n[6]返回上级菜单\n");
             fflush(stdin);
             while (1){
                 if(exit_flag!=1){
@@ -35,7 +35,7 @@ void book_edit(book_list *book_data) {
                     fflush(stdin);
                     switch (choice) {
                         case '1': {
-                            printf("Please input new book_name:\n");
+                            printf("请输入新的书籍名称:\n");
                             gets(current);
                             fflush(stdin);
                             strcpy(book_current->book_name, current);
@@ -43,7 +43,7 @@ void book_edit(book_list *book_data) {
                         }//图书名修改
 
                         case '2': {
-                            printf("Please input new author_name:\n");
+                            printf("请输入新的作者姓名:\n");
                             gets(current);
                             fflush(stdin);
                             strcpy(book_current->author_name, current);
@@ -51,7 +51,7 @@ void book_edit(book_list *book_data) {
                         }//作者名修改
 
                         case '3': {
-                            printf("Please input new press:\n");
+                            printf("请输入新的出版社:\n");
                             gets(current);
                             fflush(stdin);
                             strcpy(book_current->press, current);
@@ -60,8 +60,8 @@ void book_edit(book_list *book_data) {
 
                         case '4': {
                             book_data->book_size_field[book_current->field]--;
-                            printf("Please input new field:\n");
-                            printf("0.science\n1.literature\n2.education\n3.art\n4.life\n");
+                            printf("请输入新的书籍领域:\n");
+                            printf("0.科学\n1.文学\n2.教育\n3.艺术\n4.生活\n");
                             scanf("%d", &book_current->field);
                             fflush(stdin);
                             if(book_current->field<=life)
@@ -70,7 +70,7 @@ void book_edit(book_list *book_data) {
                         }
 
                         case '5': {
-                            printf("Please input new price:\n");
+                            printf("请输入新的书籍价格:\n");
                             scanf("%f", &book_current->price);
                             fflush(stdin);
                             break;
@@ -84,16 +84,16 @@ void book_edit(book_list *book_data) {
 
                         default:
                             fflush(stdin);
-                            printf("Input error!Please enter again:\n");
+                            printf("输入错误!请重新输入:\n");
                             break;
                     }
                 }
                 system("cls");
                 display_book_pointer(book_current);
-                if(exit_flag==1)printf("Input error, please enter again:\n");
+                if(exit_flag==1)printf("输入错误!请重新输入:\n");
                 exit_flag=0;
                 //询问是否继续
-                printf("whether to continue or not？ [0]No  [1]Yes [2]Manage another Book\n");
+                printf("是否要继续？ [0]否  [1]是 [2]管理另一本书籍\n");
                 choice=getchar();
                 system("cls");
                 fflush(stdin);
@@ -102,8 +102,8 @@ void book_edit(book_list *book_data) {
                 }
                 else if (choice== '1') {
                     display_book_pointer(book_current);
-                    printf("Please choose the information you want to change\n");
-                    printf("[1]Book_name\n[2]Author's name\n[3]Press\n[4]Field\n[5]Price\n[6]Return\n");
+                    printf("请输入指令以更改您想修改的书籍信息:\n");
+                    printf("[1]书籍名称\n[2]作者姓名\n[3]出版社\n[4]书籍领域\n[5]书籍价格\n[6]返回上级菜单\n");
                     continue;
                 }
                 else if (choice=='2'){
@@ -119,7 +119,7 @@ void book_edit(book_list *book_data) {
         }
         else {
             system("cls");
-            printf("Book not Found!\n");
+            printf("并未找到这本书籍!\n");
             return;
         }
     }

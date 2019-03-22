@@ -150,21 +150,21 @@ void borrow_book(book_list *book_data,person *user){
     penalty(book_data,user);
     while(1){
         if(user->penalty>0||user->borrow_quantity>=10){
-            printf("You can't borrow book because you have borrowed over 10 books or you have penalty to pay!\n");
+            printf("您无法借书,因为你已经借了超过10本书籍或者您有罚金需要支付!\n");
             return;
         }
         else{
-            printf("Enter the code of the book you want to borrow:\n");
+            printf("输入您想要借的书籍的编码:\n");
             scanf("%d",&code);
             fflush(stdin);
             current_book = search_book_pointer(code,book_data);
             display_book_pointer(current_book);
-            printf("Is it the book you want to borrow? Press 1 to continue, another key to abort:\n");
+            printf("这是您想要借的书籍吗? 输入 1 以继续, 输入其他内容以取消此次操作:\n");
             choice=getchar();
             fflush(stdin);
             if(choice!='1'){
                 system("cls");
-                printf("Borrow aborted!\n");
+                printf("本次借书已取消!\n");
                 return;
             }
             if(current_book!=NULL){
@@ -174,16 +174,16 @@ void borrow_book(book_list *book_data,person *user){
                    current_book->person_id_number=user->id_number;
                    current_book->borrow_time=time(NULL);
                    book_data->book_borrowed++;
-                   printf("Book has been borrowed.\n");
+                   printf("借书成功!\n");
                }
                else if(current_book->person_id_number!=-1){
-                   printf("Sorry the book has been borrowed.\n");
+                   printf("抱歉,此书已经出借.\n");
                }
             }
             else {
-                printf("Book not Found!\n");
+                printf("并未找到这本书籍!\n");
             }
-            printf("Whether to continue or not?Enter 1 to Borrow another book, enter something else to exit.\n");
+            printf("是否要继续? 输入 1 来借另一本书籍, 输入其他内容以退出.\n");
             choice=getchar();
             fflush(stdin);
             if(choice=='1')continue;
@@ -205,7 +205,7 @@ void return_book(book_list *book_data,person *user){
     fflush(stdin);
     if(user->borrow_quantity>0){
         while(1){
-            printf("Enter the code of the book you want to return:\n");
+            printf("输入您想要归还的书籍的编码:\n");
            scanf("%d",&code);
             fflush(stdin);
            current_book=search_book_pointer(code,book_data);
@@ -227,19 +227,19 @@ void return_book(book_list *book_data,person *user){
                 user->borrow_quantity--;
                 current_book->person_id_number=-1;
                 book_data->book_borrowed--;
-                printf("Book returned!\n");
+                printf("还书成功!\n");
            }
            else if(current_book==NULL){
-               printf("Book not found!\nEnter anything to continue:\n");
+               printf("并未找到这本书籍!\n输入任意内容以继续:\n");
                getchar();
                fflush(stdin);
            }
            else {
-               printf("Book can't be returned by you!\nEnter anything to continue:\n");
+               printf("您不能归还此书!\n输入任意内容以继续:\n");
                getchar();
                fflush(stdin);
            }
-            printf("Whether to continue or not? Enter 1 to return another book, enter something else to exit.\n");
+            printf("是否要继续? 输入 1 以归还另一本书籍, 输入其他内容以退出.\n");
             choice=getchar();
             fflush(stdin);
             if(choice=='1')continue;
@@ -250,7 +250,7 @@ void return_book(book_list *book_data,person *user){
         }
     }
     else{
-        printf("You have no book to return!\nEnter anything to return menu.\n");
+        printf("您并没有书籍要归还!\n输入任意内容以返回菜单.\n");
         getchar();
         fflush(stdin);
         return;

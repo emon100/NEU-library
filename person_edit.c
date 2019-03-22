@@ -11,7 +11,7 @@ void person_edit(person_list *person_data) {
     int         temp;
     person      *p_pointer;
     while(1) {
-        printf("Enter user id:\n");
+        printf("请输入用户账号:\n");
         scanf("%d",&id_number);
         fflush(stdin);
         system("cls");
@@ -19,7 +19,7 @@ void person_edit(person_list *person_data) {
         p_pointer=search_person_pointer(id_number,person_data);
         if (p_pointer==NULL) {
             system("cls");
-            printf("User not Found!\n");
+            printf("并未找到此用户!\n");
             return;
         }
         else if (p_pointer->id_number == id_number) {
@@ -33,25 +33,25 @@ void person_edit(person_list *person_data) {
                     fflush(stdin);
                     switch (option) {
                         case '1': {
-                            printf("Enter new id:");
+                            printf("输入新的账号:");
                             scanf("%d", &p_pointer->id_number);
                             fflush(stdin);
                             break;
                         }
                         case '2': {
-                            printf("Enter new password:");
+                            printf("输入新的密码:");
                             gets(p_pointer->password);
                             fflush(stdin);
                             break;
                         }
                         case '3': {
-                            printf("Enter new name:");
+                            printf("输入新的姓名:");
                             gets(p_pointer->name);
                             fflush(stdin);
                             break;
                         }
                         case '4': {
-                            printf("Enter new sex([0]Male[1]Female):");
+                            printf("输入新的性别: [0]男性 [1]女性");
                             temp=p_pointer->sex;
                             scanf("%d", &p_pointer->sex);
                             //读者而且变女性
@@ -64,7 +64,7 @@ void person_edit(person_list *person_data) {
                             break;
                         }
                         case '5': {
-                            printf("Enter new prop([0]Reader[1]Admin):");
+                            printf("输入新的人员属性: [0]读者 [1]管理员");
                             temp=p_pointer->prop;
                             scanf("%d", &p_pointer->prop);
                             //读者和error变管理员
@@ -90,7 +90,7 @@ void person_edit(person_list *person_data) {
                             break;
                         }
                         case '6': {
-                            printf("Enter new penalty:");
+                            printf("输入新的罚金金额:");
                             scanf("%f", &p_pointer->penalty);
                             fflush(stdin);
                             break;
@@ -102,7 +102,7 @@ void person_edit(person_list *person_data) {
                         }
                         default:
                             fflush(stdin);
-                            printf("Input Error!Please Enter again:\n");
+                            printf("输入错误! 请再次输入:\n");
                             break;
                     }
                 }
@@ -110,10 +110,10 @@ void person_edit(person_list *person_data) {
                 system("cls");
                 display_person_pointer(p_pointer);
                 //输入判断
-                if(exit_flag==1)printf("Input error, please enter again:\n");
+                if(exit_flag==1)printf("输入错误! 请再次输入:\n");
                 exit_flag=0;
                 //询问是否继续
-                printf("whether to continue or not？ [0]No  [1]Yes [2]Manage another User\n");
+                printf("是否继续？ [0]否  [1]是 [2]管理另一个用户\n");
                 option=getchar();
                 system("cls");
                 fflush(stdin);
@@ -122,7 +122,7 @@ void person_edit(person_list *person_data) {
                 }
                 else if (option== '1') {
                     display_person_pointer(p_pointer);
-                    printf("请选择要修改的信息类型：\n[1]图书卡号码\n[2]图书卡密码\n[3]人员姓名\n[4]人员性别\n[5]人员属性\n[6]罚金金额\n[7]返回上一级菜单\n");
+                    printf("请选择要修改的信息类型:\n[1]图书卡号码\n[2]图书卡密码\n[3]人员姓名\n[4]人员性别\n[5]人员属性\n[6]罚金金额\n[7]返回上一级菜单\n");
                     continue;
                 }
                 else if (option=='2'){
@@ -138,7 +138,7 @@ void person_edit(person_list *person_data) {
         }
         else {
             system("cls");
-            printf("User not Found!\n");
+            printf("比未找到此用户!\n");
             return;
         }
     }

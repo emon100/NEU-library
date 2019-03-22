@@ -9,7 +9,7 @@ void book_delete(book_list *book_data) {
     book        *book_previous;
     book        *book_delete;
     //信息输入
-    printf("Please input the book_code:\n");
+    printf("请输入要删除的书本名称:\n");
     scanf("%d", &code);//获得要修改书的条码
     fflush(stdin);
 
@@ -17,15 +17,15 @@ void book_delete(book_list *book_data) {
     book_delete =book_previous = book_data->head;
 
     if (book_delete==NULL) {
-        printf("No book in library!\n");
+        printf("图书馆中没有书籍!\n");
         return;
     }
 
     //如果删头部
     if (book_delete->code == code) {
-        printf("User info:\n");
+        printf("用户信息:\n");
         display_book_pointer(book_delete);
-        printf("Still delete? Press 1 to continue:\n");
+        printf("是否要继续删除? 输入 1 以继续:\n");
         option = getchar();
         fflush(stdin);
         if (option == '1') {
@@ -34,10 +34,10 @@ void book_delete(book_list *book_data) {
             book_data->size--;
             book_data->book_size_field[book_delete->field]--;
             free(book_delete);
-            printf("Delete finished\n");
+            printf("删除完成\n");
         }
         else {
-            printf("Delete aborted. Returning\n");
+            printf("删除失败.正在返回...\n");
             return;
         }
     }
@@ -60,9 +60,9 @@ void book_delete(book_list *book_data) {
             return;
         }
         else if (book_delete->code == code) {
-            printf("User info:\n");
+            printf("用户信息:\n");
             display_book_pointer(book_delete);
-            printf("Still delete? Press 1 to continue, press another key to abort:\n");
+            printf("是否要继续删除? 输入 1 以继续, 输入其他内容以取消此次操作:\n");
             option = getchar();
             fflush(stdin);
             if (option == '1') {
@@ -77,7 +77,7 @@ void book_delete(book_list *book_data) {
                 printf("Delete finished!\n");
             }
             else {
-                printf("Delete aborted. Returning...\n");
+                printf("删除失败.正在返回...\n");
                 return;
             }
         }
