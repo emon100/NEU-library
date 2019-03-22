@@ -157,6 +157,7 @@ void borrow_book(book_list *book_data,person *user){
             scanf("%d",&code);
             fflush(stdin);
             current_book = search_book_pointer(code,book_data);
+            if(current_book!=NULL){
             display_book_pointer(current_book);
             printf("Is it the book you want to borrow? Press 1 to continue, another key to abort:\n");
             choice=getchar();
@@ -166,7 +167,6 @@ void borrow_book(book_list *book_data,person *user){
                 printf("Borrow aborted!\n");
                 return;
             }
-            if(current_book!=NULL){
                if(current_book->person_id_number==-1){
                    user->borrow_quantity++;
                    user->book_id[user->borrow_quantity-1]=code;
@@ -183,6 +183,7 @@ void borrow_book(book_list *book_data,person *user){
                 printf("Book not Found!\n");
             }
             printf("Whether to continue or not?Enter 1 to Borrow another book, enter something else to exit.\n");
+            fflush(stdin);
             choice=getchar();
             fflush(stdin);
             if(choice=='1')continue;

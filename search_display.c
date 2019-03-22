@@ -100,7 +100,6 @@ book *search_book_pointer(int code,book_list *book_data){
     while(book_current->code!=code){
         book_current=book_current->next;
         if(book_current==NULL)return book_current;
-        else continue;
     }
     return book_current;
 }
