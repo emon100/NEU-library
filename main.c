@@ -37,7 +37,7 @@ int main(void) {
         case as_reader      :
             system("cls");
             printf("\t\t\t\t尊敬的读者,感谢您使用图书管理系统,请输入指令来选择功能\n"
-                   "\t\t\t\t[1]总览信息\n"
+                   "\t\t\t\t[1]总览信息与查询\n"
                    "\t\t\t\t[2]读者中心\n"
                    "\t\t\t\t[3]更换用户\n"
                    "\t\t\t\t[4]帮助\n"
@@ -77,7 +77,7 @@ int main(void) {
                 }
                 fflush(stdin);//吃回车
                 printf("\t\t\t\t尊敬的读者,感谢您使用图书管理系统,请输入指令来选择功能\n"
-                   "\t\t\t\t[1]总览信息\n"
+                       "\t\t\t\t[1]总览信息与查询\n"
                    "\t\t\t\t[2]读者中心\n"
                    "\t\t\t\t[3]更换用户\n"
                    "\t\t\t\t[4]帮助\n"
@@ -87,7 +87,7 @@ int main(void) {
         case as_admin     :
             system("cls");
             printf("\t\t\t\t尊敬的管理员,感谢您使用图书管理系统,请输入指令来选择功能\n"
-                   "\t\t\t\t[1]图书馆总览信息\n"
+                   "\t\t\t\t[1]总览信息与查询\n"
                    "\t\t\t\t[2]读者中心\n"
                    "\t\t\t\t[3]管理系统\n"
                    "\t\t\t\t[4]更换用户\n"
@@ -130,7 +130,7 @@ int main(void) {
                     break;
                 }
                 printf("\t\t\t\t尊敬的管理员,感谢您使用图书管理系统,请输入指令来选择功能\n"
-                       "\t\t\t\t[1]图书馆总览信息\n"
+                       "\t\t\t\t[1]总览信息与查询\n"
                        "\t\t\t\t[2]读者中心\n"
                        "\t\t\t\t[3]管理系统\n"
                        "\t\t\t\t[4]更换用户\n"
