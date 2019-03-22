@@ -4,7 +4,6 @@ void book_order_in_name(book_list *book_data){
     book    *current;
     book    *c_next;
     book    *p_book;
-    int     judge       =0;
 
     if(book_data->size==1);
 
@@ -13,7 +12,7 @@ void book_order_in_name(book_list *book_data){
             current=book_data->head;
             c_next=current->next;
 
-            if ((judge=strcmp(current->book_name,c_next->book_name))>0) {
+            if ((strcmp(current->book_name,c_next->book_name))>0) {
                 current->next = c_next->next;//前者的尾部变为后者的尾部
                 c_next->next = current;//后者的尾部变为前者的地址
                 book_data->head = c_next;//******
@@ -31,7 +30,7 @@ void book_order_in_name(book_list *book_data){
             if(book_data->size==2)break;
 
             for (int j = 0; j <= book_data->size-3; ++j) {
-                if ((judge=strcmp(current->book_name,c_next->book_name))>0) {
+                if ((strcmp(current->book_name,c_next->book_name))>0) {
                     current->next = c_next->next;//前者的尾部变为后者的尾部
                     c_next->next = current;//后者的尾部变为前者的地址
                     former->next=c_next;//与上一个对接
