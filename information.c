@@ -94,8 +94,10 @@ void information_admin(book_list *book_data,person_list *person_data) {
                 printf("Please enter again!:\n");
                 break;
         }
-        printf("\t\t\t*Welcome!--------------------------------*\n"
-               "\t\t\t*[1]Check statistics-------[2]Search Book*\n"
-               "\t\t\t*[3]Search User-----------------[4]Return*\n");
+        printf("\t\t\t\t欢迎查询!\n"
+               "\t\t\t\t[1]总览信息\n"
+               "\t\t\t\t[2]查询书籍\n"
+               "\t\t\t\t[3]查询用户\n"
+               "\t\t\t\t[4]返回上级菜单\n");
     }
 }
