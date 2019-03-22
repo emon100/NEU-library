@@ -3,10 +3,8 @@
 //
 #include "lib.h"
 //读者查看统计的函数
-//TODO:搜书搜人
 void information_reader(book_list *book_data){
     int choice;
-    int book_code;
     system("cls");
     printf("\t\t\t\t欢迎查询!\n"
            "\t\t\t\t[1]总览信息\n"
@@ -80,7 +78,7 @@ void information_admin(book_list *book_data,person_list *person_data) {
                 break;
             case '3':
                 system("cls");
-                printf("用户查询\n");
+                search_user(person_data);
                 break;
             case '4':
                 system("cls");
