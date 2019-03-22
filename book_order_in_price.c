@@ -21,7 +21,7 @@ void book_order_in_price(book_list *book_data) {
             }//第一个和第二个排序，保留head
 
             else{
-                former=c_next;
+                former=current;
                 current=current->next;
                 c_next=c_next->next;
             }
@@ -35,7 +35,7 @@ void book_order_in_price(book_list *book_data) {
                     c_next = current->next;//后移
                 }//从小到大排序
                 else {
-                    former=c_next;
+                    former=current;
                     current = current->next;
                     c_next = c_next->next;
                 }//后移

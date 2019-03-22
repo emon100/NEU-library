@@ -25,13 +25,13 @@ int main(void) {
     validity = login(user_id,person_data);
     switch (validity) {
         case no_user        :
-            printf("请重新登录\n错误提示:没有该用户\n输入任何内容以继续:\n");
+            printf("请重新登录\n错误提示：没有该用户\n输入任何内容以继续:\n");
             fflush(stdin);
             getchar();
             fflush(stdin);
             break;
         case password_err   :
-            printf("请重新登录\n错误提示:密码错误!\n输入任何内容以继续:\n");
+            printf("请重新登录\n错误提示：密码错误!\n输入任何内容以继续:\n");
             fflush(stdin);
             getchar();
             fflush(stdin);
