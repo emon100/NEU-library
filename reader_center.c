@@ -201,15 +201,18 @@ void return_book(book_list *book_data,person *user){
     int         i;
     char        choice;
     book        *current_book=NULL;
+    time_t      now,borrowed_time;
+    now=time(NULL);
     system("cls");
     fflush(stdin);
     if(user->borrow_quantity>0){
         while(1){
             printf("Enter the code of the book you want to return:\n");
-           scanf("%d",&code);
+            scanf("%d",&code);
             fflush(stdin);
-           current_book=search_book_pointer(code,book_data);
-           if(current_book!=NULL&&current_book->person_id_number==user->id_number){
+            current_book=search_book_pointer(code,book_data);
+            if(current_book!=NULL&&current_book->person_id_number==user->id_number){
+                penalty(book_data,user);//计算一次罚金
                 //先找元素，把这个元素从数组的某一个地方找到
                 for(i=0;i<borrow_quantity;++i){
                    if(user->book_id[i]==code){
@@ -226,17 +229,20 @@ void return_book(book_list *book_data,person *user){
                 current_book->person_id_number=-1;
                 book_data->book_borrowed--;
                 printf("Book returned!\n");
-           }
-           else if(current_book==NULL){
+                if((now-current_book->borrow_time)>518400){
+                    printf("由于逾期还书，产生了罚金:%f\n请及时寻找管理员缴纳以便继续借书！\n",((now-current_book->borrow_time+5097600)/86400)*0.2);
+                }
+            }
+            else if(current_book==NULL){
                printf("Book not found!\nEnter anything to continue:\n");
                getchar();
                fflush(stdin);
-           }
-           else {
+            }
+            else {
                printf("Book can't be returned by you!\nEnter anything to continue:\n");
                getchar();
                fflush(stdin);
-           }
+            }
             printf("Whether to continue or not? Enter 1 to return another book, enter something else to exit.\n");
             choice=getchar();
             fflush(stdin);

@@ -26,7 +26,9 @@ void person_order_in_id_number(person_list *person_data) {
                 c_next = c_next->next;                  //后移
             }
 
-            for (int j = 3; j <= person_data->size; ++j) {
+            if(person_data->size==2)break;
+
+            for (int j = 0; j <= person_data->size-3; ++j) {
                 if (current->id_number > c_next->id_number) {   //讨论位置交换的情况
                     current->next = c_next->next;       //前者的尾部变为后者的尾部
                     c_next->next = current;             //后者的尾部变为前者的地址

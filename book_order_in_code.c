@@ -25,7 +25,10 @@ void book_order_in_code(book_list *book_data){
                 current=current->next;
                 c_next=c_next->next;
             }
-            for (int j = 3; j <= book_data->size; ++j) {
+
+            if(book_data->size==2)break;
+
+            for (int j = 0; j <= book_data->size-3; ++j) {
                 if (current->code > c_next->code) {
                     current->next = c_next->next;//前者的尾部变为后者的尾部
                     c_next->next = current;//后者的尾部变为前者的地址
@@ -43,7 +46,7 @@ void book_order_in_code(book_list *book_data){
     }
     p_book=book_data->head;
     while(p_book!=NULL){
-        printf("|Title:%-30s|Author:%-20s|Press:%-20s\n", p_book->book_name, p_book->author_name, p_book->press);
+        printf("|Title:%-30s|Author:%-20s|Press:%-20s|Code:%d\n", p_book->book_name, p_book->author_name, p_book->press,p_book->code);
         printf("|Field:");
         switch (p_book->field) {
             case science:

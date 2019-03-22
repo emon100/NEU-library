@@ -83,7 +83,7 @@ void display_book_pointer(book *p_book){
         printf("Borrow time:%s\n",ctime(&borrow_time));
         printf("Should return before:%s\n",ctime(&return_time));
     }
-}
+
 void display_book_code(int code, book_list *book_data) {
     book        *p_book=search_book_pointer(code,book_data);
     if(p_book==NULL)
