@@ -2,8 +2,6 @@
 /*
  * author:emon100
  */
-//TODO:到时候记得把测试current_user那两行删了,管理员退出要备份一下用户数据文件
-//TODO:把菜单弄成居中的
 person *current_user=NULL;
 
 int main(void) {
@@ -70,7 +68,7 @@ int main(void) {
                         return 0;
                     default     :
                         system("cls");
-                        printf("Please enter again\n");
+                        printf("输入错误请重新输入!\n");
                         break;
                 }
                 if(exit_flag==1){

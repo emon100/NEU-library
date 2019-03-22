@@ -30,12 +30,6 @@ void information_reader(book_list *book_data){
                 break;
             case  '2':
                 system("cls");
-                printf("请输入书籍编码以查询该书本:\n");
-                scanf("%d",&book_code);
-                fflush(stdin);
-                display_book_code(book_code, book_data);
-                printf("输入任何内容以继续\n");
-                getchar();
                 fflush(stdin);
                 search_book(book_data);
                 break;
@@ -83,7 +77,6 @@ void information_admin(book_list *book_data,person_list *person_data) {
             case '2':
                 system("cls");
                 search_book(book_data);
-                printf("书籍查询\n");
                 break;
             case '3':
                 system("cls");

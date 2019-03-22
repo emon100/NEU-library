@@ -11,16 +11,18 @@ void search_book(book_list *book_data) {
     int count;
     int choice;
     char book_keywords[400];
-    char search_blurred[200] = {0};
+    char search_blurred[200];
 
     int code;
     char name[100];
     char author[200];
-    enum field field;
+    enum field field=0;
     //TODO：循环初始化变量
     while (1) {
-        memset(flag, 0, sizeof(int) * 5);
-        memset(search_blurred, 0, sizeof(char) * 200);
+        field=-1;
+        current_book=book_data->head;
+        memset(flag, 0, sizeof(int)*5);
+        memset(search_blurred, 0, sizeof(char)*200);
         count = 0;
         system("cls");
         printf("欢迎使用查找系统!\n请选择功能：\n"
@@ -32,13 +34,16 @@ void search_book(book_list *book_data) {
             case 1:
                 printf("输入关键词:\n");
                 gets(search_blurred);
+                fflush(stdin);
                 while (current_book != NULL) {
-                    sprintf(book_keywords, "%d%s%s%s%d", current_book->code, current_book->book_name,
+                    sprintf(book_keywords, "%d %s %s %s %d", current_book->code, current_book->book_name,
                             current_book->author_name, current_book->press, current_book->person_id_number);
-                    if (strstr(search_blurred, book_keywords) != NULL && count < 10) {
+                    if (strstr(book_keywords,search_blurred) != NULL && count < 10) {
                         book_pointers[count] = current_book;
                         count++;
-                    } else break;
+                    }
+                    if(count==10)break;
+                    current_book=current_book->next;
                 }
                 for (int i = 0; i < count; ++i) {
                     display_book_pointer(book_pointers[i]);
@@ -77,7 +82,7 @@ void search_book(book_list *book_data) {
                 }
                 if (flag[2] == 0) {
                     printf("输入作者：\n");
-                    gets(name);
+                    gets(author);
                     fflush(stdin);
                 }
                 if (flag[3] == 0) {
@@ -85,13 +90,10 @@ void search_book(book_list *book_data) {
                     scanf("%d", &field);
                     fflush(stdin);
                 }
-                if (flag[0] != 1) {
-                    display_book_code(code, book_data);
-                } else {
                     while (current_book != NULL) {
                         if (count < 10) {
-                            if (strstr(name, current_book->book_name) != NULL || flag[1]) {
-                                if (strstr(author, current_book->author_name) != NULL || flag[2]) {
+                            if (strstr(current_book->book_name,name) != NULL || flag[1]) {
+                                if (strstr(current_book->author_name,author) != NULL || flag[2]) {
                                     if (current_book->field == field || flag[3]) {
                                         if (current_book->person_id_number == -1 || flag[4]) {
                                             book_pointers[count] = current_book;
@@ -100,17 +102,20 @@ void search_book(book_list *book_data) {
                                     }
                                 }
                             }
-                        } else break;
+                        }
+                        else
+                            break;
                         current_book = current_book->next;
                     }
                     if(count==0){
                         printf("没有找到指定书籍\n");
                         break;
                     }
-                    for (int i = 0; i < count; i++) {
-                        display_book_pointer(book_pointers[i]);
+                    else {
+                        for (int i = 0; i < count; i++) {
+                            display_book_pointer(book_pointers[i]);
+                        }
                     }
-                }
                 printf("查询完成，输入任意内容以继续\n");
                 fflush(stdin);
                 getchar();
@@ -134,7 +139,6 @@ void search_book(book_list *book_data) {
             system("cls");
             break;
         }
-
     }
 }
 /*
@@ -269,6 +273,7 @@ void display_person_pointer(person *user){
 
 void display_book_pointer(book *p_book) {
     time_t now, borrow_time, return_time;
+    printf("|条码:%d\n",p_book->code);
     printf("|标题:%s\n|作者:%-20s\n|出版社:%-20s\n", p_book->book_name, p_book->author_name, p_book->press);
     printf("|领域:");
     switch (p_book->field) {
