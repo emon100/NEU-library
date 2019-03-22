@@ -19,19 +19,19 @@ int main(void) {
     //菜单部分开始
     while(1){
     system("cls");
-    printf("Thank you for using Library system, enter your id number to continue:\n");
+    printf("欢迎使用图书管理系统, 请输入您的账号以继续:\n");
     scanf("%d", &user_id);
     fflush(stdin);
     validity = login(user_id,person_data);
     switch (validity) {
         case no_user        :
-            printf("Please login again:no user.\nEnter anything to continue:\n");
+            printf("请重新登录\n错误提示:没有该用户\n输入任何内容以继续:\n");
             fflush(stdin);
             getchar();
             fflush(stdin);
             break;
         case password_err   :
-            printf("Please login again:password error!\nEnter anything to continue:\n");
+            printf("请重新登录\n错误提示:密码错误!\n输入任何内容以继续:\n");
             fflush(stdin);
             getchar();
             fflush(stdin);
@@ -40,7 +40,7 @@ int main(void) {
             system("cls");
             printf("id:%5d--name:%10s--borrow:%5d\n", current_user->id_number, current_user->name,
                    current_user->borrow_quantity);//测试current_user
-            printf("\t\t\t*Thank you for using Library system, enter number to choose functions*\n"
+            printf("\t\t\t*尊敬的读者，感谢您使用图书管理系统，请输入指令来选择功能\n"
                    "\t\t\t*[1]Statistic\n"
                    "\t\t\t*[2]Reader center\n"
                    "\t\t\t*[3]Change user\n"
