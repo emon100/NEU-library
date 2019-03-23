@@ -200,7 +200,7 @@ void return_book(book_list *book_data,person *user){
     int         code;
     int         borrow_quantity=user->borrow_quantity;
     int         i;
-    char        choice;
+    int choice;
     book        *current_book=NULL;
     system("cls");
     fflush(stdin);

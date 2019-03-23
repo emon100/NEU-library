@@ -47,7 +47,7 @@ void information_reader(book_list *book_data){
 }
 //管理员查看统计的函数
 void information_admin(book_list *book_data,person_list *person_data) {
-    char choice;
+    int choice;
     system("cls");
     printf("\t\t\t\t欢迎查询!\n"
            "\t\t\t\t[1]总览信息\n"

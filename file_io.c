@@ -43,7 +43,7 @@ void file_io(book_list *book_data,person_list *person_data){
 }
 
 void backup(book_list *book_data,person_list *person_data){
-    char    option;
+    int option;
     system("cls");
     printf("备份所有信息.是否要继续?\n输入 1 以继续 , 输入其他内容已取消此次操作:\n");
     fflush(stdin);
@@ -58,7 +58,7 @@ void backup(book_list *book_data,person_list *person_data){
 }
 
 void recovery(book_list *book_data,person_list *person_data){
-    char    option;
+    int option;
     system("cls");
     printf("还原所有信息.是否要继续?\n输入 1 以继续 , 输入其他内容已取消此次操作:\n");
     fflush(stdin);
