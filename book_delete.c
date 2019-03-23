@@ -5,7 +5,7 @@
 #include"lib.h"
 void book_delete(book_list *book_data) {
     int         code = 0;
-    char        option;
+    int option;
     book        *book_previous;
     book        *book_delete;
     //–≈œ¢ ‰»Î

@@ -5,7 +5,7 @@
 void person_delete(person_list *person_data) {
     //输入user_id
     int id_number;
-    char option;
+    int option;
     person *person_previous;//前一个节点
     person *person_delete;//删除的节点
 

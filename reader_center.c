@@ -143,7 +143,7 @@ void penalty(book_list *book_data,person *user){
 
 void borrow_book(book_list *book_data,person *user){
     int         code;
-    char        choice;
+    int choice;
     book        *current_book=NULL;
 
     system("cls");

@@ -6,7 +6,7 @@
 
 void file_io(book_list *book_data,person_list *person_data){
     int     exit_flag=0;
-    char    option;
+    int option;
     system("cls");
     printf("[1]备份\n"
            "[2]还原\n"

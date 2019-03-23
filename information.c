@@ -12,7 +12,7 @@ void information_reader(book_list *book_data){
            "\t\t\t\t[3]返回上级菜单\n");
     //菜单
     fflush(stdin);
-    while(choice=getchar()){
+    while((choice = getchar())){
         fflush(stdin);
         switch(choice){
             case  '1':
@@ -56,7 +56,7 @@ void information_admin(book_list *book_data,person_list *person_data) {
            "\t\t\t\t[4]返回上级菜单\n");
     fflush(stdin);
     //下面都是菜单
-    while (choice = getchar()) {
+    while ((choice = getchar())) {
         fflush(stdin);
         switch (choice) {
             case '1':

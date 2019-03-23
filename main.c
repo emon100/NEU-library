@@ -43,7 +43,7 @@ int main(void) {
                        "\t\t\t\t[4]帮助\n"
                        "\t\t\t\t[5]退出\n");
                 fflush(stdin);//吃回车
-                while (choice = getchar()) {
+                while ((choice = getchar())) {
                     fflush(stdin);//吃回车
                     switch (choice) {
                         case '1'    :
@@ -94,7 +94,7 @@ int main(void) {
                        "\t\t\t\t[5]帮助\n"
                        "\t\t\t\t[6]退出\n");
                 fflush(stdin);
-                while (choice = getchar()) {
+                while ((choice = getchar())) {
                     fflush(stdin);//吃回车
                     switch (choice) {
                         case '1'    :

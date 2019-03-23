@@ -16,7 +16,7 @@ void manage(book_list *book_data,person_list *person_data) {
            "\t\t\t[7]备份和还原\n"
            "\t\t\t[8]排序\n"
            "\t\t\t[0]返回上级菜单\n");
-    while (choice = getchar()) {
+    while ((choice = getchar())) {
         fflush(stdin);//吃回车
         switch (choice) {
             case '1':
