@@ -16,7 +16,7 @@ void search_book(book_list *book_data) {
     int code;
     char name[100];
     char author[200];
-    enum field field=0;
+    enum field field;
     while (1) {
         field=-1;
         current_book=book_data->head;

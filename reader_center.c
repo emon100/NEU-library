@@ -10,7 +10,7 @@ void  reader_center(book_list *book_data,person *user){
     //printf("Press any key to continue:\n");
     int choice;
     penalty(book_data,user);
-    printf("\t\t\t[1]修改私人信息\n"
+    printf("\t\t\t[1]查看及修改个人信息\n"
            "\t\t\t[2]借书\n"
            "\t\t\t[3]还书\n"
            "\t\t\t[4]返回上级菜单\n");
@@ -40,7 +40,7 @@ void  reader_center(book_list *book_data,person *user){
                 printf("请再次输入:\n");
                 break;
         }
-        printf("\t\t\t[1]修改私人信息\n"
+        printf("\t\t\t[1]查看及修改个人信息\n"
                 "\t\t\t[2]借书\n"
                 "\t\t\t[3]还书\n"
                 "\t\t\t[4]返回上级菜单\n");
