@@ -8,9 +8,12 @@ void person_edit(person_list *person_data) {
     int         id_number;
     int         option;
     int         exit_flag=0;
+    int         ok;
     int         temp;
+    char        current[200];
     person      *p_pointer;
     while(1) {
+        ok=0;
         printf("请输入用户账号:\n");
         scanf("%d",&id_number);
         fflush(stdin);
@@ -40,13 +43,29 @@ void person_edit(person_list *person_data) {
                         }
                         case '2': {
                             printf("输入新的密码:");
-                            gets(p_pointer->password);
+                            while(!ok){
+                                gets(current);
+                                if(strlen(current)>12){
+                                    printf("\n数据过长,请重新输入：");
+                                }
+                                else ok=1;
+                            }
+                            ok=0;
+                            strcpy(p_pointer->password,current);
                             fflush(stdin);
                             break;
                         }
                         case '3': {
                             printf("输入新的姓名:");
-                            gets(p_pointer->name);
+                            while(!ok){
+                                gets(current);
+                                if(strlen(current)>30){
+                                    printf("\n数据过长,请重新输入：");
+                                }
+                                else ok=1;
+                            }
+                            ok=0;
+                            strcpy(p_pointer->name,current);
                             fflush(stdin);
                             break;
                         }

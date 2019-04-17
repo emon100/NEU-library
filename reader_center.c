@@ -51,6 +51,8 @@ void self_manage(book_list *book_data,person *user) {
     int borrow_quantity = user->borrow_quantity;
     int exit_flag = 0;
     int option;
+    int ok;
+    char current[201];
     penalty(book_data,user);
     system("cls");
     display_person_pointer(user);
@@ -61,6 +63,7 @@ void self_manage(book_list *book_data,person *user) {
         display_book_code(user->book_code[i], book_data);
     }
     while (1) {
+        ok=0;
         if (exit_flag != 1) {
             printf("请选择要修改的信息类型：\n[1]图书卡密码\n[2]人员姓名\n[3]人员性别\n[4]返回上一级菜单\n");
             fflush(stdin);
@@ -69,13 +72,29 @@ void self_manage(book_list *book_data,person *user) {
             switch (option) {
                 case '1': {
                     printf("输入新的密码:");//这个起码得有个确认的过程吧
-                    gets(user->password);
+                    while(!ok){
+                        gets(current);
+                        if(strlen(current)>12){
+                            printf("\n数据过长,请重新输入：");
+                        }
+                        else ok=1;
+                    }
+                    ok=0;
+                    strcpy(user->password,current);
                     fflush(stdin);
                     break;
                 }
                 case '2': {
                     printf("输入新的姓名:");
-                    gets(user->name);
+                    while(!ok){
+                        gets(current);
+                        if(strlen(current)>30){
+                            printf("\n数据过长,请重新输入：");
+                        }
+                        else ok=1;
+                    }
+                    ok=0;
+                    strcpy(user->name,current);
                     fflush(stdin);
                     break;
                 }

@@ -5,11 +5,12 @@
 #include"lib.h"
 void book_edit(book_list *book_data) {
     int         code = 0;
-    int         exit_flag=0;
+    int         exit_flag=0,ok;
     book        *book_current;
     int         choice = 0;
     char        current[200];
     while (1) {
+        ok=0;
         //信息输入
         printf("请输入书本编码:\n");
         scanf("%d", &code);//获得要修改书的条码
@@ -36,7 +37,14 @@ void book_edit(book_list *book_data) {
                     switch (choice) {
                         case '1': {
                             printf("请输入新的书籍名称:\n");
-                            gets(current);
+                            while(!ok){
+                                gets(current);
+                                if(strlen(current)>99){
+                                    printf("\n数据过长,请重新输入：");
+                                }
+                                else ok=1;
+                            }
+                            ok=0;
                             fflush(stdin);
                             strcpy(book_current->book_name, current);
                             break;
@@ -44,7 +52,14 @@ void book_edit(book_list *book_data) {
 
                         case '2': {
                             printf("请输入新的作者姓名:\n");
-                            gets(current);
+                            while(!ok){
+                                gets(current);
+                                if(strlen(current)>199){
+                                    printf("\n数据过长,请重新输入：");
+                                }
+                                else ok=1;
+                            }
+                            ok=0;
                             fflush(stdin);
                             strcpy(book_current->author_name, current);
                             break;
@@ -52,7 +67,14 @@ void book_edit(book_list *book_data) {
 
                         case '3': {
                             printf("请输入新的出版社:\n");
-                            gets(current);
+                            while(!ok){
+                                gets(current);
+                                if(strlen(current)>49){
+                                    printf("\n数据过长,请重新输入：");
+                                }
+                                else ok=1;
+                            }
+                            ok=0;
                             fflush(stdin);
                             strcpy(book_current->press, current);
                             break;

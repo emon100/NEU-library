@@ -5,10 +5,12 @@
 //获取的参数为person_list类型的一个变量
 void person_insert(person_list *person_data) {
     person      *p_new=person_data->tail;
-    int         flag;
+    int         flag,ok;
+    char current[201];
     printf("您正在添加新的用户.是否要继续? [1]是 [0]否\n");
     fflush(stdin);
     while (1) {
+        ok=0;
         flag = getchar();
         fflush(stdin);
         if  (flag == '0') {
@@ -23,10 +25,26 @@ void person_insert(person_list *person_data) {
             p_new->borrow_quantity=0;
             fflush(stdin);
             printf("请输入人员姓名:\n");
-            gets(p_new->name);
+            while(!ok){
+                gets(current);
+                if(strlen(current)>30){
+                    printf("\n数据过长,请重新输入：");
+                }
+                else ok=1;
+            }
+            ok=0;
+            strcpy(p_new->name,current);
             fflush(stdin);
             printf("请输入图书卡密码(最多12位):\n");
-            gets(p_new->password);
+            while(!ok){
+                gets(current);
+                if(strlen(current)>12){
+                    printf("\n数据过长,请重新输入：");
+                }
+                else ok=1;
+            }
+            ok=0;
+            strcpy(p_new->password,current);
             fflush(stdin);
             printf("请输入人员属性:[0]reader [1]admin\n");
             scanf("%d", &p_new->prop);

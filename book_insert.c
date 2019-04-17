@@ -6,7 +6,7 @@
 
 void book_insert(book_list *book_data) {
     char current[201];
-    int flag;
+    int flag,ok;
     book *book_new;
     book_new = book_data->tail;
 
@@ -15,6 +15,7 @@ void book_insert(book_list *book_data) {
     fflush(stdin);
     while (1) {
         flag=getchar();
+        ok=0;
         fflush(stdin);
         if (flag=='0'){
             system("cls");
@@ -28,19 +29,40 @@ void book_insert(book_list *book_data) {
 
             printf("请输入书籍名称:\n");
             fflush(stdin);
-            gets(current);
+            while(!ok){
+                gets(current);
+                if(strlen(current)>99){
+                    printf("\n数据过长,请重新输入：");
+                }
+                else ok=1;
+            }
+            ok=0;
             fflush(stdin);
             strcpy(book_new->book_name, current);//图书名
 
             printf("请输入作者姓名:\n");
             fflush(stdin);
-            gets(current);
+            while(!ok){
+                gets(current);
+                if(strlen(current)>199){
+                    printf("\n数据过长,请重新输入：");
+                }
+                else ok=1;
+            }
+            ok=0;
             fflush(stdin);
             strcpy(book_new->author_name, current);//作者名
 
             printf("请输入出版社:\n");
             fflush(stdin);
-            gets(current);
+            while(!ok){
+                gets(current);
+                if(strlen(current)>49){
+                    printf("\n数据过长,请重新输入：");
+                }
+                else ok=1;
+            }
+            ok=0;
             fflush(stdin);
             strcpy(book_new->press, current);//出版社
 
