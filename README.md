@@ -2,7 +2,7 @@
 ## 使用说明
 请把book_data.dat,book_list.dat,person_data.dat,person_list.dat四个文件放至D盘根目录以供程序正常运行使用
 
-默认的用户类型如下：
+默认的用户如下：
 
 
 |用户id|用户名|密码|用户类型|
