@@ -148,7 +148,6 @@ void search_user(person_list *person_data) {
     system("cls");
     person      *person_pointers[10] = {0};
     person      *current_person;
-    int flag[5] = {0};
     int count;
     int choice;
     char user_keywords[400];
@@ -156,7 +155,6 @@ void search_user(person_list *person_data) {
 
     while (1) {
         current_person=person_data->head;
-        memset(flag, 0, sizeof(int)*5);
         memset(search_blurred, 0, sizeof(char)*200);
         count = 0;
         system("cls");
